@@ -17,6 +17,7 @@ const port = 3000;
 //Definieer de map waarin alle bestanden worden opgeslagen die gebruikt worden door de site (geüploade vragenlijsten, PAScal projecten, etc)
 const mainUserDirectory = path.join(__dirname, 'userFiles');
 
+//Controleren of de userFiles map bestaat, anders wordt deze aangemaakt
 if(!fs.existsSync(mainUserDirectory)){
   fs.mkdirSync(mainUserDirectory);
 }
