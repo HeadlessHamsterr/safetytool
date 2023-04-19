@@ -1,0 +1,264 @@
+:root{
+    --default-background: #2e2c28;
+    --main-color: #FFCF00;
+    --main-color-hover: #dfb600;
+    --on-main: #005191;
+    --default-btn-hover: #d4c5a1d7;
+    --sec-color: #d4c5a1;
+    --on-sec: #383016;
+    --tert-color: #accfaf;
+    --on-tert: #183720;
+    --tert-hover: #8aa58c;
+    --navbar-background: #505050;
+    --sec-container: #3a3834;
+    --info-border: #5e5e5e;
+}
+
+html{
+    background-color: var(--default-background);
+    height: 100%;
+}
+
+body{
+    overflow: hidden;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.pageTitle{
+    width: 100%;
+    color: var(--on-main);
+    background-color: var(--main-color);
+    height: 43px;
+    padding: 5px;
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+}
+
+.pageTitle i{
+    float: left;
+    padding-top: 5px;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.pageTitle i:hover{
+    transform: scale(1.15);
+}
+
+.topNav{
+    width: 100%;
+    overflow: hidden;
+    color: var(--on-main);
+    background-color: var(--navbar-background);
+    height: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.navBtn{
+    border: none;
+    background-color: var(--navbar-background);
+    color: white;
+    font-size: 15px;
+    height: 100%;
+    padding-bottom: 10px;
+    padding-top: 13px;
+}
+
+.navBtn:hover{
+    background-color: #3b3b3b;
+    cursor: pointer;
+}
+
+.navBtnActive{
+    border: none;
+    background-color: var(--main-color);
+    color: var(--on-main);
+    font-size: 15px;
+    height: 100%;
+    padding-bottom: 10px;
+    padding-top: 13px;
+}
+
+.buttonWrapper{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+}
+
+.buttonRow{
+    border-radius: 10px;
+    width: 800px;
+    height: fit-content;
+    margin: 10px auto;
+    box-shadow: 0px 2px 18px -4px rgba(0,0,0,0.75);
+}
+
+.buttonRow button{
+    margin-right: 10px;
+}
+
+.importText{
+    color: white;
+    justify-content: space-around;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    float: left;
+}
+
+.importFileTypes{
+    margin-left: 10px;
+    font-size: 10px;
+}
+
+.importResults{
+    float: right;
+}
+
+.fileName{
+    color: white;
+    margin-right: 20px;
+}
+
+.importBtn{
+    color: var(--on-tert);
+    background-color: var(--tert-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px;
+    height: 30px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.importBtn:hover{
+    background-color: var(--tert-hover);
+}
+
+.importBtn:active{
+    transform: scale(0.95);
+}
+
+.openBtn{
+    color: var(--on-tert);
+    background-color: var(--tert-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.openBtn:hover{
+    background-color: var(--tert-hover);
+}
+
+.openBtn:active{
+    transform: scale(0.95);
+}
+
+.errorSpan{
+    color: red;
+}
+
+.pageDiv{
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.projectTitle{
+    color: white;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.safetyFunctionListWrapper{
+    overflow: auto;
+    width: 100%;
+    flex: 1 1 auto;
+}
+
+.safetyFunctionList{
+    margin: 0 auto;
+    width: fit-content;
+    color: white;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-bottom: 100px;
+}
+
+.safetyFunction{
+    width: 400px;
+    min-height: 300px;
+    border-radius: 10px;
+    background-color: var(--sec-container);
+    box-shadow: 0px 2px 18px -4px rgba(0,0,0,0.75);
+    margin: 10px;
+    display: inline-block;
+}
+
+.safetyFunction h{
+    font-size: 20px;
+    float: left;
+    margin: 15px;
+}
+
+.safetyFunctionInfo{
+    border: 2px solid var(--info-border);
+    border-radius: 10px;
+    margin: 5px;
+    height: 70%;
+    text-align: left;
+    padding: 10px;
+}
+
+.exportBtn{
+    color: var(--on-tert);
+    background-color: var(--tert-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.exportBtn:hover{
+    background-color: #accfafc4;
+}
+
+.exportBtn:active{
+    transform: scale(0.95);
+}
+
+.sfInfoTable{
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.sfInfoTable td{
+    padding: 3px 10px 3px 0px;
+    border-bottom: 2px solid var(--info-border)
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 600,
+    'GRAD' 0,
+    'opsz' 48
+  }

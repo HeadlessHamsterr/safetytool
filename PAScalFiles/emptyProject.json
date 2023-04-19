@@ -1,0 +1,25 @@
+{
+    "project:ProjectType": {
+        "ATTR": {
+            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xmlns:project": "www.pilz.com/pascal/v1.4.0/project.xsd",
+            "name": "",
+            "directoryPath": "C:\\Users\\j.rietdijk\\Pilz\\PAScal v1.9.1\\project\\",
+            "version": "",
+            "creationDate": "2023-03-09T10:42:47.009+0100",
+            "author": "",
+            "modificationDate": "2023-03-10T12:25:30.771+0100",
+            "comments": "",
+            "fileVersion": "v1.9.1"
+        },
+        "sRF": [],
+        "projectStandard": [
+            {
+                "ATTR": {
+                    "classificationType": "PL",
+                    "standard": "ISO 13849-1:2015 + EN ISO 13849-2:2012"
+                }
+            }
+        ]
+    }
+}

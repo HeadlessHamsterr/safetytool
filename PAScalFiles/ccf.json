@@ -1,0 +1,133 @@
+{
+  "ATTR": {
+    "cFFScore": "0.0"
+  },
+  "item": [
+    {
+      "ATTR": {
+        "text": "Separa&tion/segregation",
+        "reference": "",
+        "score": "0",
+        "isSelected": "false",
+        "isHeader": "true"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "Physical separation between the signal paths e.g.: \na) separation in wiring/piping,\nb) detection of short circuits and open circuits by dynamic tests;\nc) separate shielding of the signal path of each channel;\nd) sufficient clearances and creepage distances on printed-circuit boards.",
+        "reference": "1",
+        "score": "15",
+        "isSelected": "false",
+        "isHeader": "false"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "&Diversity",
+        "reference": "",
+        "score": "0",
+        "isSelected": "false",
+        "isHeader": "true"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "Different technologies/design or physical principles are used, e.g.:\na) first channel electronic and programmable electronic and second channel electromechanically hardwired,\nb) different initiation of the safety function for each channel (e.g. position, pressure, temperature)\n and/or \ndigital and analogue measuring of variables, (e.g. distance, pressure or temperature)\n and/or \ncomponents of different manufacturers.",
+        "reference": "2",
+        "score": "20",
+        "isSelected": "false",
+        "isHeader": "false"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "&Design/application/experience",
+        "reference": "",
+        "score": "0",
+        "isSelected": "false",
+        "isHeader": "true"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "Protection against over-voltage, over-pressure, over-current, over-temperature, etc.",
+        "reference": "3.1",
+        "score": "15",
+        "isSelected": "false",
+        "isHeader": "false"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "Components used are well-tried.",
+        "reference": "3.2",
+        "score": "5",
+        "isSelected": "false",
+        "isHeader": "false"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "&Assessment/analysis",
+        "reference": "",
+        "score": "0",
+        "isSelected": "false",
+        "isHeader": "true"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "For each part of safety-related parts of a control system a failure mode and effects analysis has been carried out and its results taken into account to avoid common-cause failures in design.",
+        "reference": "4",
+        "score": "5",
+        "isSelected": "false",
+        "isHeader": "false"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "&Competence/training",
+        "reference": "",
+        "score": "0",
+        "isSelected": "false",
+        "isHeader": "true"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "Training of designers to understand the causes and consequences of common cause failures.",
+        "reference": "5",
+        "score": "5",
+        "isSelected": "false",
+        "isHeader": "false"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "&Environmental",
+        "reference": "",
+        "score": "0",
+        "isSelected": "false",
+        "isHeader": "true"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "For electric/electronic systems, prevention of contamination and electromagnetic disturbances (EMC) to protect against common-cause failures in accordance with appropriate standards (e.g. IEC 61326-3-1). \nFluidic systems: Filtration of the pressure medium, prevention of dirt intake, drainage of compressed air, e.g. in compliance with the component manufacturers' requirements concerning purity of the pressure medium. \nNOTE: For combined fluidic and electric systems, both aspects should be considered. ",
+        "reference": "6.1",
+        "score": "25",
+        "isSelected": "false",
+        "isHeader": "false"
+      }
+    },
+    {
+      "ATTR": {
+        "text": "Other influences:\nConsideration of the requirements for immunity to all relevant environmental influences such as, temperature, shock, vibration, humidity (e.g. as specified in relevant standards).",
+        "reference": "6.2",
+        "score": "10",
+        "isSelected": "false",
+        "isHeader": "false"
+      }
+    }
+  ]
+}

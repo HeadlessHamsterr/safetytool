@@ -1,0 +1,11 @@
+{
+    "ATTR": {
+        "xsi:type": "project:SRPTypePL",
+        "typeName": "Input",
+        "numberOfcomponents": "Two",
+        "faultExclusion": "false",
+        "crossShortDetection": "false",
+        "category": "B"
+    },
+    "channel": []
+}

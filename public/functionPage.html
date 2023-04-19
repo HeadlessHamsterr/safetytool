@@ -1,0 +1,35 @@
+<head>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+  <div class="pageTitle">
+    <i class="material-symbols-outlined" onclick="returnToHome()">home</i>Van den Pol - Safetytool
+  </div>
+  <div class="pageDiv">
+    <h class="projectTitle" id="projectTitle"></h><br />
+    <table style="color: white; text-align: right">
+      <tbody><tr>
+          <td>
+              Auteur:
+          </td>
+          <td>
+              <input type="text">
+          </td>
+      </tr>
+      <tr>
+          <td>
+              Opslaglocatie PAScal projecten:
+          </td>
+          <td>
+              <input type="text">
+          </td>
+      </tr>
+  </tbody></table>
+    <button class="exportBtn" id="exportBtn" onclick="savePascalFile()">Genereer PAScal project</button>
+    <div class="safetyFunctionListWrapper">
+      <div class="safetyFunctionList" id="safetyFunctionList">
+      </div>
+    </div>
+  </div>
+</body>

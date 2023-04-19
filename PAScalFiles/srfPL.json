@@ -1,0 +1,14 @@
+{
+    "ATTR": {
+        "xsi:type": "project:SRFTypePL",
+        "name": "test",
+        "comments": "",
+        "srfTargetLevelMethod": "MANUAL",
+        "log": "1",
+        "target": "0",
+        "srfPFH": "3.8004E-5",
+        "PL": "No compliance"
+    },
+    "SRP": [],
+    "CCF": []
+}

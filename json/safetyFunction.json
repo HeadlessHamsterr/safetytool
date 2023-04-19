@@ -1,0 +1,79 @@
+{
+    "div": {
+        "ATTR": {
+            "class": "safetyFunction"
+        },
+        "h": [
+            ""
+        ],
+        "br": [
+            "",
+            "",
+            ""
+        ],
+        "div": [
+            {
+                "ATTR": {
+                    "class": "safetyFunctionInfo"
+                },
+                "table": [
+                    {
+                        "ATTR": {
+                            "class": "sfInfoTable"
+                        },
+                        "tr": [
+                            {
+                                "td": [
+                                    "Logic type:",
+                                    ""
+                                ]
+                            },
+                            {
+                                "td": [
+                                    "Target PL:",
+                                    ""
+                                ]
+                            },
+                            {
+                                "td": [
+                                    "Categorie:",
+                                    ""
+                                ]
+                            },
+                            {
+                                "td": [
+                                    "Diagnostic Coverage:",
+                                    ""
+                                ]
+                            },
+                            {
+                                "td": [
+                                    "Operations per hour:",
+                                    ""
+                                ]
+                            },
+                            {
+                                "td": [
+                                    "Operating hours per day:",
+                                    ""
+                                ]
+                            },
+                            {
+                                "td": [
+                                    "Operating days per year:",
+                                    ""
+                                ]
+                            },
+                            {
+                                "td": [
+                                    "Fault detection:",
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
