@@ -46,45 +46,78 @@ function importExcelFile(){
     xhr.send(formData);
 }
 
+//Deze functie wordt aangeroepen wanneer de gebruiker op de "Genereer PAScal project" knop drukt
+//Er wordt een GET request gestuurd naar het /generate endpoint op de server, de server genereert het PAScal project en stuurt deze terug naar de client
+//Vervolgens wordt dit project automatisch door de browser gedownloaded.
 function savePascalFile(){
+    //GET request sturen naar het /generate endpoint
     fetch(`/generate`, {
         method: "GET",
         headers: {
+            //De If-None-Match header zorgt ervoor dat de server alleen data terugstuurd wanneer er iets is verandert aan de data die wordt teruggestuurd
+            //Omdat het gegenereerde project waarschijnlijk niet verandert tussen requests, maar er wel bij iedere request een project moet worden teruggestuurd
+            //moet deze header leeggemaakt worden. Hierdoor stuurt de server altijd data terug naar de client ipv een 304 (https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304)
             'If-None-Match': '',
+            //SessionId meesturen zodat de server de juiste bestanden terug stuurt
             sessionId: sessionStorage.getItem("sessionId")
         }
     })
+    //Wachten tot de server reageert, dan wordt deze functie uitgevoerd
     .then(response => {
+        //Bestandsnaam staat in de header "content-disposition" in het format "filename=FILENAME", deze wordt hier eruit gehaald
         pascalFilename = response.headers.get('content-disposition').split('filename=')[1].replace(/"/g, '');
+        //Bestanden worden doorgestuurd dmv een ReadableStream. Hiervoor moet de default reader uit de body worden gehaald.
+        //Deze reader kan dan worden gebruikt om de data van het gestuurde bestand uit de ReadableStream te halen. (https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
         const reader = response.body.getReader();
-        return new ReadableStream({
-            start(controller){
-                return read();
-                function read(){
-                    reader.read().then(({ done, value }) => {
-                        if(done){
-                            controller.close();
-                            return;
-                        }
-                        controller.enqueue(value);
-                        return read();
-                    });
+        //Array aanmaken om de chunks data in op te slaan
+        let chunks = [];
+
+        //Deze functie haalt de data (chunks) uit de readable stream. Als alle chunks zijn gehad (done = true) wordt de array met chunks omgezet naar een blob en vervolgens
+        //door de browser gedownload als bestand.
+        readStream();
+        function readStream(){
+            //Lees de volgende chunk
+            reader.read().then(({ value, done }) => {
+                //Alle chunks gehad
+                if(done){
+                    //Totale lengte van de chunks berekenen zodat een uint8 array met de juiste lengte kan worden gemaakt.
+                    const chunkLength = chunks.reduce((acc, chunk) => acc + chunk.length, 0);
+                    const uint8Array = new Uint8Array(chunkLength);
+
+                    //Chunks kopieëren uit de chunks array naar de uint8 array
+                    let offset = 0;
+                    for(const chunk of chunks){
+                        //De offset is de locatie in de uint8 array. Omdat de chunks direct na elkaar moeten worden geplaatst, schuift de offset iedere keer op met de
+                        //lengte van de vorige chunk.
+                        uint8Array.set(chunk, offset);
+                        offset += chunk.length;
+                    }
+
+                    //uint8 array omzetten naar blob
+                    const blob = new Blob([uint8Array], { type: 'application/xml' });
+
+                    //URL maken van de blob zodat deze gedownload kan worden
+                    const url = window.URL.createObjectURL(blob);
+                    //Element aanmaken om de URL van de blob aan vast te kunnen maken
+                    const a = document.createElement('a');
+                    a.href = url;
+                    //Bestandsnaam instellen
+                    a.download = pascalFilename;
+                    //De link wordt door de browser direct ingedrukt, zodat het bestand automatisch wordt gedownload
+                    a.click();
+                    //Element en URL verwijderen na gebruik
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
+                    //Alle chunks zijn gehad en het bestand is gedownload, dus de functie wordt afgesloten
+                    return;
                 }
-            }
-        });
-    })
-    .then((stream) => new Response(stream))
-    .then((response) => response.blob())
-    .then((blob) => {
-        console.log(blob);
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = pascalFilename;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        window.URL.revokeObjectURL(url);
+
+                //Chunk toevoegen aan array met chunks
+                chunks.push(value);
+                //Volgende chunk lezen
+                readStream();
+            });
+        }
     });
 }
 
