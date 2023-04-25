@@ -1,8 +1,7 @@
-const xlsx = require('node-xlsx')
 const fs = require('fs')
 const path = require('path')
 
-module.exports = function generatePAScalProject(safetyData){
+module.exports = function generatePAScalProject(safetyData, author, projectLocation){
     let projectBase = JSON.parse(fs.readFileSync(path.join(__dirname, '../PAScalFiles/emptyProject.json')))
 
     //Naam van het project wordt gemaakt adhv de naam van de klant, project naam en project code
@@ -14,7 +13,10 @@ module.exports = function generatePAScalProject(safetyData){
     projectBase["project:ProjectType"]["ATTR"]["creationDate"] = convertToTimestamp(date)
     projectBase["project:ProjectType"]["ATTR"]["modificationDate"] = convertToTimestamp(date)
 
-    projectBase["project:ProjectType"]["ATTR"]["author"] = "Joost"
+    projectBase["project:ProjectType"]["ATTR"]["author"] = author
+    if(projectLocation){
+        projectBase["project:ProjectType"]["ATTR"]["directoryPath"] = projectLocation
+    }
     projectBase["project:ProjectType"]["projectStandard"][0]["ATTR"]["classificationType"] = "PL"
     projectBase["project:ProjectType"]["projectStandard"][0]["ATTR"]["standard"] = "ISO 13849-1:2015 + EN ISO 13849-2:2012"
     
