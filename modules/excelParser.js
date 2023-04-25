@@ -54,11 +54,12 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
         };
         return returnObj;
     }
+
     
     //Klant informatie ophalen
-    safetyData["klant"] = excelObj[0]["data"][1][2];
-    safetyData["projectnaam"] = excelObj[0]["data"][2][2];
-    safetyData["projectcode"] = excelObj[0]["data"][3][2];
+    safetyData["klant"] = excelObj[0]["data"][1][1];
+    safetyData["projectnaam"] = excelObj[0]["data"][2][1];
+    safetyData["projectcode"] = excelObj[0]["data"][3][1];
 
     //Controleer of een van de cellen die gelezen zijn leeg is, als dat het geval is mist er informatie en wordt een error teruggestuurd
     const emptyCell = findEmptyCell(safetyData);
@@ -83,6 +84,8 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
         //Object voor het opslaan van de informatie voor de veiligheidsfuncties
         var tempObj = {
             safetyFunctionTitle: null,
+            safetyFunctionEffect: null,
+            resetType: null,
             data: {
                 tPL: null,
                 category: null,
@@ -97,14 +100,16 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
 
         //Gegevens ophalen uit de vragenlijst
         tempObj["safetyFunctionTitle"] = excelObj[sheetNumber]["data"][10][0];
-        tempObj["data"]["tPL"] = excelObj[sheetNumber]["data"][19][0];
-        tempObj["data"]["category"] = excelObj[sheetNumber]["data"][23][0];
-        tempObj["data"]["faultDetection"] = excelObj[sheetNumber]["data"][23][1];
-        tempObj["data"]["DC"] = excelObj[sheetNumber]["data"][23][2];
-        tempObj["data"]["oppPerHour"] = excelObj[sheetNumber]["data"][21][0];
-        tempObj["data"]["oppHoursPerDay"] = excelObj[sheetNumber]["data"][21][1];
-        tempObj["data"]["oppDaysPerYear"] = excelObj[sheetNumber]["data"][21][2];
-        tempObj["data"]["logicType"] = excelObj[sheetNumber]["data"][16][0];
+        tempObj["safetyFunctionEffect"] = excelObj[sheetNumber]["data"][12][0];
+        tempObj["resetType"] = excelObj[sheetNumber]["data"][14][0]
+        tempObj["data"]["logicType"] = excelObj[sheetNumber]["data"][18][0];
+        tempObj["data"]["tPL"] = excelObj[sheetNumber]["data"][21][0];
+        tempObj["data"]["category"] = excelObj[sheetNumber]["data"][25][0];
+        tempObj["data"]["faultDetection"] = excelObj[sheetNumber]["data"][25][1];
+        tempObj["data"]["DC"] = excelObj[sheetNumber]["data"][25][2];
+        tempObj["data"]["oppPerHour"] = excelObj[sheetNumber]["data"][23][0];
+        tempObj["data"]["oppHoursPerDay"] = excelObj[sheetNumber]["data"][23][1];
+        tempObj["data"]["oppDaysPerYear"] = excelObj[sheetNumber]["data"][23][2];
 
         //Controleren of de titel is ingevuld, zo niet wordt er een error teruggestuurd
         if(tempObj["safetyFunctionTitle"] === undefined){
@@ -157,28 +162,6 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
     return returnObj;
 }
 
-//Functie voor het maken van het Excel bestand wat geïmporteerd wordt door de checklist app
-function generateChecklistData(filepath, safetyData){
-    //Headers die verreist zijn door de checklist app
-    let data = [
-        ['Tag nr.', 'Device', 'ODC', 'Question Type', 'Section']
-    ]
-
-    //Alle veiligheidsfuncties langs gaan en de juiste naam, id en zones invullen
-    for(let i = 0; i < safetyData["safetyFunctions"].length; i++){
-        const excelRow = [i, safetyData["safetyFunctions"][i]["safetyFunctionTitle"], i, "SAFETY FUNCTION", "Zone 1"];
-        data.push(excelRow);
-    }
-
-    //Array omzetten naar Excel bestand en opslaan
-    let buffer = xlsx.build([{name: "Checklist", data: data}]);
-    fs.writeFile(path.join(filepath, 'Checklist.xlsx'), buffer, (err) => {
-        if(err){
-            console.log(err);
-        }
-    });
-}
-
 //Functie voor het controleren of een key in het object leeg is, wordt gebruikt voor het controleren of de vragenlijst volledig is ingevuld
 function findEmptyCell(object){
     //Alle keys nalopen in het object
@@ -198,4 +181,9 @@ function findEmptyCell(object){
     return false;
 }
 
-module.exports = { parseExcelFile, generateChecklistData }
+function excelToJson(folder, excelFilename){
+    const excelObj = xlsx.parse(path.join(folder, excelFilename));
+    fs.writeFileSync(path.join(folder, 'excel.json'), JSON.stringify(excelObj, null, 4));
+}
+
+module.exports = { parseExcelFile, excelToJson }
