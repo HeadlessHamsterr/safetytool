@@ -2,7 +2,7 @@ module.exports = function generateSafetyFunctionElements(safetyData, htmlTemplat
     htmlFile.getElementById('projectTitle').innerHTML = `${safetyData["klant"]} ${safetyData["projectnaam"]} (${safetyData["projectcode"]})`;
     console.log(safetyData);
     let safetyFunctions = "";
-    for(safetyFunction of safetyData["safetyFunctions"]){
+    for(let safetyFunction of safetyData["safetyFunctions"]){
         htmlTemplate["div"]["h"][0] = safetyFunction["safetyFunctionTitle"];
         htmlTemplate["div"]["div"][0]["table"][0]["tr"][0]["td"][1] = safetyFunction["data"]["logicType"];
         htmlTemplate["div"]["div"][0]["table"][0]["tr"][1]["td"][1] = safetyFunction["data"]["tPL"];
