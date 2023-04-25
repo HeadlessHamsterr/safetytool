@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <script src="./recalibrate.js"></script>
+    </head>
+    <body id="content">
+        <div class="pageTitle">
+            <i class="material-symbols-outlined" onclick="window.location.href='index.html'">home</i>Vragenlijst kalibreren
+          </div>
+        <div class="buttonWrapper">
+            <table class="buttonRow" id="excelDropzone" style="border: 1px solid grey" ondrop="dropHandler(event, 'excel');" ondragover="dragOverHandler(event, 'excel');">
+                <tr>
+                    <td><table class="importText">
+                        <tr>
+                            <td><p>Nieuwe vragenlijst</p></td>
+                            <td><p class="importFileTypes">(Sleep het bestand, of druk op openen)</p></td>
+                        </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="importResults">
+                            <tr>
+                                <td><span id="excelFileName" class="fileName"></span></td>
+                                <td><button class="openBtn" onclick="openFile('excel')">Openen</button></td>
+                                <!--<td><input type="file" name="excelFile" id="excelFile" style="color: white;" /></td>-->
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <span class="errorSpan" id="excelErrorSpan"></span><br/>
+            <span class="errorSpan" id="excelExplainErrorSpan"></span><br/>
+            <button class="importBtn" onclick="importExcelFile()">Importeren</button>
+        </div>
+    </body>
+</html>
