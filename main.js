@@ -6,9 +6,10 @@ const path = require('path');
 const parseHtml = require('node-html-parser').parse;
 const favicon = require('serve-favicon');
 
-const { parseExcelFile } = require('./modules/excelParser.js');
+const { parseExcelFile, excelToJson } = require('./modules/excelParser.js');
 const generateSafetyFunctionElements = require('./modules/htmlTools.js');
 const generatePAScalProject = require('./modules/pascalGenerator.js');
+const generateChecklistData = require('./modules/checklistGenerator.js');
 
 //Maak een HTTP server aan op port 3000
 const app = express();
@@ -32,6 +33,32 @@ app.get("/", (req, res) => {
   res.send('index.html');
 });
 
+app.get("/convertExcel", (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'convertExcel.html'));
+});
+
+app.post('/downloadConvertedExcel', (req, res) => {
+  if(!checkIfUUID(req.body.sessionId)){
+    console.log(`SessionId ${req.body.sessionId} is not a UUID, ignoring`);
+    res.status(403).send("The received sessionId is not a UUID");
+  }else{
+    const userDirectory = path.join(mainUserDirectory, req.body.sessionId);
+    if(!fs.existsSync(userDirectory)){
+      fs.mkdirSync(userDirectory);
+    }
+
+    fs.writeFileSync(path.join(userDirectory, req.files.excelFile.name), req.files.excelFile.data);
+    excelToJson(userDirectory, req.files.excelFile.name);
+
+    res.download(path.join(userDirectory, 'excel.json'), (err) => {
+      if(err){
+        console.log(err);
+        res.send({error: err, msg: "Problem downloading the file"});
+      }
+    });    
+  }
+});
+
 //Handler voor de /upload endpoint, ontvang en parsed de vragenlijst en stuur vervolgens de data uit de vragenlijst in JSON formaat terug naar de client
 app.post('/upload', (req, res) => {
   //Controleer of de sessionId een geldig UUID is, zo niet is de request niet geldig en wordt een error 403 teruggestuurd
@@ -48,25 +75,29 @@ app.post('/upload', (req, res) => {
     //Sla de vragenlijst op in de map van de client en haal de gegevens op met parseExelFile()
     fs.writeFileSync(path.join(userDirectory, req.files.excelFile.name), req.files.excelFile.data);
 
-    const safetyData = parseExcelFile(path.join(userDirectory, req.files.excelFile.name));
+    const safetyData = parseExcelFile(path.join(userDirectory, req.files.excelFile.name), true, true);
 
     //Gegevens uit vragenlijst worden opgeslagen als JSON bestand
     fs.writeFileSync(path.join(userDirectory, 'parsedExcel.json'), JSON.stringify(safetyData, null, 4));
     //Gegevens worden teruggestuurd naar de client, zodat de gebruiker deze nog een keer kan controleren
     res.set('safetyfunctions', JSON.stringify(safetyData));
    
-    //De server voegt de veiligheidsfuncties toe aan de nieuwe pagina, zodat die door de browser kan worden getoond
-    //Voor de HTML elementen voor de veiligheidsfuncties is een JSON template gemaakt
-    let htmlTemplate = JSON.parse(fs.readFileSync(path.join(__dirname, 'json/safetyFunction.json')));
+    if(req.headers.uploadtype === 'recalibration'){
+      console.log("Received upload for recalibration");
+    }else if(req.headers.uploadtype === 'normal'){
+      //De server voegt de veiligheidsfuncties toe aan de nieuwe pagina, zodat die door de browser kan worden getoond
+      //Voor de HTML elementen voor de veiligheidsfuncties is een JSON template gemaakt
+      let htmlTemplate = JSON.parse(fs.readFileSync(path.join(__dirname, 'json/safetyFunction.json')));
 
-    //HTML bestand voor de pagina met veiligheidsfuncties laden
-    let functionPageFile = fs.readFileSync(path.join(__dirname, 'public', 'functionPage.html'));
-    //HTML bestand parsen naar HTML element, zodat deze makkelijk kan worden aangepast
-    let functionPage = parseHtml(functionPageFile);
-    //Elementen voor alle veilgheidsfuncties toevoegen aan HTML bestand
-    functionPage = generateSafetyFunctionElements(safetyData["data"], htmlTemplate, functionPage);
-    //HTML bestand doorsturen naar de gebruiker
-    res.send(functionPage.toString());
+      //HTML bestand voor de pagina met veiligheidsfuncties laden
+      let functionPageFile = fs.readFileSync(path.join(__dirname, 'public', 'functionPage.html'));
+      //HTML bestand parsen naar HTML element, zodat deze makkelijk kan worden aangepast
+      let functionPage = parseHtml(functionPageFile);
+      //Elementen voor alle veilgheidsfuncties toevoegen aan HTML bestand
+      functionPage = generateSafetyFunctionElements(safetyData["data"], htmlTemplate, functionPage);
+      //HTML bestand doorsturen naar de gebruiker
+      res.send(functionPage.toString());
+    }
   }
 });
 
@@ -75,6 +106,8 @@ app.post('/upload', (req, res) => {
 app.get('/generate', (req, res) => {
   //Controleren of de sessionId een geldig UUID is, anders wordt een error teruggestuurd
   const sessionId = req.headers.sessionid;
+  const projectInfo = JSON.parse(req.headers.projectinfo)
+
   if(!checkIfUUID(sessionId)){
     console.log(`SessionId ${sessionId} is not a UUID, ignoring`);
     res.status(403).send("The received sessionId is not a UUID");
@@ -83,12 +116,12 @@ app.get('/generate', (req, res) => {
     const userDirectory = path.join(mainUserDirectory, sessionId);
     if(!fs.existsSync(userDirectory)){
       console.log("Unkown sessionId");
-      res.status(403).send("Unkown sessionId");
+      res.status(404).send("Unkown sessionId");
     }else{
       //Gegevens uit vragenlijst ophalen uit het eerder gemaakte JSON bestand
       const safetyData = JSON.parse(fs.readFileSync(path.join(userDirectory, 'parsedExcel.json')))["data"];
       //PAScal project genereren op basis van de gegevens
-      const pascalProject = generatePAScalProject(safetyData);
+      const pascalProject = generatePAScalProject(safetyData, projectInfo.author, projectInfo.projectLocation);
       //Bestandsnaam maken op basis van projectgegevens
       const filename = `${safetyData["klant"]}_${safetyData["projectnaam"]}_${safetyData["projectcode"]}.psc`;
 
@@ -103,6 +136,39 @@ app.get('/generate', (req, res) => {
         }
       });
     }
+  }
+});
+
+app.get('/checklist', (req, res) => {
+  const sessionId = req.headers.sessionid;
+
+  if(!checkIfUUID(sessionId)){
+    console.log(`SessionId ${sessionId} is not a UUID, ignoring`);
+    res.status(403).send("The received sessionId is not a UUID");
+  }else{
+    const userDirectory = path.join(mainUserDirectory, sessionId);
+    if(!fs.existsSync(userDirectory)){
+      console.log("Unkown sessionId");
+      res.status(404).send("Unkown sessionId");
+      return;
+    }
+    let safetyData;
+    try{
+      safetyData = JSON.parse(fs.readFileSync(path.join(userDirectory, 'parsedExcel.json')))["data"];
+    }catch(e){
+      res.status(404).send(e);
+      return;
+    }
+    console.log(safetyData);
+    const checklist = generateChecklistData(safetyData);
+    fs.writeFileSync(path.join(userDirectory, 'checklist.xlsx'), checklist);
+
+    res.download(path.join(userDirectory, 'checklist.xlsx'), (err) => {
+      if(err){
+        console.log(err);
+        res.send({error: err, msg: "Problem downloading the file"});
+      }
+    });
   }
 });
 
