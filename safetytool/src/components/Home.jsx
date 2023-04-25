@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <script src="./index.js"></script>
-    </head>
-    <body id="content">
-        <div class="pageTitle">
-            <i class="material-symbols-outlined" onclick="window.location.href='recalibrate.html'">person</i>Van den Pol - Safetytool
-          </div>
+const Home = () => {
+    return (
         <div class="buttonWrapper">
-            <table class="buttonRow" id="excelDropzone" style="border: 1px solid grey" ondrop="dropHandler(event, 'excel');" ondragover="dragOverHandler(event, 'excel');">
+            <table class="buttonRow" id="excelDropzone" ondrop="dropHandler(event, 'excel');" ondragover="dragOverHandler(event, 'excel');">
                 <tr>
                     <td><table class="importText">
                         <tr>
@@ -33,5 +24,7 @@
             <span class="errorSpan" id="excelExplainErrorSpan"></span><br/>
             <button class="importBtn" onclick="importExcelFile()">Importeren</button>
         </div>
-    </body>
-</html>
+    )
+}
+
+export default Home;
