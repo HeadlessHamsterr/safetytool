@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const parseHtml = require('node-html-parser').parse;
 const favicon = require('serve-favicon');
+const cors = require('cors');
 
 const { parseExcelFile, excelToJson } = require('./modules/excelParser.js');
 const generateSafetyFunctionElements = require('./modules/htmlTools.js');
@@ -13,7 +14,7 @@ const generateChecklistData = require('./modules/checklistGenerator.js');
 
 //Maak een HTTP server aan op port 3000
 const app = express();
-const port = 3000;
+const port = 3001;
 
 //Definieer de map waarin alle bestanden worden opgeslagen die gebruikt worden door de site (geüploade vragenlijsten, PAScal projecten, etc)
 const mainUserDirectory = path.join(__dirname, 'userFiles');
@@ -27,6 +28,9 @@ app.use(express.static('public'));  //Locatie van de statische bestanden
 app.use(bodyParser.json());         //Middelware voor het parsen van JSON gegevens in de body van binnen komende requests
 app.use(fileupload());              //Middelware voor het ontvangen van bestanden
 app.use(favicon(path.join(__dirname, 'assets', 'icon.ico')));
+app.use(cors({
+  origin: '*'
+}));
 
 //Handler voor het / endpoint, stuurt de index pagina terug naar de client
 app.get("/", (req, res) => {
@@ -96,7 +100,7 @@ app.post('/upload', (req, res) => {
       //Elementen voor alle veilgheidsfuncties toevoegen aan HTML bestand
       functionPage = generateSafetyFunctionElements(safetyData["data"], htmlTemplate, functionPage);
       //HTML bestand doorsturen naar de gebruiker
-      res.send(functionPage.toString());
+      res.send(safetyData);
     }
   }
 });
