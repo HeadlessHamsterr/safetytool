@@ -1,7 +1,7 @@
 import ImportField from './ImportField';
 import { useState } from 'react';
 
-const Home = ({returnSafetyfunctions, sessionId}) => {
+const Home = ({returnSafetyfunctions, sessionId, hidden}) => {
     const [excelFile, setExcelFile] = useState(null);
 
     function uploadFile(){
@@ -36,9 +36,9 @@ const Home = ({returnSafetyfunctions, sessionId}) => {
     }
 
     return (
-        <div className="buttonWrapper">
+        <div className="buttonWrapper" style={hidden ? {display: 'none'}: null}>
             <ImportField filetype={"excel"} setFile={setExcelFile}/>
-            <button className="importBtn" onClick={uploadFile}>Importeren</button>
+            <button className="importBtn" onClick={() => uploadFile()}>Importeren</button>
         </div>
     )
 }

@@ -107,7 +107,7 @@ app.post('/upload', (req, res) => {
 
 //Handler voor de /generate endpoint
 //Deze handler maakt het pascal project en stuurt deze terug naar de gebruiker
-app.get('/generate', (req, res) => {
+app.get('/pascal', (req, res) => {
   //Controleren of de sessionId een geldig UUID is, anders wordt een error teruggestuurd
   const sessionId = req.headers.sessionid;
   const projectInfo = JSON.parse(req.headers.projectinfo)
@@ -131,6 +131,8 @@ app.get('/generate', (req, res) => {
 
       //PAScal project opslaan
       fs.writeFileSync(path.join(userDirectory, filename), pascalProject);
+
+      res.setHeader('filename', filename);
 
       //PAScal project bestand terugsturen naar de gebruiker. Dit bestand wordt direct door de browser gedownload.
       res.download(path.join(userDirectory, filename), (err) => {

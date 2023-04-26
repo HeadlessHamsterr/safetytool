@@ -53,8 +53,8 @@ const ImportField = ({filetype, setFile}) => {
                             <tbody>
                             <tr>
                                 <td><span id="excelFileName" className="fileName">{filename}</span></td>
-                                <td><button className="openBtn" onClick={handleUploadClick}>Openen</button></td>
-                                <td><input type="file" ref={inputRef} onChange={handleFileChange} style={{ display: 'none' }}/></td>
+                                <td><button className="openBtn" onClick={() => handleUploadClick()}>Openen</button></td>
+                                <td><input type="file" ref={inputRef} onChange={(e) => handleFileChange(e)} style={{ display: 'none' }}/></td>
                             </tr>
                             </tbody>
                         </table>

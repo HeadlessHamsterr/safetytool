@@ -27,6 +27,11 @@ body{
   height: 100%;
 }
 
+.container{
+  position: relative;
+  height: 100vh;
+}
+
 .pageTitle{
   width: 100%;
   color: var(--on-main);
@@ -188,8 +193,11 @@ body{
 }
 
 .safetyFunctionListWrapper{
-  overflow: auto;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
   width: 100%;
+  height: calc(100%-10cm);
   flex: 1 1 auto;
 }
 
@@ -198,7 +206,6 @@ body{
   width: fit-content;
   color: white;
   display: grid;
-  grid-template-columns: auto auto auto;
   margin-bottom: 100px;
 }
 
@@ -263,4 +270,53 @@ body{
   'wght' 600,
   'GRAD' 0,
   'opsz' 48
+}
+
+.excelSheet {
+  color: white;
+  width: 400px;
+  border-radius: 10px;
+  background-color: var(--sec-container);
+  box-shadow: 0px 2px 18px -4px rgba(0,0,0,0.75);
+  border: 1px solid grey;
+  margin: 10px;
+  display: inline-block;
+  padding: 10px;
+}
+
+.excelSheetHeader{
+  width: 100%;
+  text-align: left;
+}
+
+.excelSheetHeader:hover{
+  cursor: pointer;
+}
+
+.arrowIcon{
+  transition-duration: 0.2s;
+  font-size: 30px;
+}
+
+.arrowIcon:hover{
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+.cellLine{
+  border: 1px solid #292724;
+}
+
+.addCell{
+  color: var(--tert-color);
+  background-color: var(--sec-container);
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  transition-duration: 0.1s;
+}
+
+.addCell:hover{
+  cursor: pointer;
+  transform: scale(1.05);
 }
