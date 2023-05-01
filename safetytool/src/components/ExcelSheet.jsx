@@ -3,13 +3,14 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import ExcelCell from "./ExcelCell";
 const $ = require('jquery');
 
+let cellRowId = 0;
 const ExcelSheet = ({sheetname, idKey}) => {
-    const [cells, setCells] = useState(0);
+    const [cells, setCells] = useState([]);
     useEffect(() => {
         $(document.getElementById(`excelCellWrapper${idKey}`)).slideUp(400);
         document.getElementById(`arrowIcon${idKey}`).style.setProperty('transform', 'rotate(0deg)');
         console.log(`Excel sheet key: ${idKey}`)
-    }, [idKey])
+    }, [idKey]);
 
     function expandSheet(){
         const arrow = document.getElementById(`arrowIcon${idKey}`);
@@ -24,17 +25,14 @@ const ExcelSheet = ({sheetname, idKey}) => {
     }
 
     function addCell(){
-        setCells(cells+1);
+        cellRowId++;
+        setCells(cells => [...cells, cellRowId]);
     }
 
-    function getCells(){
-        let content = [];
-
-        for(let i = 0; i < cells; i++){
-            content.push(<ExcelCell key={i}/>)
-        }
-
-        return content;
+    function removeCell(index){
+        let clone = [...cells];
+        clone.splice(index, 1);
+        setCells(clone);
     }
 
     return(
@@ -48,8 +46,10 @@ const ExcelSheet = ({sheetname, idKey}) => {
                 </tbody>
             </table>
             <div className="excelCellWrapper" id={`excelCellWrapper${idKey}`}>
+                {cells.map((id, i) =>
+                    <ExcelCell key={id} cellId={i} removeCell={removeCell}/>
+                )}
                 <hr className="cellLine"/>
-                {getCells()}
                 <button className="addCell" onClick={addCell}>+ Cel toevoegen</button>
             </div>
         </div>
