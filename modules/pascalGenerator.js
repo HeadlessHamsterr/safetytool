@@ -42,6 +42,7 @@ function generatePL_SRF(safetyData, safetyFunctionNum){
 
     let srfBase = JSON.parse(fs.readFileSync(path.join(__dirname, '../PAScalFiles/srfPL.json')))
     srfBase["ATTR"]["name"] = safetyData["safetyFunctionTitle"]
+    srfBase["ATTR"]["comments"] = safetyData["safetyFunctionEffect"]
     srfBase["ATTR"]["target"] = targetLevels[safetyData["data"]["tPL"]]
 
     srfBase["CCF"].push(JSON.parse(fs.readFileSync(path.join(__dirname, '../PAScalFiles/ccf.json'))))
@@ -104,27 +105,35 @@ function generatePL_SRP(safetyData, numComponents, channelType, displayNumber, s
     srpBase["ATTR"]["category"] = safetyData["data"]["category"]
 
     for(let i = 0; i < numComponents; i++){
-        srpBase["channel"].push(generatePL_Channel(safetyData, i+1, displayNumber, safetyFunctionNum, channelType))
+        srpBase["channel"].push(generatePL_Channel(safetyData, i+1, displayNumber, safetyFunctionNum, componentType))
     }
 
     return srpBase
 }
 
 function generatePL_Channel(safetyData, channelNo, displayNumber, safetyFunctionNum, componentType){
+    console.log(`Making component ${channelNo}${componentType}`);
     let baseChannel = JSON.parse(fs.readFileSync(path.join(__dirname, "../PAScalFiles/channel.json")));
-    let baseComponent = JSON.parse(fs.readFileSync(path.join(__dirname, `../PAScalFiles/${componentType}.json`)));
+    let baseComponent = JSON.parse(fs.readFileSync(path.join(__dirname, `../PAScalFiles/old/${componentType}.json`)));
 
     baseChannel["ATTR"]["channelNo"] = channelNo;
 
-    /*const componentName = `${safetyFunctionNum}${componentType}_placeholder`
+    let componentId;
+    switch(componentType){
+        case "Sensor":
+        case "Actor":
+            componentId = `${safetyFunctionNum}Placeholder ${componentType} V1.1`;
+            break;
+        default:
+            componentId = `${safetyFunctionNum}${componentType}1.1.0`;
+    }
 
-    baseComponent["projComponent"][0]["ATTR"]["selectedDeviceId"] = componentName;
-    baseComponent["projComponent"][0]["ATTR"]["selectedDevicename"] = componentName;
-    baseComponent["projComponent"][0]["device"][0]["ATTR"]["identifier"] = componentName;
-    baseComponent["projComponent"][0]["device"][0]["ATTR"]["partNumber"] = componentName;
-    baseComponent["projComponent"][0]["device"][0]["name"][0]["ATTR"]["key"] = componentName;
-    baseComponent["projComponent"][0]["language"][0]["names"][0]["names"][0]["ATTR"]["key"] = `KeyName_${componentName}`;
-    baseComponent["projComponent"][0]["language"][0]["names"][0]["names"][0]["text"][0]["ATTR"]["value"] = componentName;
+    baseComponent["projComponent"][0]["ATTR"]["selectedDeviceId"] = componentId;
+    //baseComponent["projComponent"][0]["ATTR"]["selectedDevicename"] = componentName;
+    baseComponent["projComponent"][0]["device"][0]["ATTR"]["identifier"] = componentId;
+    baseComponent["projComponent"][0]["device"][0]["ATTR"]["partNumber"] = componentId.replace(" V1.1", "");
+    baseComponent["projComponent"][0]["device"][0]["name"][0]["ATTR"]["key"] = `KeyName_${componentId}`;
+    baseComponent["projComponent"][0]["language"][0]["names"][0]["names"][0]["ATTR"]["key"] = `KeyName_${componentId}`;
 
     baseChannel["configuredComponent"].push(baseComponent)
 
@@ -143,28 +152,29 @@ function generatePL_Channel(safetyData, channelNo, displayNumber, safetyFunction
         break;
     }
     baseChannel["configuredComponent"][0]["ATTR"]["channelNo"] = channelNo
-
-    if(safetyData["data"]["faultDetection"] == "Fault exclusion"){
-        baseChannel["configuredComponent"][0]["ATTR"]["wiringFaultExclusion"] = "true"
-        baseChannel["configuredComponent"][0]["ATTR"]["crossShortDetection"] = "false"
-    }else if(safetyData["data"]["faultDetection"] == "Short circuit detection"){
-        baseChannel["configuredComponent"][0]["ATTR"]["crossShortDetection"] = "true"
-        baseChannel["configuredComponent"][0]["ATTR"]["wiringFaultExclusion"] = "false"
-    }else{
-        baseChannel["configuredComponent"][0]["ATTR"]["wiringFaultExclusion"] = "false"
-        baseChannel["configuredComponent"][0]["ATTR"]["crossShortDetection"] = "false"
-    }
     baseChannel["configuredComponent"][0]["ATTR"]["displayNumber"] = `${safetyFunctionNum+1}.${displayNumber}.${channelNo}.1`
 
-    /*
-    //baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["numperOfOperations"] = safetyData["data"]["oppPerHour"].toString()
-    baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["operationalHoursPerDay"] = safetyData["data"]["oppHoursPerDay"].toString()
-    baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["operationalDaysPerYear"] = safetyData["data"]["oppDaysPerYear"].toString()
-    baseChannel["configuredComponent"][0]["numberOfOperations"][0]["operationsPerTime"][0]["ATTR"]["value"] = safetyData["data"]["oppPerHour"].toString()
+    if(componentType === "Sensor"){
+        if(safetyData["data"]["faultDetection"] == "Fault exclusion"){
+            baseChannel["configuredComponent"][0]["ATTR"]["wiringFaultExclusion"] = "true"
+            baseChannel["configuredComponent"][0]["ATTR"]["crossShortDetection"] = "false"
+        }else if(safetyData["data"]["faultDetection"] == "Short circuit detection"){
+            baseChannel["configuredComponent"][0]["ATTR"]["crossShortDetection"] = "true"
+            baseChannel["configuredComponent"][0]["ATTR"]["wiringFaultExclusion"] = "false"
+        }else{
+            baseChannel["configuredComponent"][0]["ATTR"]["wiringFaultExclusion"] = "false"
+            baseChannel["configuredComponent"][0]["ATTR"]["crossShortDetection"] = "false"
+        }
+        
+        //baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["numperOfOperations"] = safetyData["data"]["oppPerHour"].toString()
+        baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["operationalHoursPerDay"] = safetyData["data"]["oppHoursPerDay"].toString()
+        baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["operationalDaysPerYear"] = safetyData["data"]["oppDaysPerYear"].toString()
+        baseChannel["configuredComponent"][0]["numberOfOperations"][0]["operationsPerTime"][0]["ATTR"]["value"] = safetyData["data"]["oppPerHour"].toString()
 
-    //Time between operations is de inverse van operations per time
-    baseChannel["configuredComponent"][0]["numberOfOperations"][0]["timeBetweenOperations"][0]["ATTR"]["value"] = (1/safetyData["data"]["oppPerHour"]).toString()
-    */
+        //Time between operations is de inverse van operations per time
+        baseChannel["configuredComponent"][0]["numberOfOperations"][0]["timeBetweenOperations"][0]["ATTR"]["value"] = (1/safetyData["data"]["oppPerHour"]).toString()
+    }
+    
     return baseChannel;
 }
 
