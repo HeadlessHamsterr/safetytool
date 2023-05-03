@@ -1,0 +1,3840 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceLibrary xmlns="library" version="1.7.2" editable="true">
+  <manufacturer name="Placeholders" dBFileName="Placeholders" version="1.1.0" validationType="PASCAL">
+    <devices>
+      <device identifier="0Relais1.1.0" partNumber="0Relais1.1.0" archive="false">
+        <name key="KeyName_0Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="0Placeholder Sensor V1.1" partNumber="0Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_0Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="0Placeholder Logic V1.1" partNumber="0Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_0Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="0Placeholder Actor V1.1" partNumber="0Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_0Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="0Input1.1.0" partNumber="0Input1.1.0" archive="false">
+        <name key="KeyName_0Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="0CPU1.1.0" partNumber="0CPU1.1.0" archive="false">
+        <name key="KeyName_0CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="0Output1.1.0" partNumber="0Output1.1.0" archive="false">
+        <name key="KeyName_0Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="1Relais1.1.0" partNumber="1Relais1.1.0" archive="false">
+        <name key="KeyName_1Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="1Placeholder Sensor V1.1" partNumber="1Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_1Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="1Placeholder Logic V1.1" partNumber="1Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_1Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="1Placeholder Actor V1.1" partNumber="1Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_1Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="1Input1.1.0" partNumber="1Input1.1.0" archive="false">
+        <name key="KeyName_1Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="1CPU1.1.0" partNumber="1CPU1.1.0" archive="false">
+        <name key="KeyName_1CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="1Output1.1.0" partNumber="1Output1.1.0" archive="false">
+        <name key="KeyName_1Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="2Relais1.1.0" partNumber="2Relais1.1.0" archive="false">
+        <name key="KeyName_2Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="2Placeholder Sensor V1.1" partNumber="2Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_2Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="2Placeholder Logic V1.1" partNumber="2Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_2Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="2Placeholder Actor V1.1" partNumber="2Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_2Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="2Input1.1.0" partNumber="2Input1.1.0" archive="false">
+        <name key="KeyName_2Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="2CPU1.1.0" partNumber="2CPU1.1.0" archive="false">
+        <name key="KeyName_2CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="2Output1.1.0" partNumber="2Output1.1.0" archive="false">
+        <name key="KeyName_2Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="3Relais1.1.0" partNumber="3Relais1.1.0" archive="false">
+        <name key="KeyName_3Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="3Placeholder Sensor V1.1" partNumber="3Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_3Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="3Placeholder Logic V1.1" partNumber="3Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_3Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="3Placeholder Actor V1.1" partNumber="3Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_3Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="3Input1.1.0" partNumber="3Input1.1.0" archive="false">
+        <name key="KeyName_3Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="3CPU1.1.0" partNumber="3CPU1.1.0" archive="false">
+        <name key="KeyName_3CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="3Output1.1.0" partNumber="3Output1.1.0" archive="false">
+        <name key="KeyName_3Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="4Relais1.1.0" partNumber="4Relais1.1.0" archive="false">
+        <name key="KeyName_4Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="4Placeholder Sensor V1.1" partNumber="4Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_4Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="4Placeholder Logic V1.1" partNumber="4Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_4Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="4Placeholder Actor V1.1" partNumber="4Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_4Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="4Input1.1.0" partNumber="4Input1.1.0" archive="false">
+        <name key="KeyName_4Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="4CPU1.1.0" partNumber="4CPU1.1.0" archive="false">
+        <name key="KeyName_4CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="4Output1.1.0" partNumber="4Output1.1.0" archive="false">
+        <name key="KeyName_4Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="5Relais1.1.0" partNumber="5Relais1.1.0" archive="false">
+        <name key="KeyName_5Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="5Placeholder Sensor V1.1" partNumber="5Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_5Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="5Placeholder Logic V1.1" partNumber="5Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_5Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="5Placeholder Actor V1.1" partNumber="5Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_5Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="5Input1.1.0" partNumber="5Input1.1.0" archive="false">
+        <name key="KeyName_5Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="5CPU1.1.0" partNumber="5CPU1.1.0" archive="false">
+        <name key="KeyName_5CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="5Output1.1.0" partNumber="5Output1.1.0" archive="false">
+        <name key="KeyName_5Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="6Relais1.1.0" partNumber="6Relais1.1.0" archive="false">
+        <name key="KeyName_6Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="6Placeholder Sensor V1.1" partNumber="6Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_6Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="6Placeholder Logic V1.1" partNumber="6Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_6Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="6Placeholder Actor V1.1" partNumber="6Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_6Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="6Input1.1.0" partNumber="6Input1.1.0" archive="false">
+        <name key="KeyName_6Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="6CPU1.1.0" partNumber="6CPU1.1.0" archive="false">
+        <name key="KeyName_6CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="6Output1.1.0" partNumber="6Output1.1.0" archive="false">
+        <name key="KeyName_6Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="7Relais1.1.0" partNumber="7Relais1.1.0" archive="false">
+        <name key="KeyName_7Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="7Placeholder Sensor V1.1" partNumber="7Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_7Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="7Placeholder Logic V1.1" partNumber="7Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_7Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="7Placeholder Actor V1.1" partNumber="7Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_7Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="7Input1.1.0" partNumber="7Input1.1.0" archive="false">
+        <name key="KeyName_7Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="7CPU1.1.0" partNumber="7CPU1.1.0" archive="false">
+        <name key="KeyName_7CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="7Output1.1.0" partNumber="7Output1.1.0" archive="false">
+        <name key="KeyName_7Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="8Relais1.1.0" partNumber="8Relais1.1.0" archive="false">
+        <name key="KeyName_8Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="8Placeholder Sensor V1.1" partNumber="8Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_8Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="8Placeholder Logic V1.1" partNumber="8Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_8Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="8Placeholder Actor V1.1" partNumber="8Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_8Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="8Input1.1.0" partNumber="8Input1.1.0" archive="false">
+        <name key="KeyName_8Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="8CPU1.1.0" partNumber="8CPU1.1.0" archive="false">
+        <name key="KeyName_8CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="8Output1.1.0" partNumber="8Output1.1.0" archive="false">
+        <name key="KeyName_8Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="9Relais1.1.0" partNumber="9Relais1.1.0" archive="false">
+        <name key="KeyName_9Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="9Placeholder Sensor V1.1" partNumber="9Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_9Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="9Placeholder Logic V1.1" partNumber="9Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_9Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="9Placeholder Actor V1.1" partNumber="9Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_9Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="9Input1.1.0" partNumber="9Input1.1.0" archive="false">
+        <name key="KeyName_9Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="9CPU1.1.0" partNumber="9CPU1.1.0" archive="false">
+        <name key="KeyName_9CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="9Output1.1.0" partNumber="9Output1.1.0" archive="false">
+        <name key="KeyName_9Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="10Relais1.1.0" partNumber="10Relais1.1.0" archive="false">
+        <name key="KeyName_10Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="10Placeholder Sensor V1.1" partNumber="10Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_10Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="10Placeholder Logic V1.1" partNumber="10Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_10Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="10Placeholder Actor V1.1" partNumber="10Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_10Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="10Input1.1.0" partNumber="10Input1.1.0" archive="false">
+        <name key="KeyName_10Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="10CPU1.1.0" partNumber="10CPU1.1.0" archive="false">
+        <name key="KeyName_10CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="10Output1.1.0" partNumber="10Output1.1.0" archive="false">
+        <name key="KeyName_10Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="11Relais1.1.0" partNumber="11Relais1.1.0" archive="false">
+        <name key="KeyName_11Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="11Placeholder Sensor V1.1" partNumber="11Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_11Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="11Placeholder Logic V1.1" partNumber="11Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_11Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="11Placeholder Actor V1.1" partNumber="11Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_11Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="11Input1.1.0" partNumber="11Input1.1.0" archive="false">
+        <name key="KeyName_11Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="11CPU1.1.0" partNumber="11CPU1.1.0" archive="false">
+        <name key="KeyName_11CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="11Output1.1.0" partNumber="11Output1.1.0" archive="false">
+        <name key="KeyName_11Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="12Relais1.1.0" partNumber="12Relais1.1.0" archive="false">
+        <name key="KeyName_12Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="12Placeholder Sensor V1.1" partNumber="12Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_12Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="12Placeholder Logic V1.1" partNumber="12Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_12Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="12Placeholder Actor V1.1" partNumber="12Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_12Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="12Input1.1.0" partNumber="12Input1.1.0" archive="false">
+        <name key="KeyName_12Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="12CPU1.1.0" partNumber="12CPU1.1.0" archive="false">
+        <name key="KeyName_12CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="12Output1.1.0" partNumber="12Output1.1.0" archive="false">
+        <name key="KeyName_12Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="13Relais1.1.0" partNumber="13Relais1.1.0" archive="false">
+        <name key="KeyName_13Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="13Placeholder Sensor V1.1" partNumber="13Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_13Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="13Placeholder Logic V1.1" partNumber="13Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_13Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="13Placeholder Actor V1.1" partNumber="13Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_13Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="13Input1.1.0" partNumber="13Input1.1.0" archive="false">
+        <name key="KeyName_13Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="13CPU1.1.0" partNumber="13CPU1.1.0" archive="false">
+        <name key="KeyName_13CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="13Output1.1.0" partNumber="13Output1.1.0" archive="false">
+        <name key="KeyName_13Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="14Relais1.1.0" partNumber="14Relais1.1.0" archive="false">
+        <name key="KeyName_14Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="14Placeholder Sensor V1.1" partNumber="14Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_14Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="14Placeholder Logic V1.1" partNumber="14Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_14Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="14Placeholder Actor V1.1" partNumber="14Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_14Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="14Input1.1.0" partNumber="14Input1.1.0" archive="false">
+        <name key="KeyName_14Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="14CPU1.1.0" partNumber="14CPU1.1.0" archive="false">
+        <name key="KeyName_14CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="14Output1.1.0" partNumber="14Output1.1.0" archive="false">
+        <name key="KeyName_14Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="15Relais1.1.0" partNumber="15Relais1.1.0" archive="false">
+        <name key="KeyName_15Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="15Placeholder Sensor V1.1" partNumber="15Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_15Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="15Placeholder Logic V1.1" partNumber="15Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_15Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="15Placeholder Actor V1.1" partNumber="15Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_15Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="15Input1.1.0" partNumber="15Input1.1.0" archive="false">
+        <name key="KeyName_15Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="15CPU1.1.0" partNumber="15CPU1.1.0" archive="false">
+        <name key="KeyName_15CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="15Output1.1.0" partNumber="15Output1.1.0" archive="false">
+        <name key="KeyName_15Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="16Relais1.1.0" partNumber="16Relais1.1.0" archive="false">
+        <name key="KeyName_16Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="16Placeholder Sensor V1.1" partNumber="16Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_16Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="16Placeholder Logic V1.1" partNumber="16Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_16Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="16Placeholder Actor V1.1" partNumber="16Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_16Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="16Input1.1.0" partNumber="16Input1.1.0" archive="false">
+        <name key="KeyName_16Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="16CPU1.1.0" partNumber="16CPU1.1.0" archive="false">
+        <name key="KeyName_16CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="16Output1.1.0" partNumber="16Output1.1.0" archive="false">
+        <name key="KeyName_16Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="17Relais1.1.0" partNumber="17Relais1.1.0" archive="false">
+        <name key="KeyName_17Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="17Placeholder Sensor V1.1" partNumber="17Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_17Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="17Placeholder Logic V1.1" partNumber="17Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_17Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="17Placeholder Actor V1.1" partNumber="17Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_17Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="17Input1.1.0" partNumber="17Input1.1.0" archive="false">
+        <name key="KeyName_17Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="17CPU1.1.0" partNumber="17CPU1.1.0" archive="false">
+        <name key="KeyName_17CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="17Output1.1.0" partNumber="17Output1.1.0" archive="false">
+        <name key="KeyName_17Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="18Relais1.1.0" partNumber="18Relais1.1.0" archive="false">
+        <name key="KeyName_18Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="18Placeholder Sensor V1.1" partNumber="18Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_18Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="18Placeholder Logic V1.1" partNumber="18Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_18Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="18Placeholder Actor V1.1" partNumber="18Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_18Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="18Input1.1.0" partNumber="18Input1.1.0" archive="false">
+        <name key="KeyName_18Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="18CPU1.1.0" partNumber="18CPU1.1.0" archive="false">
+        <name key="KeyName_18CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="18Output1.1.0" partNumber="18Output1.1.0" archive="false">
+        <name key="KeyName_18Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="19Relais1.1.0" partNumber="19Relais1.1.0" archive="false">
+        <name key="KeyName_19Relais1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="19Placeholder Sensor V1.1" partNumber="19Placeholder Sensor" revision="1.1" archive="false">
+        <name key="KeyName_19Placeholder Sensor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Sensor"/>
+              <hierarchy2 key="Dual channel"/>
+              <hierarchy3 key="Digital output"/>
+              <hierarchy4 key="General purpose"/>
+            </constraints>
+            <function inputFunction="true"/>
+            <parameter>
+              <deviceType3 B10DStr="1" TMT1Str="20"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="19Placeholder Logic V1.1" partNumber="19Placeholder Logic" revision="1.1" archive="false">
+        <name key="KeyName_19Placeholder Logic V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="19Placeholder Actor V1.1" partNumber="19Placeholder Actor" revision="1.1" archive="false">
+        <name key="KeyName_19Placeholder Actor V1.1"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Actor"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function outputFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="19Input1.1.0" partNumber="19Input1.1.0" archive="false">
+        <name key="KeyName_19Input1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="19CPU1.1.0" partNumber="19CPU1.1.0" archive="false">
+        <name key="KeyName_19CPU1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+      <device identifier="19Output1.1.0" partNumber="19Output1.1.0" archive="false">
+        <name key="KeyName_19Output1.1.0"/>
+        <useCases>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Single channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+          <useCase infoConfig="CAT_na">
+            <constraints>
+              <hierarchy1 key="Logic unit"/>
+              <hierarchy2 key="Dual channel"/>
+            </constraints>
+            <function logicFunction="true"/>
+            <parameter>
+              <deviceType1 PL="PL_na" SILCL="SIL_na" PFHDStr="1E-9" TMT1Str="1E-9"/>
+            </parameter>
+          </useCase>
+        </useCases>
+      </device>
+    </devices>
+    <language>
+      <languageKeys>
+        <languageDef languageKey="en"/>
+      </languageKeys>
+      <informations/>
+      <groups/>
+      <names>
+        <names key="KeyName_0Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_1Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_2Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_3Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_4Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_5Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_6Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_7Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_8Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_9Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_10Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_11Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_12Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_13Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_14Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_15Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_16Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_17Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_18Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_19Relais1.1.0">
+          <text value="Relais Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_0Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_1Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_2Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_3Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_4Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_5Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_6Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_7Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_8Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_9Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_10Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_11Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_12Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_13Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_14Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_15Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_16Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_17Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_18Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_19Placeholder Sensor V1.1">
+          <text value="Placeholder Sensor" languageKey="en"/>
+        </names>
+        <names key="KeyName_0Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_1Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_2Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_3Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_4Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_5Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_6Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_7Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_8Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_9Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_10Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_11Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_12Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_13Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_14Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_15Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_16Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_17Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_18Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_19Placeholder Logic V1.1">
+          <text value="Placeholder Logic" languageKey="en"/>
+        </names>
+        <names key="KeyName_0Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_1Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_2Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_3Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_4Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_5Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_6Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_7Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_8Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_9Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_10Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_11Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_12Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_13Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_14Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_15Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_16Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_17Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_18Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_19Placeholder Actor V1.1">
+          <text value="Placeholder Actor" languageKey="en"/>
+        </names>
+        <names key="KeyName_1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_0Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_1Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_2Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_3Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_4Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_5Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_6Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_7Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_8Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_9Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_10Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_11Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_12Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_13Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_14Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_15Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_16Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_17Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_18Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_19Input1.1.0">
+          <text value="Input Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_0CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_1CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_2CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_3CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_4CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_5CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_6CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_7CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_8CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_9CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_10CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_11CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_12CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_13CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_14CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_15CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_16CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_17CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_18CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_19CPU1.1.0">
+          <text value="CPU Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_1Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_2Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_3Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_4Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_5Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_6Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_7Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_8Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_9Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_10Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_11Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_12Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_13Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_14Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_15Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_16Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_17Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_18Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+        <names key="KeyName_19Output1.1.0">
+          <text value="Output Card Placeholder" languageKey="en"/>
+        </names>
+      </names>
+      <descriptions/>
+      <docFileName/>
+      <constraints>
+        <constraints key="Logic unit">
+          <text value="Logik Funktion" languageKey="de"/>
+          <text value="Función lógica" languageKey="es"/>
+          <text value="Fonction logique" languageKey="fr"/>
+          <text value="Funzione logica" languageKey="it"/>
+          <text value="ロジックファンクション" languageKey="ja"/>
+          <text value="Logic unit" languageKey="en"/>
+        </constraints>
+        <constraints key="Single channel">
+          <text value="Einkanalig" languageKey="de"/>
+          <text value="Monocanal" languageKey="es"/>
+          <text value="Monocanal" languageKey="fr"/>
+          <text value="Monocanale" languageKey="it"/>
+          <text value="1チャンネル" languageKey="ja"/>
+          <text value="Single channel" languageKey="en"/>
+        </constraints>
+        <constraints key="Dual channel">
+          <text value="Zweikanalig" languageKey="de"/>
+          <text value="Bicanal" languageKey="es"/>
+          <text value="À deux canaux" languageKey="fr"/>
+          <text value="Bicanale" languageKey="it"/>
+          <text value="2チャンネル" languageKey="ja"/>
+          <text value="Dual channel" languageKey="en"/>
+        </constraints>
+        <constraints key="Sensor">
+          <text value="Sensor" languageKey="de"/>
+          <text value="Sensor" languageKey="es"/>
+          <text value="Capteur" languageKey="fr"/>
+          <text value="Sensore" languageKey="it"/>
+          <text value="センサ" languageKey="ja"/>
+          <text value="Sensor" languageKey="en"/>
+        </constraints>
+        <constraints key="Digital output">
+          <text value="Digitaler Ausgang" languageKey="de"/>
+          <text value="Salida digital" languageKey="es"/>
+          <text value="Sortie digitale" languageKey="fr"/>
+          <text value="Uscita digitale" languageKey="it"/>
+          <text value="デジタル出力" languageKey="ja"/>
+          <text value="Digital output" languageKey="en"/>
+        </constraints>
+        <constraints key="General purpose">
+          <text value="Allgemeine Verwendung" languageKey="de"/>
+          <text value="Utilización general" languageKey="es"/>
+          <text value="Utilisation générale" languageKey="fr"/>
+          <text value="Utilizzo generale" languageKey="it"/>
+          <text value="一般用途" languageKey="ja"/>
+          <text value="General purpose" languageKey="en"/>
+        </constraints>
+        <constraints key="Actor">
+          <text value="Aktor" languageKey="de"/>
+          <text value="Accionador" languageKey="es"/>
+          <text value="Actionneur" languageKey="fr"/>
+          <text value="Attuatore" languageKey="it"/>
+          <text value="アクチュエータ" languageKey="ja"/>
+          <text value="Actor" languageKey="en"/>
+        </constraints>
+      </constraints>
+      <info/>
+    </language>
+  </manufacturer>
+</DeviceLibrary>
