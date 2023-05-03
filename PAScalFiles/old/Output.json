@@ -1,0 +1,206 @@
+{
+  "ATTR": {
+    "archName": "Single_Channel_(1oo1)",
+    "diagnosticCoverage": "1.0E-4",
+    "srpClassificationName": "Logic",
+    "channelNo": "1",
+    "projectStandard": "PL",
+    "wiringFaultExclusion": "false",
+    "crossShortDetection": "false",
+    "displayNumber": "1.1.1.1"
+  },
+  "projComponent": [
+      {
+          "ATTR": {
+              "deviceManufacturerName": "Placeholders",
+              "deviceLibraryName": "Placeholders",
+              "deviceLibraryVersion": "1.1.0",
+              "selectedDeviceId": "0Output_placeholder",
+              "selectedDeviceName": "0Output_placeholder"
+          },
+          "device": [
+              {
+                  "ATTR": {
+                      "identifier": "0Output_placeholder",
+                      "partNumber": "0Output_placeholder",
+                      "archive": "false"
+                  },
+                  "name": [
+                      {
+                          "ATTR": {
+                              "key": "KeyName_0Output_placeholder"
+                          }
+                      }
+                  ],
+                  "useCases": [
+                      {
+                          "useCase": [
+                              {
+                                  "ATTR": {
+                                      "infoConfig": "CAT_na"
+                                  },
+                                  "constraints": [
+                                      {
+                                          "hierarchy1": [
+                                              {
+                                                  "ATTR": {
+                                                      "key": "Output"
+                                                  }
+                                              }
+                                          ]
+                                      }
+                                  ],
+                                  "function": [
+                                      {
+                                          "ATTR": {
+                                              "logicFunction": "true"
+                                          }
+                                      }
+                                  ],
+                                  "parameter": [
+                                      {
+                                          "deviceType1": [
+                                              {
+                                                  "ATTR": {
+                                                      "PL": "PL_na",
+                                                      "SILCL": "SIL_na",
+                                                      "PFHDStr": "1E-9",
+                                                      "TMT1Str": "20"
+                                                  }
+                                              }
+                                          ]
+                                      }
+                                  ]
+                              }
+                          ]
+                      }
+                  ]
+              }
+          ],
+          "selectedConstraints": [
+              "Output"
+          ],
+          "language": [
+              {
+                  "languageKeys": [
+                      {
+                          "languageDef": [
+                              {
+                                  "ATTR": {
+                                      "languageKey": "en"
+                                  }
+                              }
+                          ]
+                      }
+                  ],
+                  "informations": [
+                      ""
+                  ],
+                  "groups": [
+                      ""
+                  ],
+                  "names": [
+                      {
+                          "names": [
+                              {
+                                  "ATTR": {
+                                      "key": "KeyName_0Output_placeholder"
+                                  },
+                                  "text": [
+                                      {
+                                          "ATTR": {
+                                              "value": "0Output_placeholder",
+                                              "languageKey": "en"
+                                          }
+                                      }
+                                  ]
+                              }
+                          ]
+                      }
+                  ],
+                  "descriptions": [
+                      ""
+                  ],
+                  "docFileName": [
+                      ""
+                  ],
+                  "constraints": [
+                      {
+                          "constraints": [
+                              {
+                                  "ATTR": {
+                                      "key": "Output"
+                                  },
+                                  "text": [
+                                      {
+                                          "ATTR": {
+                                              "value": "Ausgang",
+                                              "languageKey": "de"
+                                          }
+                                      },
+                                      {
+                                          "ATTR": {
+                                              "value": "Salida",
+                                              "languageKey": "es"
+                                          }
+                                      },
+                                      {
+                                          "ATTR": {
+                                              "value": "Sortie",
+                                              "languageKey": "fr"
+                                          }
+                                      },
+                                      {
+                                          "ATTR": {
+                                              "value": "Uscita",
+                                              "languageKey": "it"
+                                          }
+                                      },
+                                      {
+                                          "ATTR": {
+                                              "value": "出力",
+                                              "languageKey": "ja"
+                                          }
+                                      },
+                                      {
+                                          "ATTR": {
+                                              "value": "Output",
+                                              "languageKey": "en"
+                                          }
+                                      }
+                                  ]
+                              }
+                          ]
+                      }
+                  ],
+                  "info": [
+                      ""
+                  ]
+              }
+          ]
+      }
+  ],
+  "numberOfOperations": [
+    {
+        "ATTR": {
+          "numberOfOperationsInputType": "0",
+          "operationalHoursPerDay": "24.0",
+          "operationalDaysPerYear": "365.0"
+        },
+        "operationsPerTime": [
+          {
+            "ATTR": {
+              "unit": "2"
+            }
+          }
+        ],
+        "timeBetweenOperations": [
+          {
+            "ATTR": {
+              "unit": "2"
+            }
+          }
+        ]
+    }
+  ]
+}

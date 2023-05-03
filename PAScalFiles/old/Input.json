@@ -1,0 +1,206 @@
+{
+  "ATTR": {
+    "archName": "Single_Channel_(1oo1)",
+    "diagnosticCoverage": "1.0E-4",
+    "srpClassificationName": "Logic",
+    "channelNo": "1",
+    "projectStandard": "PL",
+    "wiringFaultExclusion": "false",
+    "crossShortDetection": "false",
+    "displayNumber": "1.1.1.1"
+  },
+  "projComponent": [
+      {
+          "ATTR": {
+              "deviceManufacturerName": "Placeholders",
+              "deviceLibraryName": "Placeholders",
+              "deviceLibraryVersion": "1.1.0",
+              "selectedDeviceId": "0Input_placeholder",
+              "selectedDeviceName": "0Input_placeholder"
+          },
+          "device": [
+              {
+                  "ATTR": {
+                      "identifier": "0Input_placeholder",
+                      "partNumber": "0Input_placeholder",
+                      "archive": "false"
+                  },
+                  "name": [
+                      {
+                          "ATTR": {
+                              "key": "KeyName_0Input_placeholder"
+                          }
+                      }
+                  ],
+                  "useCases": [
+                      {
+                          "useCase": [
+                              {
+                                  "ATTR": {
+                                      "infoConfig": "CAT_na"
+                                  },
+                                  "constraints": [
+                                      {
+                                          "hierarchy1": [
+                                              {
+                                                  "ATTR": {
+                                                      "key": "Input"
+                                                  }
+                                              }
+                                          ]
+                                      }
+                                  ],
+                                  "function": [
+                                      {
+                                          "ATTR": {
+                                              "logicFunction": "true"
+                                          }
+                                      }
+                                  ],
+                                  "parameter": [
+                                      {
+                                          "deviceType1": [
+                                              {
+                                                  "ATTR": {
+                                                      "PL": "PL_na",
+                                                      "SILCL": "SIL_na",
+                                                      "PFHDStr": "1E-9",
+                                                      "TMT1Str": "20"
+                                                  }
+                                              }
+                                          ]
+                                      }
+                                  ]
+                              }
+                          ]
+                      }
+                  ]
+              }
+          ],
+          "selectedConstraints": [
+              "Input"
+          ],
+          "language": [
+              {
+                  "languageKeys": [
+                      {
+                          "languageDef": [
+                              {
+                                  "ATTR": {
+                                      "languageKey": "en"
+                                  }
+                              }
+                          ]
+                      }
+                  ],
+                  "informations": [
+                      ""
+                  ],
+                  "groups": [
+                      ""
+                  ],
+                  "names": [
+                      {
+                          "names": [
+                              {
+                                  "ATTR": {
+                                      "key": "KeyName_0Input_placeholder"
+                                  },
+                                  "text": [
+                                      {
+                                          "ATTR": {
+                                              "value": "0Input_placeholder",
+                                              "languageKey": "en"
+                                          }
+                                      }
+                                  ]
+                              }
+                          ]
+                      }
+                  ],
+                  "descriptions": [
+                      ""
+                  ],
+                  "docFileName": [
+                      ""
+                  ],
+                  "constraints": [
+                      {
+                          "constraints": [
+                              {
+                                  "ATTR": {
+                                      "key": "Input"
+                                  },
+                                  "text": [
+                                      {
+                                          "ATTR": {
+                                              "value": "Eingang",
+                                              "languageKey": "de"
+                                          }
+                                      },
+                                      {
+                                          "ATTR": {
+                                              "value": "Entrada",
+                                              "languageKey": "es"
+                                          }
+                                      },
+                                      {
+                                          "ATTR": {
+                                              "value": "Entrée",
+                                              "languageKey": "fr"
+                                          }
+                                      },
+                                      {
+                                          "ATTR": {
+                                              "value": "Ingresso",
+                                              "languageKey": "it"
+                                          }
+                                      },
+                                      {
+                                          "ATTR": {
+                                              "value": "入力",
+                                              "languageKey": "ja"
+                                          }
+                                      },
+                                      {
+                                          "ATTR": {
+                                              "value": "Input",
+                                              "languageKey": "en"
+                                          }
+                                      }
+                                  ]
+                              }
+                          ]
+                      }
+                  ],
+                  "info": [
+                      ""
+                  ]
+              }
+          ]
+      }
+  ],
+  "numberOfOperations": [
+    {
+        "ATTR": {
+          "numberOfOperationsInputType": "0",
+          "operationalHoursPerDay": "24.0",
+          "operationalDaysPerYear": "365.0"
+        },
+        "operationsPerTime": [
+          {
+            "ATTR": {
+              "unit": "2"
+            }
+          }
+        ],
+        "timeBetweenOperations": [
+          {
+            "ATTR": {
+              "unit": "2"
+            }
+          }
+        ]
+    }
+  ]
+}

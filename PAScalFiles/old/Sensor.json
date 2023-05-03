@@ -1,0 +1,206 @@
+{
+    "ATTR": {
+        "archName": "Single_Channel_(1oo1)",
+        "diagnosticCoverage": "1.0E-4",
+        "srpClassificationName": "Input",
+        "channelNo": "1",
+        "projectStandard": "PL",
+        "wiringFaultExclusion": "false",
+        "crossShortDetection": "false",
+        "displayNumber": "1.1.1.1"
+    },
+    "projComponent": [
+        {
+            "ATTR": {
+                "deviceManufacturerName": "Placeholders",
+                "deviceLibraryName": "Placeholders",
+                "deviceLibraryVersion": "1.1.0",
+                "selectedDeviceId": "0Sensor_placeholder",
+                "selectedDeviceName": "0Sensor_placeholder"
+            },
+            "device": [
+                {
+                    "ATTR": {
+                        "identifier": "0Sensor_placeholder",
+                        "partNumber": "0Sensor_placeholder",
+                        "archive": "false"
+                    },
+                    "name": [
+                        {
+                            "ATTR": {
+                                "key": "KeyName_0Sensor_placeholder"
+                            }
+                        }
+                    ],
+                    "useCases": [
+                        {
+                            "useCase": [
+                                {
+                                    "ATTR": {
+                                        "infoConfig": "CAT_na"
+                                    },
+                                    "constraints": [
+                                        {
+                                            "hierarchy1": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "Sensor"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "function": [
+                                        {
+                                            "ATTR": {
+                                                "inputFunction": "true"
+                                            }
+                                        }
+                                    ],
+                                    "parameter": [
+                                        {
+                                            "deviceType1": [
+                                                {
+                                                    "ATTR": {
+                                                        "PL": "PL_na",
+                                                        "SILCL": "SIL_na",
+                                                        "PFHDStr": "1E-9",
+                                                        "TMT1Str": "20"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "selectedConstraints": [
+                "Sensor"
+            ],
+            "language": [
+                {
+                    "languageKeys": [
+                        {
+                            "languageDef": [
+                                {
+                                    "ATTR": {
+                                        "languageKey": "en"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "informations": [
+                        ""
+                    ],
+                    "groups": [
+                        ""
+                    ],
+                    "names": [
+                        {
+                            "names": [
+                                {
+                                    "ATTR": {
+                                        "key": "KeyName_0Sensor_placeholder"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "0Sensor_placeholder",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "descriptions": [
+                        ""
+                    ],
+                    "docFileName": [
+                        ""
+                    ],
+                    "constraints": [
+                        {
+                            "constraints": [
+                                {
+                                    "ATTR": {
+                                        "key": "Sensor"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Sensor",
+                                                "languageKey": "de"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Sensor",
+                                                "languageKey": "es"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Capteur",
+                                                "languageKey": "fr"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Sensore",
+                                                "languageKey": "it"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "センサ",
+                                                "languageKey": "ja"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Sensor",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "info": [
+                        ""
+                    ]
+                }
+            ]
+        }
+    ],
+    "numberOfOperations": [
+        {
+            "ATTR": {
+              "numberOfOperationsInputType": "0",
+              "operationalHoursPerDay": "24.0",
+              "operationalDaysPerYear": "365.0"
+            },
+            "operationsPerTime": [
+              {
+                "ATTR": {
+                  "unit": "2"
+                }
+              }
+            ],
+            "timeBetweenOperations": [
+              {
+                "ATTR": {
+                  "unit": "2"
+                }
+              }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,206 @@
+{
+    "ATTR": {
+        "archName": "Single_Channel_(1oo1)",
+        "diagnosticCoverage": "1.0E-4",
+        "srpClassificationName": "Logic",
+        "channelNo": "1",
+        "projectStandard": "PL",
+        "wiringFaultExclusion": "false",
+        "crossShortDetection": "false",
+        "displayNumber": "1.1.1.1"
+    },
+    "projComponent": [
+        {
+            "ATTR": {
+                "deviceManufacturerName": "Placeholders",
+                "deviceLibraryName": "Placeholders",
+                "deviceLibraryVersion": "1.1.0",
+                "selectedDeviceId": "0CPU_placeholder",
+                "selectedDeviceName": "0CPU_placeholder"
+            },
+            "device": [
+                {
+                    "ATTR": {
+                        "identifier": "0CPU_placeholder",
+                        "partNumber": "0CPU_placeholder",
+                        "archive": "false"
+                    },
+                    "name": [
+                        {
+                            "ATTR": {
+                                "key": "KeyName_0CPU_placeholder"
+                            }
+                        }
+                    ],
+                    "useCases": [
+                        {
+                            "useCase": [
+                                {
+                                    "ATTR": {
+                                        "infoConfig": "CAT_na"
+                                    },
+                                    "constraints": [
+                                        {
+                                            "hierarchy1": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "Logic unit"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "function": [
+                                        {
+                                            "ATTR": {
+                                                "logicFunction": "true"
+                                            }
+                                        }
+                                    ],
+                                    "parameter": [
+                                        {
+                                            "deviceType1": [
+                                                {
+                                                    "ATTR": {
+                                                        "PL": "PL_na",
+                                                        "SILCL": "SIL_na",
+                                                        "PFHDStr": "1E-9",
+                                                        "TMT1Str": "20"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "selectedConstraints": [
+                "Logic unit"
+            ],
+            "language": [
+                {
+                    "languageKeys": [
+                        {
+                            "languageDef": [
+                                {
+                                    "ATTR": {
+                                        "languageKey": "en"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "informations": [
+                        ""
+                    ],
+                    "groups": [
+                        ""
+                    ],
+                    "names": [
+                        {
+                            "names": [
+                                {
+                                    "ATTR": {
+                                        "key": "KeyName_0CPU_placeholder"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "0CPU_placeholder",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "descriptions": [
+                        ""
+                    ],
+                    "docFileName": [
+                        ""
+                    ],
+                    "constraints": [
+                        {
+                            "constraints": [
+                                {
+                                    "ATTR": {
+                                        "key": "Logic unit"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Logik Funktion",
+                                                "languageKey": "de"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Función lógica",
+                                                "languageKey": "es"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Fonction logique",
+                                                "languageKey": "fr"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Funzione logica",
+                                                "languageKey": "it"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "ロジックファンクション",
+                                                "languageKey": "ja"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Logic unit",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "info": [
+                        ""
+                    ]
+                }
+            ]
+        }
+    ],
+    "numberOfOperations": [
+        {
+            "ATTR": {
+              "numberOfOperationsInputType": "0",
+              "operationalHoursPerDay": "24.0",
+              "operationalDaysPerYear": "365.0"
+            },
+            "operationsPerTime": [
+              {
+                "ATTR": {
+                  "unit": "2"
+                }
+              }
+            ],
+            "timeBetweenOperations": [
+              {
+                "ATTR": {
+                  "unit": "2"
+                }
+              }
+            ]
+        }
+    ]
+}
