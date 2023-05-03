@@ -170,9 +170,11 @@ function generatePL_Channel(safetyData, channelNo, displayNumber, safetyFunction
         baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["operationalHoursPerDay"] = safetyData["data"]["oppHoursPerDay"].toString()
         baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["operationalDaysPerYear"] = safetyData["data"]["oppDaysPerYear"].toString()
         baseChannel["configuredComponent"][0]["numberOfOperations"][0]["operationsPerTime"][0]["ATTR"]["value"] = safetyData["data"]["oppPerHour"].toString()
+        baseChannel["configuredComponent"][0]["numberOfOperations"][0]["operationsPerTime"][0]["ATTR"]["unit"] = "3";
 
         //Time between operations is de inverse van operations per time
         baseChannel["configuredComponent"][0]["numberOfOperations"][0]["timeBetweenOperations"][0]["ATTR"]["value"] = (1/safetyData["data"]["oppPerHour"]).toString()
+        baseChannel["configuredComponent"][0]["numberOfOperations"][0]["timeBetweenOperations"][0]["ATTR"]["unit"] = "3";
     }
     
     return baseChannel;

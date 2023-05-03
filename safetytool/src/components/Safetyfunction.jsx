@@ -22,7 +22,7 @@ const SafetyFunction = ({safetyFunction}) => {
                         <td>{safetyFunction.data.DC}</td>
                     </tr>
                     <tr>
-                        <td>Operations per hour:</td>
+                        <td>Operations per day:</td>
                         <td>{safetyFunction.data.oppPerHour}</td>
                     </tr>
                     <tr>
