@@ -18,7 +18,8 @@ const ImportField = ({filetype, setFile}) => {
             return;
         }
 
-        console.log(filetype)
+        console.log(filetype);
+        console.log(e.target);
         const fileInfo = getFileInfo(e.target.files[0].name, filetype);
 
         if(fileInfo.success){
@@ -54,7 +55,7 @@ const ImportField = ({filetype, setFile}) => {
                             <tr>
                                 <td><span id="excelFileName" className="fileName">{filename}</span></td>
                                 <td><button className="openBtn" onClick={() => handleUploadClick()}>Openen</button></td>
-                                <td><input type="file" ref={inputRef} onChange={(e) => handleFileChange(e)} style={{ display: 'none' }}/></td>
+                                <td><input type="file" accept=".xls, .xlsx, .xlsm" ref={inputRef} onChange={(e) => handleFileChange(e)} style={{ display: 'none' }}/></td>
                             </tr>
                             </tbody>
                         </table>
