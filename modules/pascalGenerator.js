@@ -2,11 +2,11 @@ const fs = require('fs')
 const path = require('path')
 
 module.exports = function generatePAScalProject(safetyData, author, projectLocation){
-    let projectBase = JSON.parse(fs.readFileSync(path.join(__dirname, '../PAScalFiles/emptyProject.json')))
+    let projectBase = JSON.parse(fs.readFileSync(path.join(__dirname, '../PAScalFiles/emptyProject.json')));
 
     //Naam van het project wordt gemaakt adhv de naam van de klant, project naam en project code
-    let projectName = safetyData["klant"] + "_" + safetyData["projectnaam"] + "_" + safetyData["projectcode"]
-    projectBase["project:ProjectType"]["ATTR"]["name"] = projectName
+    let projectName = safetyData["klant"] + "_" + safetyData["projectnaam"] + "_" + safetyData["projectcode"];
+    projectBase["project:ProjectType"]["ATTR"]["name"] = projectName.replace(/\s+/g, "_");
 
     //Modification & creation date omzetten naar juiste format
     const date = new Date(Date.now())

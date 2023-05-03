@@ -31,7 +31,7 @@ const GenerateScreen = ({safetyData, hidden, sessionId}) => {
         let mimeType;
         switch(type){
             case 'pascal':
-                filename = `${safetyData.klant}_${safetyData.projectnaam}_${safetyData.projectcode}.psc`;
+                filename = `${safetyData.klant}_${safetyData.projectnaam}_${safetyData.projectcode}.psc`.replace(/\s+/g, "_");
                 mimeType = 'application/xml';
                 break;
             case 'checklist':
