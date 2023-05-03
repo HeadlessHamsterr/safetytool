@@ -1,13 +1,10 @@
 {
     "ATTR": {
         "archName": "Single_Channel_(1oo1)",
-        "diagnosticCoverage": "1.0E-4",
         "srpClassificationName": "Logic",
         "channelNo": "1",
         "projectStandard": "PL",
-        "wiringFaultExclusion": "false",
-        "crossShortDetection": "false",
-        "displayNumber": "1.1.1.1"
+        "displayNumber": "1.3.1.1"
     },
     "projComponent": [
         {
@@ -15,20 +12,20 @@
                 "deviceManufacturerName": "Placeholders",
                 "deviceLibraryName": "Placeholders",
                 "deviceLibraryVersion": "1.1.0",
-                "selectedDeviceId": "0CPU_placeholder",
-                "selectedDeviceName": "0CPU_placeholder"
+                "selectedDeviceId": "0CPU1.1.0",
+                "selectedDeviceName": "CPU Placeholder"
             },
             "device": [
                 {
                     "ATTR": {
-                        "identifier": "0CPU_placeholder",
-                        "partNumber": "0CPU_placeholder",
+                        "identifier": "0CPU1.1.0",
+                        "partNumber": "0CPU1.1.0",
                         "archive": "false"
                     },
                     "name": [
                         {
                             "ATTR": {
-                                "key": "KeyName_0CPU_placeholder"
+                                "key": "KeyName_0CPU1.1.0"
                             }
                         }
                     ],
@@ -45,6 +42,13 @@
                                                 {
                                                     "ATTR": {
                                                         "key": "Logic unit"
+                                                    }
+                                                }
+                                            ],
+                                            "hierarchy2": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "Single channel"
                                                     }
                                                 }
                                             ]
@@ -65,7 +69,51 @@
                                                         "PL": "PL_na",
                                                         "SILCL": "SIL_na",
                                                         "PFHDStr": "1E-9",
-                                                        "TMT1Str": "20"
+                                                        "TMT1Str": "1E-9"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "ATTR": {
+                                        "infoConfig": "CAT_na"
+                                    },
+                                    "constraints": [
+                                        {
+                                            "hierarchy1": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "Logic unit"
+                                                    }
+                                                }
+                                            ],
+                                            "hierarchy2": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "Dual channel"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "function": [
+                                        {
+                                            "ATTR": {
+                                                "logicFunction": "true"
+                                            }
+                                        }
+                                    ],
+                                    "parameter": [
+                                        {
+                                            "deviceType1": [
+                                                {
+                                                    "ATTR": {
+                                                        "PL": "PL_na",
+                                                        "SILCL": "SIL_na",
+                                                        "PFHDStr": "1E-9",
+                                                        "TMT1Str": "1E-9"
                                                     }
                                                 }
                                             ]
@@ -78,7 +126,8 @@
                 }
             ],
             "selectedConstraints": [
-                "Logic unit"
+                "Logic unit",
+                "Single channel"
             ],
             "language": [
                 {
@@ -104,12 +153,12 @@
                             "names": [
                                 {
                                     "ATTR": {
-                                        "key": "KeyName_0CPU_placeholder"
+                                        "key": "KeyName_0CPU1.1.0"
                                     },
                                     "text": [
                                         {
                                             "ATTR": {
-                                                "value": "0CPU_placeholder",
+                                                "value": "CPU Placeholder",
                                                 "languageKey": "en"
                                             }
                                         }
@@ -169,6 +218,92 @@
                                             }
                                         }
                                     ]
+                                },
+                                {
+                                    "ATTR": {
+                                        "key": "Single channel"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Einkanalig",
+                                                "languageKey": "de"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Monocanal",
+                                                "languageKey": "es"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Monocanal",
+                                                "languageKey": "fr"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Monocanale",
+                                                "languageKey": "it"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "1チャンネル",
+                                                "languageKey": "ja"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Single channel",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "ATTR": {
+                                        "key": "Dual channel"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Zweikanalig",
+                                                "languageKey": "de"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Bicanal",
+                                                "languageKey": "es"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "À deux canaux",
+                                                "languageKey": "fr"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Bicanale",
+                                                "languageKey": "it"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "2チャンネル",
+                                                "languageKey": "ja"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Dual channel",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -183,24 +318,8 @@
     "numberOfOperations": [
         {
             "ATTR": {
-              "numberOfOperationsInputType": "0",
-              "operationalHoursPerDay": "24.0",
-              "operationalDaysPerYear": "365.0"
-            },
-            "operationsPerTime": [
-              {
-                "ATTR": {
-                  "unit": "2"
-                }
-              }
-            ],
-            "timeBetweenOperations": [
-              {
-                "ATTR": {
-                  "unit": "2"
-                }
-              }
-            ]
+                "numberOfOperationsInputType": "0"
+            }
         }
     ]
 }
