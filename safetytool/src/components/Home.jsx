@@ -37,7 +37,7 @@ const Home = ({returnSafetyfunctions, sessionId, hidden}) => {
 
     return (
         <div className="buttonWrapper" style={hidden ? {display: 'none'}: null}>
-            <ImportField filetype={"excel"} setFile={setExcelFile}/>
+            <ImportField filetype={"excel"} setFile={setExcelFile} hidden={hidden}/>
             <button className="importBtn" onClick={() => uploadFile()}>Importeren</button>
         </div>
     )

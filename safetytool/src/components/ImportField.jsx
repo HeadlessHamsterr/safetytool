@@ -1,11 +1,15 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getFileInfo } from "./modules/fileTools";
 
-const ImportField = ({filetype, setFile}) => {
+const ImportField = ({filetype, setFile, hidden}) => {
     const [filename, setFilename] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
     const [explainErrorMsg, setExplainErrorMsg] = useState(null);
     const inputRef = useRef(null);
+
+    useEffect(() => {
+        setFilename(null);
+    }, [hidden]);
 
     function handleUploadClick(){
         inputRef.current?.click();
