@@ -3,12 +3,10 @@ const fileupload = require('express-fileupload');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const path = require('path');
-const parseHtml = require('node-html-parser').parse;
 const favicon = require('serve-favicon');
 const cors = require('cors');
 
 const { parseExcelFile, excelToJson } = require('./modules/excelParser.js');
-const generateSafetyFunctionElements = require('./modules/htmlTools.js');
 const generatePAScalProject = require('./modules/pascalGenerator.js');
 const generateChecklistData = require('./modules/checklistGenerator.js');
 
@@ -35,10 +33,6 @@ app.use(cors({
 //Handler voor het / endpoint, stuurt de index pagina terug naar de client
 app.get("/", (req, res) => {
   res.send('index.html');
-});
-
-app.get("/convertExcel", (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'convertExcel.html'));
 });
 
 app.post('/downloadConvertedExcel', (req, res) => {
@@ -72,24 +66,35 @@ app.post('/upload', (req, res) => {
   }else{
     //Bestanden van clients worden opgeslagen in een map binnen de hoofdmap met als naam de sessionId, zodat deze later teruggevonden kunnen worden
     const userDirectory = path.join(mainUserDirectory, req.body.sessionId);
-    //Maak de map aan als deze nog niet bestaat
-    if(!fs.existsSync(userDirectory)){
-      fs.mkdirSync(userDirectory);
-    }
-    //Sla de vragenlijst op in de map van de client en haal de gegevens op met parseExelFile()
-    fs.writeFileSync(path.join(userDirectory, req.files.excelFile.name), req.files.excelFile.data);
+    
+    if(req.files.excelFile.data.toString('utf-8', 0, 2) !== 'PK'){
+      const returnData = {
+        result: "failed",
+        data : {
+          errorType: "wrongFiletype"
+        }
+      }
+      res.send(returnData);
+    }else{
+      //Maak de map aan als deze nog niet bestaat
+      if(!fs.existsSync(userDirectory)){
+        fs.mkdirSync(userDirectory);
+      }
+      //Sla de vragenlijst op in de map van de client en haal de gegevens op met parseExelFile()
+      fs.writeFileSync(path.join(userDirectory, req.files.excelFile.name), req.files.excelFile.data);
 
-    const safetyData = parseExcelFile(path.join(userDirectory, req.files.excelFile.name), true, true);
+      const safetyData = parseExcelFile(path.join(userDirectory, req.files.excelFile.name), true, true);
 
-    //Gegevens uit vragenlijst worden opgeslagen als JSON bestand
-    fs.writeFileSync(path.join(userDirectory, 'parsedExcel.json'), JSON.stringify(safetyData, null, 4));
-    //Gegevens worden teruggestuurd naar de client, zodat de gebruiker deze nog een keer kan controleren
-    res.setHeader('safetyfunctions', JSON.stringify(safetyData));
-   
-    if(req.headers.uploadtype === 'recalibration'){
-      console.log("Received upload for recalibration");
-    }else if(req.headers.uploadtype === 'normal'){
-      res.send(safetyData);
+      //Gegevens uit vragenlijst worden opgeslagen als JSON bestand
+      fs.writeFileSync(path.join(userDirectory, 'parsedExcel.json'), JSON.stringify(safetyData, null, 4));
+      //Gegevens worden teruggestuurd naar de client, zodat de gebruiker deze nog een keer kan controleren
+      res.setHeader('safetyfunctions', JSON.stringify(safetyData));
+    
+      if(req.headers.uploadtype === 'recalibration'){
+        console.log("Received upload for recalibration");
+      }else if(req.headers.uploadtype === 'normal'){
+        res.send(safetyData);
+      }
     }
   }
 });

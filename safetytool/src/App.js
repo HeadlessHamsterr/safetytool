@@ -57,8 +57,8 @@ function App() {
   return (
     <div className="container">
       <div className="pageTitle">
-            {homeHidden ? <MdHome className='pageTitleIcon' onClick={() => iconClick()}/> : <MdBuild className='pageTitleIcon' onClick={() => iconClick()}/>}
-            {calibrateScreenHidden ? "Van den Pol - Safetytool" : "Nieuwe vragenlijst instellen"}
+        {homeHidden ? <MdHome className='pageTitleIcon' onClick={() => iconClick()}/>: null}
+        {calibrateScreenHidden ? "Van den Pol - Safetytool" : "Nieuwe vragenlijst instellen"}
       </div>
         <Home returnSafetyfunctions={fileUploaded} sessionId={sessionId} hidden={homeHidden}/>
         <GenerateScreen safetyData={safetyfunctions} hidden={generateScreenHidden} sessionId={sessionId}/>

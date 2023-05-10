@@ -31,7 +31,22 @@ function shouldSkipSheet(sheetName){
 //Functie voor het ophalen van de gegevens voor de veiligheidsfuncties uit het Excel bestand
 function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
     //Excel bestand omzetten naar JSON object
-    var excelObj = xlsx.parse(fileName);
+    
+    var excelObj;
+    
+    try{
+        excelObj = xlsx.parse(fileName);
+    }catch(e){
+        console.log(e);
+        
+        const returnObj = {
+            result: "failed",
+            data: {
+                errorType: "wrongFiletype"
+            }
+        }
+        return returnObj;
+    }
 
     //Als de JSON versie excel bestand moet worden opgeslagen wordt dat gedaan
     if(saveExcel){
