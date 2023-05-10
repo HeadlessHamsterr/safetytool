@@ -45,8 +45,6 @@ const GenerateScreen = ({safetyData, hidden, sessionId}) => {
 
         //GET request sturen naar het /generate endpoint
         const author = document.getElementById('author').value;
-        const projectLocation = document.getElementById('projectLocation').value.replace(/["'`]/g, '');
-        console.log(projectLocation);
         console.log(`Downloading ${type} file`)
         fetch(`http://localhost:3001/${type}`, {
             method: "GET",
@@ -57,7 +55,7 @@ const GenerateScreen = ({safetyData, hidden, sessionId}) => {
                 'If-None-Match': '',
                 //SessionId meesturen zodat de server de juiste bestanden terug stuurt
                 sessionId: sessionId,
-                projectInfo: JSON.stringify({author: author, projectLocation: projectLocation})
+                projectInfo: JSON.stringify({author: author})
             }
         })
         //Wachten tot de server reageert, dan wordt deze functie uitgevoerd
@@ -125,10 +123,6 @@ const GenerateScreen = ({safetyData, hidden, sessionId}) => {
                     <tr>
                         <td>Auteur:</td>
                         <td><input type="text" id="author"/></td>
-                    </tr>
-                    <tr>
-                        <td>Opslaglocatie PAScal projecten:</td>
-                        <td><input type="text" id="projectLocation"/></td>
                     </tr>
                 </tbody>
             </table>

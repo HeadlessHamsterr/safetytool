@@ -125,7 +125,7 @@ app.get('/pascal', (req, res) => {
       //Gegevens uit vragenlijst ophalen uit het eerder gemaakte JSON bestand
       const safetyData = JSON.parse(fs.readFileSync(path.join(userDirectory, 'parsedExcel.json')))["data"];
       //PAScal project genereren op basis van de gegevens
-      const pascalProject = generatePAScalProject(safetyData, projectInfo.author, projectInfo.projectLocation);
+      const pascalProject = generatePAScalProject(safetyData, projectInfo.author);
       //Bestandsnaam maken op basis van projectgegevens
       const filename = `${safetyData["klant"]}_${safetyData["projectnaam"]}_${safetyData["projectcode"]}.psc`;
 
