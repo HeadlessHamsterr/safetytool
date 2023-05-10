@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { getFileInfo } from "./modules/fileTools";
+import getFileInfo from "./modules/fileTools";
 
 const ImportField = ({filetype, setFile, hidden}) => {
     const [filename, setFilename] = useState(null);

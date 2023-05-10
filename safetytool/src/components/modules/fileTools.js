@@ -30,7 +30,7 @@ function compressFileName(filename, extension){
 
 //Deze functie controleerd of de extensie van het bestand correct is en vult de bestandsnaam (en verkort deze als dat nodig is) in het tekstvak in
 //Geeft een boolean terug die aangeeft of er een probleem is met de extensie of niet
-function getFileInfo(filename, type){
+export default function getFileInfo(filename, type){
     //Eventuele errors worden gereset, zodat deze niet onnodig blijven staan
     //throwImportError(type, '', true);
     //Bestandsnaam splitten op de extensie, zodat de extensie kan worden gecontroleerd
@@ -81,4 +81,4 @@ function throwImportError(type, message='', reset=false){
     }
 }
 
-module.exports = { validateFileExtension, compressFileName, throwImportError, getFileInfo }
+//module.exports = { validateFileExtension, compressFileName, throwImportError, getFileInfo }
