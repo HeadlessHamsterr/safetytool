@@ -89,17 +89,6 @@ app.post('/upload', (req, res) => {
     if(req.headers.uploadtype === 'recalibration'){
       console.log("Received upload for recalibration");
     }else if(req.headers.uploadtype === 'normal'){
-      //De server voegt de veiligheidsfuncties toe aan de nieuwe pagina, zodat die door de browser kan worden getoond
-      //Voor de HTML elementen voor de veiligheidsfuncties is een JSON template gemaakt
-      let htmlTemplate = JSON.parse(fs.readFileSync(path.join(__dirname, 'json/safetyFunction.json')));
-
-      //HTML bestand voor de pagina met veiligheidsfuncties laden
-      let functionPageFile = fs.readFileSync(path.join(__dirname, 'public', 'functionPage.html'));
-      //HTML bestand parsen naar HTML element, zodat deze makkelijk kan worden aangepast
-      let functionPage = parseHtml(functionPageFile);
-      //Elementen voor alle veilgheidsfuncties toevoegen aan HTML bestand
-      functionPage = generateSafetyFunctionElements(safetyData["data"], htmlTemplate, functionPage);
-      //HTML bestand doorsturen naar de gebruiker
       res.send(safetyData);
     }
   }
