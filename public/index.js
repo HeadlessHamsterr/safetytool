@@ -21,8 +21,8 @@ function importExcelFile(){
 
     xhr.onload = () => {
         //Data wordt teruggestuurd als JSON string, omzetten naar een object om uit te kunnen lezen
-        const safetyData = JSON.parse(xhr.getResponseHeader('safetyfunctions'));
-
+        const safetyData = JSON.parse(xhr.getResponseHeader('Safetyfunctions'));
+        console.log(safetyData);
         //Controleren of er errors gevonden zijn
         if(safetyData.result === "success"){
             //Data voor de veiligheidsfuncties opslaan in de session storage, zodat deze later gebruikt kan worden
@@ -40,6 +40,21 @@ function importExcelFile(){
             history.pushState({}, '', '/safetyfunctions');
         }else{
             console.log(safetyData.data.errorType);
+            let errorMsg;
+
+            switch(safetyData.data.errorType){
+                case "noCustomerInfoSheet":
+                    errorMsg = 'Onbekend document|Geen blad "Klant informatie" gevonden'
+                    break;
+                case "undefinedCells":
+                    errorMsg = `De vragenlijst is niet volledig ingevuld, of er is een verkeerde versie geüpload|Controleer "${safetyData.data.emptyCell}" op blad "${safetyData.data.sheet}"`;
+                    break;
+                default:
+                    errorMsg = "Onbekende fout opgetreden|Controleer het document"
+                    break;
+            }
+
+            throwImportError('excel', errorMsg, false);
         }
     }
 
@@ -326,6 +341,7 @@ function throwImportError(type, message='', reset=false){
     if(reset){
         importBox.style.border = '1px solid grey';
         errorSpan.innerHTML = '';
+        errorExplainSpan.innerHTML = '';
     }else{
         //Rand van uploadvak rood maken en error bericht(en) invullen
         importBox.style.border = '1px solid red';

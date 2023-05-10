@@ -17,7 +17,7 @@ const jsonToReadableCellName = {
 
 //Functie om te checken of het huidige blad een blad is met veiligheidsfuncties
 function shouldSkipSheet(sheetName){
-    const sheetsToSkip = ["Klant informatie", "vlookup"];
+    const sheetsToSkip = ["Klant informatie", "Versiebeheer", "vlookup"];
 
     for(skipSheet of sheetsToSkip){
         if(sheetName === skipSheet){
@@ -32,6 +32,15 @@ function shouldSkipSheet(sheetName){
 function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
     //Excel bestand omzetten naar JSON object
     var excelObj = xlsx.parse(fileName);
+
+    //Als de JSON versie excel bestand moet worden opgeslagen wordt dat gedaan
+    if(saveExcel){
+        fs.writeFile("excel.json", JSON.stringify(excelObj, null, 4), (err) =>{
+            if(err){
+                console.log(err);
+            }
+        });
+    }
     //Object dat wordt teruggestuurd door de functie
     var returnObj = {
         result: null,
@@ -136,15 +145,6 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
 
         //Veiligheidsfunctie toevoegen aan de lijst
         safetyData["safetyFunctions"].push(tempObj);
-    }
-
-    //Als de JSON versie excel bestand moet worden opgeslagen wordt dat gedaan
-    if(saveExcel){
-        fs.writeFile("excel.json", JSON.stringify(excelObj, null, 4), (err) =>{
-            if(err){
-                console.log(err);
-            }
-        });
     }
 
     //Als de verwerkte informatie moet worden opgeslagen, wordt dat gedaan
