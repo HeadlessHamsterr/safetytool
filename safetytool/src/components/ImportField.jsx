@@ -13,13 +13,12 @@ const ImportField = ({filetype, setFile, hidden}) => {
 
     useEffect(() => {
         let newTableWidth;
-        console.log(filename);
         if(filename){
             newTableWidth = 275 + filename.length * 9;
         }else{
             newTableWidth = 275;
         }
-        console.log(`New table width: ${newTableWidth}`);
+
         document.getElementById('excelDropzone').style.width = `${newTableWidth}px`;
     }, [filename]);
 
@@ -30,18 +29,14 @@ const ImportField = ({filetype, setFile, hidden}) => {
     function handleFileChange(e){
         setErrorMsg(null);
         setExplainErrorMsg(null);
-        if(!e.target.files){
+        
+        if(e.target.files.length === 0){
+            console.log("No files selected");
             return;
         }
-
-        console.log(filetype);
-        console.log(e.target);
         const fileInfo = getFileInfo(e.target.files[0].name, filetype);
 
         if(fileInfo.success){
-            console.log(`New table width: ${fileInfo.filename.length}`);
-            document.getElementById('excelDropzone').style.width = `${fileInfo.filename.length}px`;
-
             setFile(e.target.files[0]);
             setFilename(fileInfo.filename);
         }else{

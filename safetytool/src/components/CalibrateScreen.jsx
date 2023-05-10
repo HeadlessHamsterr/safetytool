@@ -33,7 +33,6 @@ const CalibrateScreen = ({hidden, sessionId}) => {
             <button className="importBtn" onclick="importExcelFile()">Importeren</button><br/>
             <p className="projectTitle">Gevonden bladen:</p><br/>
             {excelSheets ? excelSheets.map((excelSheet, i) => {
-                console.log(`Pre excel sheet key: ${i}`);
                 return <div><ExcelSheet sheetname={excelSheet} key={i} idKey={i}/><br/></div>
             }): <p style={{fontSize: "20px", color: 'white'}}>Importeer eerst een nieuwe vragenlijst</p>}
         </div>

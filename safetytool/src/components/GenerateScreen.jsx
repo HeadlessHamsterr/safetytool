@@ -117,7 +117,7 @@ const GenerateScreen = ({safetyData, hidden, sessionId}) => {
 
     return(
         <div className="pageDiv" style={hidden ? {display: 'none'} : null}>
-            <h className="projectTitle" id="projectTitle">{safetyData ? `${safetyData.klant} ${safetyData.projectnaam} (${safetyData.projectcode})` : null}</h><br />
+            <span className="projectTitle" id="projectTitle">{safetyData ? `${safetyData.klant} ${safetyData.projectnaam} (${safetyData.projectcode})` : null}</span><br />
             <table style={{color: 'white', textAlign: 'right'}}>
                 <tbody>
                     <tr>

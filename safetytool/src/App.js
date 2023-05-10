@@ -62,9 +62,9 @@ function App() {
       </div>
         <Home returnSafetyfunctions={fileUploaded} sessionId={sessionId} hidden={homeHidden}/>
         <GenerateScreen safetyData={safetyfunctions} hidden={generateScreenHidden} sessionId={sessionId}/>
-        <CalibrateScreen hidden={calibrateScreenHidden} sessionId={sessionId}/>
     </div>
   );
 }
+//<CalibrateScreen hidden={calibrateScreenHidden} sessionId={sessionId}/>
 
 export default App;

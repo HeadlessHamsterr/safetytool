@@ -9,12 +9,10 @@ const ExcelSheet = ({sheetname, idKey}) => {
     useEffect(() => {
         $(document.getElementById(`excelCellWrapper${idKey}`)).slideUp(400);
         document.getElementById(`arrowIcon${idKey}`).style.setProperty('transform', 'rotate(0deg)');
-        console.log(`Excel sheet key: ${idKey}`)
     }, [idKey]);
 
     function expandSheet(){
         const arrow = document.getElementById(`arrowIcon${idKey}`);
-        console.log(arrow.style.getPropertyValue('transform'))
         if(arrow.style.getPropertyValue('transform') === 'rotate(180deg)'){
             arrow.style.setProperty('transform', 'rotate(0deg)');
             $(document.getElementById(`excelCellWrapper${idKey}`)).slideUp(400);
