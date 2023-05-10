@@ -41,7 +41,6 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
             }
         });
     }
-
     //Object dat wordt teruggestuurd door de functie
     var returnObj = {
         result: null,

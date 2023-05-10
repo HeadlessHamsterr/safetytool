@@ -84,7 +84,7 @@ app.post('/upload', (req, res) => {
     //Gegevens uit vragenlijst worden opgeslagen als JSON bestand
     fs.writeFileSync(path.join(userDirectory, 'parsedExcel.json'), JSON.stringify(safetyData, null, 4));
     //Gegevens worden teruggestuurd naar de client, zodat de gebruiker deze nog een keer kan controleren
-    res.set('safetyfunctions', JSON.stringify(safetyData));
+    res.setHeader('safetyfunctions', JSON.stringify(safetyData));
    
     if(req.headers.uploadtype === 'recalibration'){
       console.log("Received upload for recalibration");
