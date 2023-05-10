@@ -1,0 +1,361 @@
+{
+    "ATTR": {
+        "archName": "Single_Channel_(1oo1)",
+        "diagnosticCoverage": "0.9",
+        "srpClassificationName": "Input",
+        "channelNo": "1",
+        "projectStandard": "PL",
+        "wiringFaultExclusion": "false",
+        "crossShortDetection": "false",
+        "displayNumber": "1.1.1.1"
+    },
+    "projComponent": [
+        {
+            "ATTR": {
+                "deviceManufacturerName": "Placeholders",
+                "deviceLibraryName": "Placeholders",
+                "deviceLibraryVersion": "1.1.0",
+                "selectedDeviceId": "0Placeholder Sensor V1.1",
+                "selectedDeviceName": "Placeholder Sensor"
+            },
+            "device": [
+                {
+                    "ATTR": {
+                        "identifier": "0Placeholder Sensor V1.1",
+                        "partNumber": "0Placeholder Sensor",
+                        "revision": "1.1",
+                        "archive": "false"
+                    },
+                    "name": [
+                        {
+                            "ATTR": {
+                                "key": "KeyName_0Placeholder Sensor V1.1"
+                            }
+                        }
+                    ],
+                    "useCases": [
+                        {
+                            "useCase": [
+                                {
+                                    "ATTR": {
+                                        "infoConfig": "CAT_na"
+                                    },
+                                    "constraints": [
+                                        {
+                                            "hierarchy1": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "Sensor"
+                                                    }
+                                                }
+                                            ],
+                                            "hierarchy2": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "Dual channel"
+                                                    }
+                                                }
+                                            ],
+                                            "hierarchy3": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "Digital output"
+                                                    }
+                                                }
+                                            ],
+                                            "hierarchy4": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "General purpose"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "function": [
+                                        {
+                                            "ATTR": {
+                                                "inputFunction": "true"
+                                            }
+                                        }
+                                    ],
+                                    "parameter": [
+                                        {
+                                            "deviceType3": [
+                                                {
+                                                    "ATTR": {
+                                                        "B10DStr": "1",
+                                                        "TMT1Str": "20"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "selectedConstraints": [
+                "Sensor",
+                "Dual channel",
+                "Digital output",
+                "General purpose"
+            ],
+            "language": [
+                {
+                    "languageKeys": [
+                        {
+                            "languageDef": [
+                                {
+                                    "ATTR": {
+                                        "languageKey": "en"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "informations": [
+                        ""
+                    ],
+                    "groups": [
+                        ""
+                    ],
+                    "names": [
+                        {
+                            "names": [
+                                {
+                                    "ATTR": {
+                                        "key": "KeyName_0Placeholder Sensor V1.1"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Placeholder Sensor",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "descriptions": [
+                        ""
+                    ],
+                    "docFileName": [
+                        ""
+                    ],
+                    "constraints": [
+                        {
+                            "constraints": [
+                                {
+                                    "ATTR": {
+                                        "key": "Sensor"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Sensor",
+                                                "languageKey": "de"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Sensor",
+                                                "languageKey": "es"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Capteur",
+                                                "languageKey": "fr"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Sensore",
+                                                "languageKey": "it"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "センサ",
+                                                "languageKey": "ja"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Sensor",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "ATTR": {
+                                        "key": "Dual channel"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Zweikanalig",
+                                                "languageKey": "de"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Bicanal",
+                                                "languageKey": "es"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "À deux canaux",
+                                                "languageKey": "fr"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Bicanale",
+                                                "languageKey": "it"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "2チャンネル",
+                                                "languageKey": "ja"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Dual channel",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "ATTR": {
+                                        "key": "Digital output"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Digitaler Ausgang",
+                                                "languageKey": "de"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Salida digital",
+                                                "languageKey": "es"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Sortie digitale",
+                                                "languageKey": "fr"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Uscita digitale",
+                                                "languageKey": "it"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "デジタル出力",
+                                                "languageKey": "ja"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Digital output",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "ATTR": {
+                                        "key": "General purpose"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Allgemeine Verwendung",
+                                                "languageKey": "de"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Utilización general",
+                                                "languageKey": "es"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Utilisation générale",
+                                                "languageKey": "fr"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Utilizzo generale",
+                                                "languageKey": "it"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "一般用途",
+                                                "languageKey": "ja"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "General purpose",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "info": [
+                        ""
+                    ]
+                }
+            ]
+        }
+    ],
+    "numberOfOperations": [
+        {
+            "ATTR": {
+                "numberOfOperationsInputType": "0",
+                "numberOfOperations": "0.001",
+                "operationalHoursPerDay": "24.0",
+                "operationalDaysPerYear": "365.0"
+            },
+            "operationsPerTime": [
+                {
+                    "ATTR": {
+                        "unit": "5",
+                        "value": "0.001"
+                    }
+                }
+            ],
+            "timeBetweenOperations": [
+                {
+                    "ATTR": {
+                        "unit": "5",
+                        "value": "1000.0"
+                    }
+                }
+            ]
+        }
+    ]
+}

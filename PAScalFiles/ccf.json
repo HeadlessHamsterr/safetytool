@@ -17,7 +17,7 @@
         "text": "Physical separation between the signal paths e.g.: \na) separation in wiring/piping,\nb) detection of short circuits and open circuits by dynamic tests;\nc) separate shielding of the signal path of each channel;\nd) sufficient clearances and creepage distances on printed-circuit boards.",
         "reference": "1",
         "score": "15",
-        "isSelected": "false",
+        "isSelected": "true",
         "isHeader": "false"
       }
     },
@@ -53,7 +53,7 @@
         "text": "Protection against over-voltage, over-pressure, over-current, over-temperature, etc.",
         "reference": "3.1",
         "score": "15",
-        "isSelected": "false",
+        "isSelected": "true",
         "isHeader": "false"
       }
     },
@@ -62,7 +62,7 @@
         "text": "Components used are well-tried.",
         "reference": "3.2",
         "score": "5",
-        "isSelected": "false",
+        "isSelected": "true",
         "isHeader": "false"
       }
     },
@@ -98,7 +98,7 @@
         "text": "Training of designers to understand the causes and consequences of common cause failures.",
         "reference": "5",
         "score": "5",
-        "isSelected": "false",
+        "isSelected": "true",
         "isHeader": "false"
       }
     },
@@ -116,7 +116,7 @@
         "text": "For electric/electronic systems, prevention of contamination and electromagnetic disturbances (EMC) to protect against common-cause failures in accordance with appropriate standards (e.g. IEC 61326-3-1). \nFluidic systems: Filtration of the pressure medium, prevention of dirt intake, drainage of compressed air, e.g. in compliance with the component manufacturers' requirements concerning purity of the pressure medium. \nNOTE: For combined fluidic and electric systems, both aspects should be considered. ",
         "reference": "6.1",
         "score": "25",
-        "isSelected": "false",
+        "isSelected": "true",
         "isHeader": "false"
       }
     },
@@ -125,7 +125,7 @@
         "text": "Other influences:\nConsideration of the requirements for immunity to all relevant environmental influences such as, temperature, shock, vibration, humidity (e.g. as specified in relevant standards).",
         "reference": "6.2",
         "score": "10",
-        "isSelected": "false",
+        "isSelected": "true",
         "isHeader": "false"
       }
     }

@@ -1,0 +1,326 @@
+{
+    "ATTR": {
+        "archName": "Single_Channel_(1oo1)",
+        "srpClassificationName": "Output",
+        "channelNo": "1",
+        "projectStandard": "PL",
+        "displayNumber": "1.5.1.1"
+    },
+    "projComponent": [
+        {
+            "ATTR": {
+                "deviceManufacturerName": "Placeholders",
+                "deviceLibraryName": "Placeholders",
+                "deviceLibraryVersion": "1.1.0",
+                "selectedDeviceId": "0Placeholder Actor V1.1",
+                "selectedDeviceName": "Placeholder Actor"
+            },
+            "device": [
+                {
+                    "ATTR": {
+                        "identifier": "0Placeholder Actor V1.1",
+                        "partNumber": "0Placeholder Actor",
+                        "revision": "1.1",
+                        "archive": "false"
+                    },
+                    "name": [
+                        {
+                            "ATTR": {
+                                "key": "KeyName_0Placeholder Actor V1.1"
+                            }
+                        }
+                    ],
+                    "useCases": [
+                        {
+                            "useCase": [
+                                {
+                                    "ATTR": {
+                                        "infoConfig": "CAT_na"
+                                    },
+                                    "constraints": [
+                                        {
+                                            "hierarchy1": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "Actor"
+                                                    }
+                                                }
+                                            ],
+                                            "hierarchy2": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "Single channel"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "function": [
+                                        {
+                                            "ATTR": {
+                                                "outputFunction": "true"
+                                            }
+                                        }
+                                    ],
+                                    "parameter": [
+                                        {
+                                            "deviceType1": [
+                                                {
+                                                    "ATTR": {
+                                                        "PL": "PL_na",
+                                                        "SILCL": "SIL_na",
+                                                        "PFHDStr": "1E-9",
+                                                        "TMT1Str": "1E-9"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "ATTR": {
+                                        "infoConfig": "CAT_na"
+                                    },
+                                    "constraints": [
+                                        {
+                                            "hierarchy1": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "Actor"
+                                                    }
+                                                }
+                                            ],
+                                            "hierarchy2": [
+                                                {
+                                                    "ATTR": {
+                                                        "key": "Dual channel"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "function": [
+                                        {
+                                            "ATTR": {
+                                                "outputFunction": "true"
+                                            }
+                                        }
+                                    ],
+                                    "parameter": [
+                                        {
+                                            "deviceType1": [
+                                                {
+                                                    "ATTR": {
+                                                        "PL": "PL_na",
+                                                        "SILCL": "SIL_na",
+                                                        "PFHDStr": "1E-9",
+                                                        "TMT1Str": "1E-9"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "selectedConstraints": [
+                "Actor",
+                "Single channel"
+            ],
+            "language": [
+                {
+                    "languageKeys": [
+                        {
+                            "languageDef": [
+                                {
+                                    "ATTR": {
+                                        "languageKey": "en"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "informations": [
+                        ""
+                    ],
+                    "groups": [
+                        ""
+                    ],
+                    "names": [
+                        {
+                            "names": [
+                                {
+                                    "ATTR": {
+                                        "key": "KeyName_0Placeholder Actor V1.1"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Placeholder Actor",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "descriptions": [
+                        ""
+                    ],
+                    "docFileName": [
+                        ""
+                    ],
+                    "constraints": [
+                        {
+                            "constraints": [
+                                {
+                                    "ATTR": {
+                                        "key": "Actor"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Aktor",
+                                                "languageKey": "de"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Accionador",
+                                                "languageKey": "es"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Actionneur",
+                                                "languageKey": "fr"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Attuatore",
+                                                "languageKey": "it"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "アクチュエータ",
+                                                "languageKey": "ja"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Actor",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "ATTR": {
+                                        "key": "Single channel"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Einkanalig",
+                                                "languageKey": "de"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Monocanal",
+                                                "languageKey": "es"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Monocanal",
+                                                "languageKey": "fr"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Monocanale",
+                                                "languageKey": "it"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "1チャンネル",
+                                                "languageKey": "ja"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Single channel",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "ATTR": {
+                                        "key": "Dual channel"
+                                    },
+                                    "text": [
+                                        {
+                                            "ATTR": {
+                                                "value": "Zweikanalig",
+                                                "languageKey": "de"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Bicanal",
+                                                "languageKey": "es"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "À deux canaux",
+                                                "languageKey": "fr"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Bicanale",
+                                                "languageKey": "it"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "2チャンネル",
+                                                "languageKey": "ja"
+                                            }
+                                        },
+                                        {
+                                            "ATTR": {
+                                                "value": "Dual channel",
+                                                "languageKey": "en"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "info": [
+                        ""
+                    ]
+                }
+            ]
+        }
+    ],
+    "numberOfOperations": [
+        {
+            "ATTR": {
+                "numberOfOperationsInputType": "0"
+            }
+        }
+    ]
+}

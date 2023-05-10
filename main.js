@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const parseHtml = require('node-html-parser').parse;
 const favicon = require('serve-favicon');
+const cors = require('cors');
 
 const { parseExcelFile, excelToJson } = require('./modules/excelParser.js');
 const generateSafetyFunctionElements = require('./modules/htmlTools.js');
@@ -13,7 +14,7 @@ const generateChecklistData = require('./modules/checklistGenerator.js');
 
 //Maak een HTTP server aan op port 3000
 const app = express();
-const port = 3000;
+const port = 3001;
 
 //Definieer de map waarin alle bestanden worden opgeslagen die gebruikt worden door de site (geüploade vragenlijsten, PAScal projecten, etc)
 const mainUserDirectory = path.join(__dirname, 'userFiles');
@@ -27,6 +28,9 @@ app.use(express.static('public'));  //Locatie van de statische bestanden
 app.use(bodyParser.json());         //Middelware voor het parsen van JSON gegevens in de body van binnen komende requests
 app.use(fileupload());              //Middelware voor het ontvangen van bestanden
 app.use(favicon(path.join(__dirname, 'assets', 'icon.ico')));
+app.use(cors({
+  origin: '*'
+}));
 
 //Handler voor het / endpoint, stuurt de index pagina terug naar de client
 app.get("/", (req, res) => {
@@ -85,30 +89,14 @@ app.post('/upload', (req, res) => {
     if(req.headers.uploadtype === 'recalibration'){
       console.log("Received upload for recalibration");
     }else if(req.headers.uploadtype === 'normal'){
-      if(safetyData["result"] === "succes"){
-        //De server voegt de veiligheidsfuncties toe aan de nieuwe pagina, zodat die door de browser kan worden getoond
-        //Voor de HTML elementen voor de veiligheidsfuncties is een JSON template gemaakt
-        let htmlTemplate = JSON.parse(fs.readFileSync(path.join(__dirname, 'json/safetyFunction.json')));
-
-        //HTML bestand voor de pagina met veiligheidsfuncties laden
-        let functionPageFile = fs.readFileSync(path.join(__dirname, 'public', 'functionPage.html'));
-        //HTML bestand parsen naar HTML element, zodat deze makkelijk kan worden aangepast
-        let functionPage = parseHtml(functionPageFile);
-        //Elementen voor alle veilgheidsfuncties toevoegen aan HTML bestand
-        functionPage = generateSafetyFunctionElements(safetyData["data"], htmlTemplate, functionPage);
-        //HTML bestand doorsturen naar de gebruiker
-        res.send(functionPage.toString());
-      }else if(safetyData["result"] === "failed"){
-        //res.setHeader("safetyfunctions", JSON.stringify(safetyData));
-        res.send();
-      }
+      res.send(safetyData);
     }
   }
 });
 
 //Handler voor de /generate endpoint
 //Deze handler maakt het pascal project en stuurt deze terug naar de gebruiker
-app.get('/generate', (req, res) => {
+app.get('/pascal', (req, res) => {
   //Controleren of de sessionId een geldig UUID is, anders wordt een error teruggestuurd
   const sessionId = req.headers.sessionid;
   const projectInfo = JSON.parse(req.headers.projectinfo)
@@ -126,12 +114,14 @@ app.get('/generate', (req, res) => {
       //Gegevens uit vragenlijst ophalen uit het eerder gemaakte JSON bestand
       const safetyData = JSON.parse(fs.readFileSync(path.join(userDirectory, 'parsedExcel.json')))["data"];
       //PAScal project genereren op basis van de gegevens
-      const pascalProject = generatePAScalProject(safetyData, projectInfo.author, projectInfo.projectLocation);
+      const pascalProject = generatePAScalProject(safetyData, projectInfo.author);
       //Bestandsnaam maken op basis van projectgegevens
       const filename = `${safetyData["klant"]}_${safetyData["projectnaam"]}_${safetyData["projectcode"]}.psc`;
 
       //PAScal project opslaan
       fs.writeFileSync(path.join(userDirectory, filename), pascalProject);
+
+      res.setHeader('filename', filename);
 
       //PAScal project bestand terugsturen naar de gebruiker. Dit bestand wordt direct door de browser gedownload.
       res.download(path.join(userDirectory, filename), (err) => {

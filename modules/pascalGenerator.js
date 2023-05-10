@@ -1,12 +1,12 @@
 const fs = require('fs')
 const path = require('path')
 
-module.exports = function generatePAScalProject(safetyData, author, projectLocation){
-    let projectBase = JSON.parse(fs.readFileSync(path.join(__dirname, '../PAScalFiles/emptyProject.json')))
+module.exports = function generatePAScalProject(safetyData, author){
+    let projectBase = JSON.parse(fs.readFileSync(path.join(__dirname, '../PAScalFiles/emptyProject.json')));
 
     //Naam van het project wordt gemaakt adhv de naam van de klant, project naam en project code
-    let projectName = safetyData["klant"] + "_" + safetyData["projectnaam"] + "_" + safetyData["projectcode"]
-    projectBase["project:ProjectType"]["ATTR"]["name"] = projectName
+    let projectName = safetyData["klant"] + "_" + safetyData["projectnaam"] + "_" + safetyData["projectcode"];
+    projectBase["project:ProjectType"]["ATTR"]["name"] = projectName.replace(/\s+/g, "_");
 
     //Modification & creation date omzetten naar juiste format
     const date = new Date(Date.now())
@@ -14,15 +14,13 @@ module.exports = function generatePAScalProject(safetyData, author, projectLocat
     projectBase["project:ProjectType"]["ATTR"]["modificationDate"] = convertToTimestamp(date)
 
     projectBase["project:ProjectType"]["ATTR"]["author"] = author
-    if(projectLocation){
-        projectBase["project:ProjectType"]["ATTR"]["directoryPath"] = projectLocation
-    }
+
     projectBase["project:ProjectType"]["projectStandard"][0]["ATTR"]["classificationType"] = "PL"
     projectBase["project:ProjectType"]["projectStandard"][0]["ATTR"]["standard"] = "ISO 13849-1:2015 + EN ISO 13849-2:2012"
     
     //Voor alle bladen in het excel bestand moet een srf tag worden toegevoegd.
     for(let i = 0; i < safetyData["safetyFunctions"].length; i++){
-        projectBase["project:ProjectType"]["sRF"].push(generatePL_SRF(safetyData["safetyFunctions"][i]))
+        projectBase["project:ProjectType"]["sRF"].push(generatePL_SRF(safetyData["safetyFunctions"][i], i))
     }
 
     let xmlFile = '<?xml version="1.0" encoding="UTF-8"?>\n' + convertToXML(projectBase)
@@ -30,7 +28,7 @@ module.exports = function generatePAScalProject(safetyData, author, projectLocat
     return xmlFile;
 }
 
-function generatePL_SRF(safetyData){
+function generatePL_SRF(safetyData, safetyFunctionNum){
     //Object voor het omzetten van de PL letter naar het nummer wat PAScal nodig heeft
     const targetLevels = {
         "A": "0",
@@ -42,6 +40,7 @@ function generatePL_SRF(safetyData){
 
     let srfBase = JSON.parse(fs.readFileSync(path.join(__dirname, '../PAScalFiles/srfPL.json')))
     srfBase["ATTR"]["name"] = safetyData["safetyFunctionTitle"]
+    srfBase["ATTR"]["comments"] = safetyData["safetyFunctionEffect"]
     srfBase["ATTR"]["target"] = targetLevels[safetyData["data"]["tPL"]]
 
     srfBase["CCF"].push(JSON.parse(fs.readFileSync(path.join(__dirname, '../PAScalFiles/ccf.json'))))
@@ -49,41 +48,41 @@ function generatePL_SRF(safetyData){
     let itemNumber = 1;
     //Voor ieder onderdeel in de srf wordt een srp gemaakt
     if(safetyData["data"]["category"] == "B" || safetyData["data"]["category"] == 1){
-        srfBase["SRP"].push(generatePL_SRP(safetyData, 1, "Input", itemNumber));
+        srfBase["SRP"].push(generatePL_SRP(safetyData, 1, "Input", itemNumber, safetyFunctionNum, "Sensor"));
         itemNumber++;
     }else{
-        srfBase["SRP"].push(generatePL_SRP(safetyData, 2, "Input", itemNumber));
+        srfBase["SRP"].push(generatePL_SRP(safetyData, 2, "Input", itemNumber, safetyFunctionNum, "Sensor"));
         itemNumber++;
     }
     
     if(safetyData["data"]["logicType"] == "Veiligheidsrelais"){
-        srfBase["SRP"].push(generatePL_SRP(safetyData, 1, "Logic", itemNumber, "Relais"));
+        srfBase["SRP"].push(generatePL_SRP(safetyData, 1, "Logic", itemNumber, safetyFunctionNum, "CPU"));
         itemNumber++;
     }else if(safetyData["data"]["logicType"] == "PLC"){
-        srfBase["SRP"].push(generatePL_SRP(safetyData, 1, "Logic", itemNumber, "In"));
+        srfBase["SRP"].push(generatePL_SRP(safetyData, 1, "Logic", itemNumber, safetyFunctionNum, "Input"));
         itemNumber++;
 
-        srfBase["SRP"].push(generatePL_SRP(safetyData, 1, "Logic", itemNumber, "CPU"));
+        srfBase["SRP"].push(generatePL_SRP(safetyData, 1, "Logic", itemNumber, safetyFunctionNum, "CPU"));
         itemNumber++;
 
-        srfBase["SRP"].push(generatePL_SRP(safetyData, 1, "Logic", itemNumber, "Out"));
+        srfBase["SRP"].push(generatePL_SRP(safetyData, 1, "Logic", itemNumber, safetyFunctionNum, "Output"));
         itemNumber++;
     }else{
         console.error(`Unkown logic type: ${safetyData["data"]["logicType"]}`);
     }
 
     if(safetyData["data"]["category"] == "B" || safetyData["data"]["category"] == 1){
-        srfBase["SRP"].push(generatePL_SRP(safetyData, 1, "Output", itemNumber));
+        srfBase["SRP"].push(generatePL_SRP(safetyData, 1, "Output", itemNumber, safetyFunctionNum, "Actor"));
     }else{
-        srfBase["SRP"].push(generatePL_SRP(safetyData, 2, "Output", itemNumber));
+        srfBase["SRP"].push(generatePL_SRP(safetyData, 2, "Output", itemNumber, safetyFunctionNum, "Actor"));
     }
 
     return srfBase
 }
 
-function generatePL_SRP(safetyData, numComponents, type, displayNumber, logicType=""){
+function generatePL_SRP(safetyData, numComponents, channelType, displayNumber, safetyFunctionNum, componentType=""){
     let srpBase = JSON.parse(fs.readFileSync(path.join(__dirname, "../PAScalFiles/srpPL.json")))
-    srpBase["ATTR"]["typeName"] = type
+    srpBase["ATTR"]["typeName"] = channelType
 
     if(numComponents == 1){
         srpBase["ATTR"]["numberOfcomponents"] = "One"
@@ -104,23 +103,36 @@ function generatePL_SRP(safetyData, numComponents, type, displayNumber, logicTyp
     srpBase["ATTR"]["category"] = safetyData["data"]["category"]
 
     for(let i = 0; i < numComponents; i++){
-        var deviceType = type
-
-        //Alle logic componenten moeten een andere naam krijgen, anders kan je niet de losse onderdelen vervangen maar worden ze allemaal hetzelfde component
-        if(type == "Logic"){
-            deviceType += logicType
-        }
-        srpBase["channel"].push(generatePL_Channel(safetyData, i+1, displayNumber, deviceType))
+        srpBase["channel"].push(generatePL_Channel(safetyData, i+1, displayNumber, safetyFunctionNum, componentType))
     }
 
     return srpBase
 }
 
-function generatePL_Channel(safetyData, channelNo, displayNumber, type){
-    let baseChannel = JSON.parse(fs.readFileSync(path.join(__dirname, "../PAScalFiles/channel.json")))
-    let baseComponent = JSON.parse(fs.readFileSync(path.join(__dirname, `../PAScalFiles/${type}.json`)))
+function generatePL_Channel(safetyData, channelNo, displayNumber, safetyFunctionNum, componentType){
+    console.log(`Making component ${channelNo}${componentType}`);
+    let baseChannel = JSON.parse(fs.readFileSync(path.join(__dirname, "../PAScalFiles/channel.json")));
+    let baseComponent = JSON.parse(fs.readFileSync(path.join(__dirname, `../PAScalFiles/old/${componentType}.json`)));
 
-    baseChannel["ATTR"]["channelNo"] = channelNo
+    baseChannel["ATTR"]["channelNo"] = channelNo;
+
+    let componentId;
+    switch(componentType){
+        case "Sensor":
+        case "Actor":
+            componentId = `${safetyFunctionNum}Placeholder ${componentType} V1.1`;
+            break;
+        default:
+            componentId = `${safetyFunctionNum}${componentType}1.1.0`;
+    }
+
+    baseComponent["projComponent"][0]["ATTR"]["selectedDeviceId"] = componentId;
+    //baseComponent["projComponent"][0]["ATTR"]["selectedDevicename"] = componentName;
+    baseComponent["projComponent"][0]["device"][0]["ATTR"]["identifier"] = componentId;
+    baseComponent["projComponent"][0]["device"][0]["ATTR"]["partNumber"] = componentId.replace(" V1.1", "");
+    baseComponent["projComponent"][0]["device"][0]["name"][0]["ATTR"]["key"] = `KeyName_${componentId}`;
+    baseComponent["projComponent"][0]["language"][0]["names"][0]["names"][0]["ATTR"]["key"] = `KeyName_${componentId}`;
+
     baseChannel["configuredComponent"].push(baseComponent)
 
     switch(safetyData["data"]["DC"]){
@@ -138,28 +150,32 @@ function generatePL_Channel(safetyData, channelNo, displayNumber, type){
         break;
     }
     baseChannel["configuredComponent"][0]["ATTR"]["channelNo"] = channelNo
+    baseChannel["configuredComponent"][0]["ATTR"]["displayNumber"] = `${safetyFunctionNum+1}.${displayNumber}.${channelNo}.1`
 
-    if(safetyData["data"]["faultDetection"] == "Fault exclusion"){
-        baseChannel["configuredComponent"][0]["ATTR"]["wiringFaultExclusion"] = "true"
-        baseChannel["configuredComponent"][0]["ATTR"]["crossShortDetection"] = "false"
-    }else if(safetyData["data"]["faultDetection"] == "Short circuit detection"){
-        baseChannel["configuredComponent"][0]["ATTR"]["crossShortDetection"] = "true"
-        baseChannel["configuredComponent"][0]["ATTR"]["wiringFaultExclusion"] = "false"
-    }else{
-        baseChannel["configuredComponent"][0]["ATTR"]["wiringFaultExclusion"] = "false"
-        baseChannel["configuredComponent"][0]["ATTR"]["crossShortDetection"] = "false"
+    if(componentType === "Sensor"){
+        if(safetyData["data"]["faultDetection"] == "Fault exclusion"){
+            baseChannel["configuredComponent"][0]["ATTR"]["wiringFaultExclusion"] = "true"
+            baseChannel["configuredComponent"][0]["ATTR"]["crossShortDetection"] = "false"
+        }else if(safetyData["data"]["faultDetection"] == "Short circuit detection"){
+            baseChannel["configuredComponent"][0]["ATTR"]["crossShortDetection"] = "true"
+            baseChannel["configuredComponent"][0]["ATTR"]["wiringFaultExclusion"] = "false"
+        }else{
+            baseChannel["configuredComponent"][0]["ATTR"]["wiringFaultExclusion"] = "false"
+            baseChannel["configuredComponent"][0]["ATTR"]["crossShortDetection"] = "false"
+        }
+        
+        //baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["numperOfOperations"] = safetyData["data"]["oppPerHour"].toString()
+        baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["operationalHoursPerDay"] = safetyData["data"]["oppHoursPerDay"].toString()
+        baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["operationalDaysPerYear"] = safetyData["data"]["oppDaysPerYear"].toString()
+        baseChannel["configuredComponent"][0]["numberOfOperations"][0]["operationsPerTime"][0]["ATTR"]["value"] = safetyData["data"]["oppPerHour"].toString()
+        baseChannel["configuredComponent"][0]["numberOfOperations"][0]["operationsPerTime"][0]["ATTR"]["unit"] = "3";
+
+        //Time between operations is de inverse van operations per time
+        baseChannel["configuredComponent"][0]["numberOfOperations"][0]["timeBetweenOperations"][0]["ATTR"]["value"] = (1/safetyData["data"]["oppPerHour"]).toString()
+        baseChannel["configuredComponent"][0]["numberOfOperations"][0]["timeBetweenOperations"][0]["ATTR"]["unit"] = "3";
     }
-    baseChannel["configuredComponent"][0]["ATTR"]["displayNumber"] = `1.${displayNumber}.${channelNo}.1`
-
-    baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["numperOfOperations"] = safetyData["data"]["oppPerHour"].toString()
-    baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["operationalHoursPerDay"] = safetyData["data"]["oppHoursPerDay"].toString()
-    baseChannel["configuredComponent"][0]["numberOfOperations"][0]["ATTR"]["operationalDaysPerYear"] = safetyData["data"]["oppDaysPerYear"].toString()
-    baseChannel["configuredComponent"][0]["numberOfOperations"][0]["operationsPerTime"][0]["ATTR"]["value"] = safetyData["data"]["oppPerHour"].toString()
-
-    //Time between operations is de inverse van operations per time
-    baseChannel["configuredComponent"][0]["numberOfOperations"][0]["timeBetweenOperations"][0]["ATTR"]["value"] = (1/safetyData["data"]["oppPerHour"]).toString()
-
-    return baseChannel
+    
+    return baseChannel;
 }
 
 function convertToTimestamp(date){
