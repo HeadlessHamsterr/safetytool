@@ -99,11 +99,13 @@ body{
 
 .buttonRow{
   border-radius: 10px;
-  width: 800px;
+  width: 275px;
+  overflow: hidden;
   height: fit-content;
   margin: 10px auto;
   box-shadow: 0px 2px 18px -4px rgba(0,0,0,0.75);
   border: 1px solid grey;
+  transition: all 0.5s ease-out;
 }
 
 .buttonRow button{
@@ -126,6 +128,7 @@ body{
 
 .importResults{
   float: right;
+  width: fit-content;
 }
 
 .fileName{

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import getFileInfo from "./modules/fileTools";
 
 const ImportField = ({filetype, setFile, hidden}) => {
-    const [filename, setFilename] = useState(null);
+    const [filename, setFilename] = useState('');
     const [errorMsg, setErrorMsg] = useState(null);
     const [explainErrorMsg, setExplainErrorMsg] = useState(null);
     const inputRef = useRef(null);
@@ -10,6 +10,18 @@ const ImportField = ({filetype, setFile, hidden}) => {
     useEffect(() => {
         setFilename(null);
     }, [hidden]);
+
+    useEffect(() => {
+        let newTableWidth;
+        console.log(filename);
+        if(filename){
+            newTableWidth = 275 + filename.length * 9;
+        }else{
+            newTableWidth = 275;
+        }
+        console.log(`New table width: ${newTableWidth}`);
+        document.getElementById('excelDropzone').style.width = `${newTableWidth}px`;
+    }, [filename]);
 
     function handleUploadClick(){
         inputRef.current?.click();
@@ -27,9 +39,11 @@ const ImportField = ({filetype, setFile, hidden}) => {
         const fileInfo = getFileInfo(e.target.files[0].name, filetype);
 
         if(fileInfo.success){
+            console.log(`New table width: ${fileInfo.filename.length}`);
+            document.getElementById('excelDropzone').style.width = `${fileInfo.filename.length}px`;
+
             setFile(e.target.files[0]);
             setFilename(fileInfo.filename);
-            console.log(fileInfo.filename);
         }else{
             setFilename(null);
             const errors = fileInfo.error.split('|');
@@ -38,7 +52,7 @@ const ImportField = ({filetype, setFile, hidden}) => {
             return;
         }
     }
-
+//<td><p className="importFileTypes">(Sleep het bestand, of druk op openen)</p></td>
     return(
         <div>
             <table className="buttonRow" id="excelDropzone">
@@ -48,7 +62,6 @@ const ImportField = ({filetype, setFile, hidden}) => {
                         <tbody>
                         <tr>
                             <td><p>Vragenlijst</p></td>
-                            <td><p className="importFileTypes">(Sleep het bestand, of druk op openen)</p></td>
                         </tr>
                         </tbody>
                         </table>
@@ -57,7 +70,7 @@ const ImportField = ({filetype, setFile, hidden}) => {
                         <table className="importResults">
                             <tbody>
                             <tr>
-                                <td><span id="excelFileName" className="fileName">{filename}</span></td>
+                                <td nowrap='nowrap'><span id="excelFileName" className="fileName">{filename}</span></td>
                                 <td><button className="openBtn" onClick={() => handleUploadClick()}>Openen</button></td>
                                 <td><input type="file" accept=".xls, .xlsx, .xlsm" ref={inputRef} onChange={(e) => handleFileChange(e)} style={{ display: 'none' }}/></td>
                             </tr>
