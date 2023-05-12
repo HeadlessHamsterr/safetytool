@@ -84,13 +84,23 @@ app.post('/upload', (req, res) => {
       //Sla de vragenlijst op in de map van de client en haal de gegevens op met parseExelFile()
       fs.writeFileSync(path.join(userDirectory, req.files.excelFile.name), req.files.excelFile.data);
 
-      const safetyData = parseExcelFile(path.join(userDirectory, req.files.excelFile.name), true, true);
-
-      //Gegevens uit vragenlijst worden opgeslagen als JSON bestand
-      fs.writeFileSync(path.join(userDirectory, 'parsedExcel.json'), JSON.stringify(safetyData, null, 4));
-      //Gegevens worden teruggestuurd naar de client, zodat de gebruiker deze nog een keer kan controleren
-      res.setHeader('safetyfunctions', JSON.stringify(safetyData));
-    
+      let safetyData;
+      try{
+        safetyData = parseExcelFile(path.join(userDirectory, req.files.excelFile.name), true, true);
+        //Gegevens uit vragenlijst worden opgeslagen als JSON bestand
+        fs.writeFileSync(path.join(userDirectory, 'parsedExcel.json'), JSON.stringify(safetyData, null, 4));
+        //Gegevens worden teruggestuurd naar de client, zodat de gebruiker deze nog een keer kan controleren
+        res.setHeader('safetyfunctions', JSON.stringify(safetyData));
+      }catch(e){
+        safetyData = {
+          result: "failed",
+          data: {
+            errorType: "excelParseError",
+            errorMsg: "Kan het Excel bestand niet verwerken|Controleer of de vragenlijst de laatste versie heeft"
+          }
+        }
+      }
+      
       if(req.headers.uploadtype === 'recalibration'){
         console.log("Received upload for recalibration");
       }else if(req.headers.uploadtype === 'normal'){
