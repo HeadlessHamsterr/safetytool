@@ -38,7 +38,6 @@ export default function getFileInfo(filename, type){
     let extension = splitFileName[splitFileName.length-1];
     
     //Extensie controleren op basis van het bestandstype dat geüpload zou moeten zijn
-    console.log(extension);
     let validExtension = validateFileExtension(extension, type);
 
     //Extensie klopt niet met wat er verwacht wordt, error teruggeven

@@ -39,13 +39,11 @@ const GenerateScreen = ({safetyData, hidden, sessionId}) => {
                 mimeType = 'application/vnd.ms-excel';
                 break;
             default:
-                console.log("Incorrect download type");
                 return false;
         }
 
         //GET request sturen naar het /generate endpoint
         const author = document.getElementById('author').value;
-        console.log(`Downloading ${type} file`)
         fetch(`http://localhost:3001/${type}`, {
             method: "GET",
             headers: {

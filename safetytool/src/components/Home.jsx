@@ -1,5 +1,4 @@
 import ImportField from './ImportField';
-import ErrorField from './ErrorField';
 import { useState } from 'react';
 
 const Home = ({returnSafetyfunctions, sessionId, hidden}) => {
@@ -23,13 +22,11 @@ const Home = ({returnSafetyfunctions, sessionId, hidden}) => {
         xhr.onload = () => {
             //Data wordt teruggestuurd als JSON string, omzetten naar een object om uit te kunnen lezen
             const safetyData = JSON.parse(xhr.responseText);
-            console.log(safetyData);
 
             //Controleren of er errors gevonden zijn
             if(safetyData.result === "success"){
                 returnSafetyfunctions(safetyData.data);
             }else{
-                console.log(safetyData.data);
                 setImportError(safetyData.data.errorMsg);
             }
         }
@@ -40,8 +37,7 @@ const Home = ({returnSafetyfunctions, sessionId, hidden}) => {
 
     return (
         <div className="buttonWrapper" style={hidden ? {display: 'none'}: null}>
-            <ImportField filetype={"excel"} setFile={setExcelFile} hidden={hidden} updateError={(error) => setImportError(error)}/>
-            <ErrorField error={importError}/>
+            <ImportField filetype={"excel"} setFile={(file) => setExcelFile(file)} hidden={hidden} error={importError}/>
             <button className="importBtn" onClick={() => uploadFile()}>Importeren</button>
         </div>
     )

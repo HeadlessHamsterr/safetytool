@@ -20,7 +20,6 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('beforeunload', () => {
-      console.log("Goodbye");
       fetch("http://localhost:3001/goodbye", {
         method: "POST",
         headers: {
