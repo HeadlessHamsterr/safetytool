@@ -37,12 +37,12 @@ const ImportField = ({filetype, setFile, hidden, error}) => {
             newTableWidth = 275;
         }
 
-        //document.getElementsByClassName('buttonRow')[0].style.width = `${newTableWidth}px`;
         setTableWidth(newTableWidth);
     }, [filename]);
 
     function handleUploadClick(){
-        inputRef.current?.click();
+        inputRef.current.reset();
+        document.getElementById('fileInput').click();
     }
 
     function handleFileChange(e){
@@ -88,7 +88,7 @@ const ImportField = ({filetype, setFile, hidden, error}) => {
                             <tr>
                                 <td nowrap='nowrap'><span id="excelFileName" className="fileName">{filename}</span></td>
                                 <td><button className="openBtn" onClick={() => handleUploadClick()}>Openen</button></td>
-                                <td><input type="file" accept=".xls, .xlsx, .xlsm" ref={inputRef} onChange={(e) => handleFileChange(e)} style={{ display: 'none' }}/></td>
+                                <td><form ref={inputRef}><input id="fileInput" type="file" accept=".xls, .xlsx, .xlsm" onChange={(e) => handleFileChange(e)} style={{ display: 'none' }}/></form></td>
                             </tr>
                             </tbody>
                         </table>
