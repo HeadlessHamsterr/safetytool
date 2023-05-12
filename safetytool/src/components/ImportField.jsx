@@ -1,15 +1,33 @@
 import { useEffect, useRef, useState } from "react";
 import getFileInfo from "./modules/fileTools";
 
-const ImportField = ({filetype, setFile, hidden, updateError}) => {
+const ImportField = ({filetype, setFile, hidden, error}) => {
     const [filename, setFilename] = useState('');
-    //const [errorMsg, setErrorMsg] = useState(null);
-    //const [explainErrorMsg, setExplainErrorMsg] = useState(null);
+    const [errorMsg, setErrorMsg] = useState(null);
+    const [explainErrorMsg, setExplainErrorMsg] = useState(null);
+    const [borderColor, setBorderColor] = useState("grey");
+    const [tableWidth, setTableWidth] = useState(275);
     const inputRef = useRef(null);
 
     useEffect(() => {
         setFilename(null);
+        setFile(null);
+        setErrorMsg(null);
+        setExplainErrorMsg(null);
+        setBorderColor("grey");
     }, [hidden]);
+
+    useEffect(() => {
+        if(error){
+            const splitErrors = error.split("|");
+            setErrorMsg(splitErrors[0]);
+            setExplainErrorMsg(splitErrors[1]);
+            setBorderColor("red")
+        }else{
+            setErrorMsg(null);
+            setExplainErrorMsg(null);
+        }
+    }, [error]);
 
     useEffect(() => {
         let newTableWidth;
@@ -19,7 +37,8 @@ const ImportField = ({filetype, setFile, hidden, updateError}) => {
             newTableWidth = 275;
         }
 
-        document.getElementById('excelDropzone').style.width = `${newTableWidth}px`;
+        //document.getElementsByClassName('buttonRow')[0].style.width = `${newTableWidth}px`;
+        setTableWidth(newTableWidth);
     }, [filename]);
 
     function handleUploadClick(){
@@ -27,14 +46,14 @@ const ImportField = ({filetype, setFile, hidden, updateError}) => {
     }
 
     function handleFileChange(e){
-        //setErrorMsg(null);
-        //setExplainErrorMsg(null);
-        updateError(null);
+        setErrorMsg(null);
+        setExplainErrorMsg(null);
+        setBorderColor("grey");
         
         if(e.target.files.length === 0){
-            console.log("No files selected");
             return;
         }
+        
         const fileInfo = getFileInfo(e.target.files[0].name, filetype);
 
         if(fileInfo.success){
@@ -42,17 +61,17 @@ const ImportField = ({filetype, setFile, hidden, updateError}) => {
             setFilename(fileInfo.filename);
         }else{
             setFilename(null);
-            /*const errors = fileInfo.error.split('|');
-            setErrorMsg(errors[0]);
-            setExplainErrorMsg(errors[1]);*/
-            updateError(fileInfo.error);
+            const splitErrors = fileInfo.error.split("|");
+            setErrorMsg(splitErrors[0]);
+            setExplainErrorMsg(splitErrors[1]);
+            setBorderColor("red")
             return;
         }
     }
-//<td><p className="importFileTypes">(Sleep het bestand, of druk op openen)</p></td>
+
     return(
         <div>
-            <table className="buttonRow" id="excelDropzone">
+            <table className="buttonRow" id="excelDropzone" style={{borderColor : `${borderColor}`, width: `${tableWidth}px`}}>
                 <tbody>
                 <tr>
                     <td><table className="importText">
@@ -77,6 +96,8 @@ const ImportField = ({filetype, setFile, hidden, updateError}) => {
                 </tr>
                 </tbody>
             </table>
+            <span className="errorSpan" id="excelErrorSpan">{errorMsg}</span><br/>
+            <span className="errorSpan" id="excelExplainErrorSpan">{explainErrorMsg}</span><br/>
         </div>
     )
 }
