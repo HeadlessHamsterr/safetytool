@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import getFileInfo from "./modules/fileTools";
 
-const ImportField = ({filetype, setFile, hidden}) => {
+const ImportField = ({filetype, setFile, hidden, updateError}) => {
     const [filename, setFilename] = useState('');
-    const [errorMsg, setErrorMsg] = useState(null);
-    const [explainErrorMsg, setExplainErrorMsg] = useState(null);
+    //const [errorMsg, setErrorMsg] = useState(null);
+    //const [explainErrorMsg, setExplainErrorMsg] = useState(null);
     const inputRef = useRef(null);
 
     useEffect(() => {
@@ -27,8 +27,9 @@ const ImportField = ({filetype, setFile, hidden}) => {
     }
 
     function handleFileChange(e){
-        setErrorMsg(null);
-        setExplainErrorMsg(null);
+        //setErrorMsg(null);
+        //setExplainErrorMsg(null);
+        updateError(null);
         
         if(e.target.files.length === 0){
             console.log("No files selected");
@@ -41,9 +42,10 @@ const ImportField = ({filetype, setFile, hidden}) => {
             setFilename(fileInfo.filename);
         }else{
             setFilename(null);
-            const errors = fileInfo.error.split('|');
+            /*const errors = fileInfo.error.split('|');
             setErrorMsg(errors[0]);
-            setExplainErrorMsg(errors[1]);
+            setExplainErrorMsg(errors[1]);*/
+            updateError(fileInfo.error);
             return;
         }
     }
@@ -75,8 +77,6 @@ const ImportField = ({filetype, setFile, hidden}) => {
                 </tr>
                 </tbody>
             </table>
-            <span className="errorSpan" id="excelErrorSpan">{errorMsg}</span><br/>
-            <span className="errorSpan" id="excelExplainErrorSpan">{explainErrorMsg}</span><br/>
         </div>
     )
 }

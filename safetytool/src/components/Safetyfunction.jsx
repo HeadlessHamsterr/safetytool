@@ -1,7 +1,7 @@
 const SafetyFunction = ({safetyFunction}) => {
     return (
         <div className="safetyFunction">
-            <h>{safetyFunction.safetyFunctionTitle}</h><br/><br/><br/>
+            <span className="safetyFunctionTitle">{safetyFunction.safetyFunctionTitle}</span><br/><br/><br/>
             <div className="safetyFunctionInfo">
                 <table className="sfInfoTable">
                 <tbody>

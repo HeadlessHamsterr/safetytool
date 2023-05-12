@@ -1,8 +1,10 @@
 import ImportField from './ImportField';
+import ErrorField from './ErrorField';
 import { useState } from 'react';
 
 const Home = ({returnSafetyfunctions, sessionId, hidden}) => {
     const [excelFile, setExcelFile] = useState(null);
+    const [importError, setImportError] = useState(null);
 
     function uploadFile(){
         //Object voor het opslaan van de data die naar de server gestuurd gaat worden
@@ -27,7 +29,8 @@ const Home = ({returnSafetyfunctions, sessionId, hidden}) => {
             if(safetyData.result === "success"){
                 returnSafetyfunctions(safetyData.data);
             }else{
-                console.log(safetyData.data.errorType);
+                console.log(safetyData.data);
+                setImportError(safetyData.data.errorMsg);
             }
         }
 
@@ -37,7 +40,8 @@ const Home = ({returnSafetyfunctions, sessionId, hidden}) => {
 
     return (
         <div className="buttonWrapper" style={hidden ? {display: 'none'}: null}>
-            <ImportField filetype={"excel"} setFile={setExcelFile} hidden={hidden}/>
+            <ImportField filetype={"excel"} setFile={setExcelFile} hidden={hidden} updateError={(error) => setImportError(error)}/>
+            <ErrorField error={importError}/>
             <button className="importBtn" onClick={() => uploadFile()}>Importeren</button>
         </div>
     )

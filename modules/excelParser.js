@@ -42,7 +42,8 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
         const returnObj = {
             result: "failed",
             data: {
-                errorType: "wrongFiletype"
+                errorType: "wrongFiletype",
+                errorMsg: "Geüpload document is geen correct Excel bestand"
             }
         }
         return returnObj;
@@ -74,7 +75,8 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
     if(excelObj[0]["name"] != "Klant informatie"){
         returnObj["result"] = "failed";
         returnObj["data"] = {
-            errorType: "noCustomerInfoSheet"
+            errorType: "noCustomerInfoSheet",
+            errorMsg: 'Document is niet volgens het juiste format|Geen blad "Klant informatie gevonden"'
         };
         return returnObj;
     }
@@ -93,7 +95,8 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
         returnObj["data"] = {
             errorType: "undefinedCells",
             emptyCell: emptyCell,
-            sheet: excelObj[0]["name"]
+            sheet: excelObj[0]["name"],
+            errorMsg: `Vragenlijst niet volledig ingevuld|Controleer de cel "${emptyCell}" op het blad "${excelObj[0]["name"]}"`
         }
         return returnObj;
     }
@@ -141,7 +144,8 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
             returnObj["data"] = {
                 errorType: "undefinedCells",
                 emptyCell: jsonToReadableCellName["safetyFunctionTitle"],
-                sheet: excelObj[sheetNumber]["name"]
+                sheet: excelObj[sheetNumber]["name"],
+                errorMsg: `Vragenlijst niet volledig ingevuld|Controleer de cel "${jsonToReadableCellName["safetyFunctionTitle"]}" op het blad "${excelObj[sheetNumber]["name"]}"`
             };
             return returnObj;
         }
@@ -153,7 +157,8 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
             returnObj["data"] = {
                 errorType: "undefinedCells",
                 emptyCell: jsonToReadableCellName[emptyCell],
-                sheet: excelObj[sheetNumber]["name"]
+                sheet: excelObj[sheetNumber]["name"],
+                errorMsg: `Vragenlijst niet volledig ingevuld|Controleer de cel "${jsonToReadableCellName[emptyCell]}" op het blad "${excelObj[sheetNumber]["name"]}"`
             };
             return returnObj;
         }

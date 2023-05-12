@@ -71,7 +71,8 @@ app.post('/upload', (req, res) => {
       const returnData = {
         result: "failed",
         data : {
-          errorType: "wrongFiletype"
+          errorType: "wrongFiletype",
+          errorMsg: "Geüpload document is geen correct Excel bestand"
         }
       }
       res.send(returnData);
