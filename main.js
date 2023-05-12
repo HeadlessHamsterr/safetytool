@@ -60,13 +60,26 @@ app.post('/downloadConvertedExcel', (req, res) => {
 //Handler voor de /upload endpoint, ontvang en parsed de vragenlijst en stuur vervolgens de data uit de vragenlijst in JSON formaat terug naar de client
 app.post('/upload', (req, res) => {
   //Controleer of de sessionId een geldig UUID is, zo niet is de request niet geldig en wordt een error 403 teruggestuurd
-  if(!checkIfUUID(req.body.sessionId)){
-    console.log(`SessionId ${req.body.sessionId} is not a UUID, ignoring`);
-    res.status(403).send("The received sessionId is not a UUID");
-  }else{
-    //Bestanden van clients worden opgeslagen in een map binnen de hoofdmap met als naam de sessionId, zodat deze later teruggevonden kunnen worden
-    const userDirectory = path.join(mainUserDirectory, req.body.sessionId);
-    
+  try{
+    if(!checkIfUUID(req.body.sessionId)){
+      console.log(`SessionId ${req.body.sessionId} is not a UUID, ignoring`);
+      res.status(403).send("The received sessionId is not a UUID");
+      return;
+    }
+  }catch(e){
+    const returnData = {
+      result: "failed",
+      data: {
+        errorType: "noSessionId",
+        errorMsg: "Probleem met het bericht naar de server|Probeer het opnieuw"
+      }
+    }
+  }
+
+  //Bestanden van clients worden opgeslagen in een map binnen de hoofdmap met als naam de sessionId, zodat deze later teruggevonden kunnen worden
+  const userDirectory = path.join(mainUserDirectory, req.body.sessionId);
+
+  try{
     if(req.files.excelFile.data.toString('utf-8', 0, 2) !== 'PK'){
       const returnData = {
         result: "failed",
@@ -100,13 +113,22 @@ app.post('/upload', (req, res) => {
           }
         }
       }
-      
+
       if(req.headers.uploadtype === 'recalibration'){
         console.log("Received upload for recalibration");
       }else if(req.headers.uploadtype === 'normal'){
         res.send(safetyData);
       }
     }
+  }catch(e){
+    const safetyData = {
+      result: "failed",
+      data: {
+        errorType: "noFileUploaded",
+        errorMsg: "Geen bestand geüpload"
+      }
+    }
+    res.send(safetyData);
   }
 });
 
