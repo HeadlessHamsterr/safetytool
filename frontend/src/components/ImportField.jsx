@@ -15,6 +15,7 @@ const ImportField = ({filetype, setFile, hidden, error}) => {
         setErrorMsg(null);
         setExplainErrorMsg(null);
         setBorderColor("grey");
+        inputRef.current.reset();
     }, [hidden]);
 
     useEffect(() => {
@@ -22,7 +23,7 @@ const ImportField = ({filetype, setFile, hidden, error}) => {
             const splitErrors = error.split("|");
             setErrorMsg(splitErrors[0]);
             setExplainErrorMsg(splitErrors[1]);
-            setBorderColor("red")
+            setBorderColor("red");
         }else{
             setErrorMsg(null);
             setExplainErrorMsg(null);
@@ -41,7 +42,6 @@ const ImportField = ({filetype, setFile, hidden, error}) => {
     }, [filename]);
 
     function handleUploadClick(){
-        inputRef.current.reset();
         document.getElementById('fileInput').click();
     }
 

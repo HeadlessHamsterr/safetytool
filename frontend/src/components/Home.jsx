@@ -6,6 +6,7 @@ const Home = ({returnSafetyfunctions, sessionId, hidden}) => {
     const [importError, setImportError] = useState(null);
 
     function uploadFile(){
+        setImportError(null);
         //Object voor het opslaan van de data die naar de server gestuurd gaat worden
         const formData = new FormData();
 
