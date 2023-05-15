@@ -141,6 +141,12 @@ const GenerateScreen = ({safetyData, hidden, sessionId}) => {
         })
         //Wachten tot de server reageert, dan wordt deze functie uitgevoerd
         .then(response => {
+            if(response.status === 404){
+                response.text().then((text) => {
+                    console.log(text)
+                });
+                return;
+            }
             //Bestanden worden doorgestuurd dmv een ReadableStream. Hiervoor moet de default reader uit de body worden gehaald.
             //Deze reader kan dan worden gebruikt om de data van het gestuurde bestand uit de ReadableStream te halen. (https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
             const reader = response.body.getReader();

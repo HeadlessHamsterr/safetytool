@@ -147,7 +147,14 @@ app.get('/pascal', (req, res) => {
     const userDirectory = path.join(mainUserDirectory, sessionId);
     if(!fs.existsSync(userDirectory)){
       console.log("Unkown sessionId");
-      res.status(404).send("Unkown sessionId");
+      const responseMsg = {
+        result: "failed",
+        data: {
+          errorType: "unkownSessionId",
+          errorMsg: "Verbinding met server verlopen. Upload de vragenlijst opnieuw."
+        }
+      }
+      res.status(404).send(JSON.stringify(responseMsg));
     }else{
       //Gegevens uit vragenlijst ophalen uit het eerder gemaakte JSON bestand
       const safetyData = JSON.parse(fs.readFileSync(path.join(userDirectory, 'parsedExcel.json')))["data"];
