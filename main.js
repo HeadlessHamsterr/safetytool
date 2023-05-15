@@ -71,7 +71,7 @@ app.post('/upload', (req, res) => {
       result: "failed",
       data: {
         errorType: "noSessionId",
-        errorMsg: "Probleem met het bericht naar de server|Probeer het opnieuw"
+        errorMsg: "Probleem met het bericht naar de server. Probeer het opnieuw"
       }
     }
   }
@@ -85,7 +85,7 @@ app.post('/upload', (req, res) => {
         result: "failed",
         data : {
           errorType: "wrongFiletype",
-          errorMsg: "Geüpload document is geen correct Excel bestand"
+          errorMsg: "Ongeldig Excel bestand"
         }
       }
       res.send(returnData);
@@ -109,7 +109,7 @@ app.post('/upload', (req, res) => {
           result: "failed",
           data: {
             errorType: "excelParseError",
-            errorMsg: "Kan het Excel bestand niet verwerken|Controleer of de vragenlijst de laatste versie heeft"
+            errorMsg: "Kan het Excel bestand niet verwerken. Controleer of de vragenlijst de laatste versie heeft."
           }
         }
       }
