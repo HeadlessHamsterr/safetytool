@@ -30,6 +30,7 @@ body{
 .container{
   position: relative;
   height: 100vh;
+  font-family: Roboto;
 }
 
 .pageTitle{
@@ -46,8 +47,7 @@ body{
 .pageTitleIcon{
   color: var(--on-main);
   float: left;
-  padding-top: 5px;
-  font-size: 35px;
+  padding-top: 3px;
   cursor: pointer;
 }
 
@@ -342,4 +342,8 @@ body{
   height: 30px;
   width: 300px;
   font-size: 20px;
+}
+
+.textfield{
+  border-color: grey;
 }
