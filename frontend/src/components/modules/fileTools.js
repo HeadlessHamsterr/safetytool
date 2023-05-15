@@ -54,30 +54,3 @@ export default function getFileInfo(filename, type){
 
     return {success: true, filename: filename};
 }
-
-//Functie voor het tonen van error berichten aan de gebruiker
-//Door de reset flag op true te zetten worden alle errors verwijdert
-function throwImportError(type, message='', reset=false){
-    //Benodigde elementen selecteren
-    const importBox = document.getElementById(`ExcelDropzone`);
-    const errorSpan = document.getElementById(`ExcelErrorSpan`);
-    const errorExplainSpan = document.getElementById(`ExcelExplainErrorSpan`);
-
-    //Sommige error berichten bestaan uit twee regels (algemeen bericht en duidelijkere uitleg), deze regels worden gescheiden met een "|" teken
-    message = message.split('|')
-
-    //Als de reset flag op true staat, worden eventuele error berichten weggehaald
-    if(reset){
-        importBox.style.border = '1px solid grey';
-        errorSpan.innerHTML = '';
-    }else{
-        //Rand van uploadvak rood maken en error bericht(en) invullen
-        importBox.style.border = '1px solid red';
-        errorSpan.innerHTML = message[0];
-        if(message[1] !== undefined){
-            errorExplainSpan.innerHTML = message[1];
-        }
-    }
-}
-
-//module.exports = { validateFileExtension, compressFileName, throwImportError, getFileInfo }
