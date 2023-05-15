@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import getFileInfo from "./modules/fileTools";
+import { Alert, Collapse } from "@mui/material";
 
 const ImportField = ({filetype, setFile, hidden, error}) => {
     const [filename, setFilename] = useState('');
     const [errorMsg, setErrorMsg] = useState(null);
-    const [explainErrorMsg, setExplainErrorMsg] = useState(null);
+    const [hideAlert, setHideAlert] = useState(true);
     const [borderColor, setBorderColor] = useState("grey");
     const [tableWidth, setTableWidth] = useState(275);
     const inputRef = useRef(null);
@@ -13,20 +14,17 @@ const ImportField = ({filetype, setFile, hidden, error}) => {
         setFilename(null);
         setFile(null);
         setErrorMsg(null);
-        setExplainErrorMsg(null);
+        setHideAlert(true);
         setBorderColor("grey");
         inputRef.current.reset();
     }, [hidden]);
 
     useEffect(() => {
         if(error){
-            const splitErrors = error.split("|");
-            setErrorMsg(splitErrors[0]);
-            setExplainErrorMsg(splitErrors[1]);
-            setBorderColor("red");
+            setErrorMsg(error);
+            setHideAlert(false);
         }else{
-            setErrorMsg(null);
-            setExplainErrorMsg(null);
+            setHideAlert(true);
         }
     }, [error]);
 
@@ -46,8 +44,7 @@ const ImportField = ({filetype, setFile, hidden, error}) => {
     }
 
     function handleFileChange(e){
-        setErrorMsg(null);
-        setExplainErrorMsg(null);
+        setHideAlert(true);
         setBorderColor("grey");
         
         if(e.target.files.length === 0){
@@ -61,10 +58,8 @@ const ImportField = ({filetype, setFile, hidden, error}) => {
             setFilename(fileInfo.filename);
         }else{
             setFilename(null);
-            const splitErrors = fileInfo.error.split("|");
-            setErrorMsg(splitErrors[0]);
-            setExplainErrorMsg(splitErrors[1]);
-            setBorderColor("red")
+            setErrorMsg(fileInfo.error);
+            setHideAlert(false);
             return;
         }
     }
@@ -96,8 +91,9 @@ const ImportField = ({filetype, setFile, hidden, error}) => {
                 </tr>
                 </tbody>
             </table>
-            <span className="errorSpan" id="excelErrorSpan">{errorMsg}</span><br/>
-            <span className="errorSpan" id="excelExplainErrorSpan">{explainErrorMsg}</span><br/>
+            <Collapse in={!hideAlert}>
+                <Alert variant="outlined" severity="error" sx={{color: '#E9BEBF', width: 'fit-content', margin: '10px auto'}}>{errorMsg}</Alert>
+            </Collapse>
         </div>
     )
 }
