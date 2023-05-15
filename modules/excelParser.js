@@ -43,7 +43,7 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
             result: "failed",
             data: {
                 errorType: "wrongFiletype",
-                errorMsg: "Geüpload document is geen correct Excel bestand"
+                errorMsg: "Kan Excel bestand niet openen. Bestand is mogelijk corrupt."
             }
         }
         return returnObj;
@@ -76,7 +76,7 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
         returnObj["result"] = "failed";
         returnObj["data"] = {
             errorType: "noCustomerInfoSheet",
-            errorMsg: 'Document is niet volgens het juiste format|Geen blad "Klant informatie gevonden"'
+            errorMsg: 'Document is niet volgens het juiste format. Eerste blad moet "Klant informatie" zijn.'
         };
         return returnObj;
     }
@@ -96,7 +96,7 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
             errorType: "undefinedCells",
             emptyCell: emptyCell,
             sheet: excelObj[0]["name"],
-            errorMsg: `Vragenlijst niet volledig ingevuld|Controleer de cel "${emptyCell}" op het blad "${excelObj[0]["name"]}"`
+            errorMsg: `Vragenlijst niet volledig ingevuld. Controleer de cel "${emptyCell}" op het blad "${excelObj[0]["name"]}".`
         }
         return returnObj;
     }
@@ -145,7 +145,7 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
                 errorType: "undefinedCells",
                 emptyCell: jsonToReadableCellName["safetyFunctionTitle"],
                 sheet: excelObj[sheetNumber]["name"],
-                errorMsg: `Vragenlijst niet volledig ingevuld|Controleer de cel "${jsonToReadableCellName["safetyFunctionTitle"]}" op het blad "${excelObj[sheetNumber]["name"]}"`
+                errorMsg: `Vragenlijst niet volledig ingevuld. Controleer de cel "${jsonToReadableCellName["safetyFunctionTitle"]}" op het blad "${excelObj[sheetNumber]["name"]}".`
             };
             return returnObj;
         }
@@ -158,7 +158,7 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
                 errorType: "undefinedCells",
                 emptyCell: jsonToReadableCellName[emptyCell],
                 sheet: excelObj[sheetNumber]["name"],
-                errorMsg: `Vragenlijst niet volledig ingevuld|Controleer de cel "${jsonToReadableCellName[emptyCell]}" op het blad "${excelObj[sheetNumber]["name"]}"`
+                errorMsg: `Vragenlijst niet volledig ingevuld. Controleer de cel "${jsonToReadableCellName[emptyCell]}" op het blad "${excelObj[sheetNumber]["name"]}".`
             };
             return returnObj;
         }
