@@ -2,10 +2,15 @@ import './App.css';
 import './index.css';
 import Home from './components/Home'
 import GenerateScreen from './components/GenerateScreen';
-import CalibrateScreen from './components/CalibrateScreen';
-import { MdBuild, MdHome } from "react-icons/md";
+//import CalibrateScreen from './components/CalibrateScreen';
+import HomeIcon from '@mui/icons-material/Home';
 import {useState, useEffect} from 'react';
 import {v4 as uuidv4} from 'uuid';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 
 function App() {
   const [safetyfunctions, setSafetyfunctions] = useState(null);
@@ -56,7 +61,7 @@ function App() {
   return (
     <div className="container">
       <div className="pageTitle">
-        {homeHidden ? <MdHome className='pageTitleIcon' onClick={() => iconClick()}/>: null}
+        {homeHidden ? <HomeIcon className='pageTitleIcon' fontSize='35px' onClick={() => iconClick()}/>: null}
         {calibrateScreenHidden ? "Van den Pol - Safetytool" : "Nieuwe vragenlijst instellen"}
       </div>
         <Home returnSafetyfunctions={fileUploaded} sessionId={sessionId} hidden={homeHidden}/>
