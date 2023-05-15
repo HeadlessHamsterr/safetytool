@@ -110,7 +110,6 @@ function generatePL_SRP(safetyData, numComponents, channelType, displayNumber, s
 }
 
 function generatePL_Channel(safetyData, channelNo, displayNumber, safetyFunctionNum, componentType){
-    console.log(`Making component ${channelNo}${componentType}`);
     let baseChannel = JSON.parse(fs.readFileSync(path.join(__dirname, "../PAScalFiles/channel.json")));
     let baseComponent = JSON.parse(fs.readFileSync(path.join(__dirname, `../PAScalFiles/old/${componentType}.json`)));
 
