@@ -1,9 +1,78 @@
 import { useEffect } from "react";
 import SafetyFunction from "./Safetyfunction";
 import { useState } from "react";
+import { Alert, Collapse, Snackbar, TextField, outlinedInputClasses, Slide } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const inputFieldTheme = () => 
+    createTheme({
+        components: {
+            MuiTextField: {
+                styleOverrides: {
+                    root: {
+                        '--TextField-borderColor': 'grey',
+                        '--TextField-hoverColor': 'darkgrey',
+                        '--TextField-focusColor': '#accfaf',
+                        '& label.Mui-focused': {
+                            color: 'var(--TextField-focusColor)'
+                        },
+                        '& label': {
+                            color: 'white'
+                        },
+                        '& value': {
+                            color: 'white'
+                        },
+                        '& label.Mui-error': {
+                            color: '#E9BEBF'
+                        },
+                        '& helperText.Mui-error': {
+                            color: '#E9BEBF'
+                        }
+                    }
+                }
+            },
+            MuiInputBase: {
+                styleOverrides: {
+                    root: {
+                        color: 'white'
+                    }
+                }
+            },
+            MuiOutlinedInput: {
+                styleOverrides: {
+                    notchedOutline: {
+                        borderColor: 'var(--TextField-borderColor)',
+                    },
+                    root: {
+                        [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
+                            borderColor: 'var(--TextField-hoverColor)',
+                        },
+                        [`&.Mui-focused .${outlinedInputClasses.notchedOutline}`]: {
+                            borderColor: 'var(--TextField-focusColor)',
+                            color: 'white'
+                        },
+                        [`&.Mui-error .${outlinedInputClasses.notchedOutline}`]: {
+                            borderColor: '#EF5350',
+                        }
+                    }
+                }
+            },
+            MuiFormHelperText: {
+                styleOverrides: {
+                    root: {
+                        color: '#E9BEBF'
+                    },
+                }
+            }
+        }
+    });
 
 const GenerateScreen = ({safetyData, hidden, sessionId}) => {
     const [gridCols, setGridCols] = useState(null);
+    const [authorFieldEmpty, setAuthorFieldEmpty] = useState(false);
+    const [serverError, setServerError] = useState(null);
+    const [hideAlert, setHideAlert] = useState(true);
+    const [showSnackbar, setShowSnackbar] = useState(false);
 
     useEffect(() => {
         function resizeGrid(){
@@ -26,7 +95,22 @@ const GenerateScreen = ({safetyData, hidden, sessionId}) => {
         }
     });
 
+    useEffect(() => {
+        setAuthorFieldEmpty(false);
+        setHideAlert(true);
+        document.getElementById('author').value = null;
+    }, [hidden]);
+
     function downloadFile(type){
+        const author = document.getElementById('author').value;
+
+        if(!author){
+            setAuthorFieldEmpty(true);
+            return false;
+        }
+        setAuthorFieldEmpty(false);
+        setHideAlert(true);
+
         let filename;
         let mimeType;
         switch(type){
@@ -43,7 +127,6 @@ const GenerateScreen = ({safetyData, hidden, sessionId}) => {
         }
 
         //GET request sturen naar het /generate endpoint
-        const author = document.getElementById('author').value;
         fetch(`http://localhost:3001/${type}`, {
             method: "GET",
             headers: {
@@ -97,6 +180,9 @@ const GenerateScreen = ({safetyData, hidden, sessionId}) => {
                         a.download = filename;
                         //De link wordt door de browser direct ingedrukt, zodat het bestand automatisch wordt gedownload
                         a.click();
+
+                        setShowSnackbar(true);                        
+
                         //Element en URL verwijderen na gebruik
                         a.remove();
                         window.URL.revokeObjectURL(url);
@@ -110,30 +196,62 @@ const GenerateScreen = ({safetyData, hidden, sessionId}) => {
                     readStream();
                 });
             }
+        })
+        .catch(response => {
+            console.log(response);
+            setServerError("Kan geen verbinding maken met de server. Herlaad de pagina en probeer het opnieuw.");
+            setHideAlert(false);
         });
     }
 
+    function handleSnackbarClose(event, reason){
+        if(reason === 'clickaway'){
+            return;
+        }
+
+        setShowSnackbar(false);
+    }
+
+    function slideFromTop(props){
+        return <Slide {...props} direction="down"/>
+    }
+    //<button className="exportBtn" id="exportBtn" onClick={() => downloadFile('checklist')}>Genereer checklist</button>
+
     return(
         <div className="pageDiv" style={hidden ? {display: 'none'} : null}>
+            <Snackbar TransitionComponent={slideFromTop} anchorOrigin={{vertical: 'top', horizontal: 'center'}} open={showSnackbar} autoHideDuration={5000} onClose={handleSnackbarClose}>
+                <Alert variant="filled" severity="success">PAScal project gedownload!</Alert>
+            </Snackbar>
             <span className="projectTitle" id="projectTitle">{safetyData ? `${safetyData.klant} ${safetyData.projectnaam} (${safetyData.projectcode})` : null}</span><br />
-            <table style={{color: 'white', textAlign: 'right'}}>
+            <table style={{color: 'white'}}>
                 <tbody>
                     <tr>
-                        <td>Auteur:</td>
-                        <td><input type="text" id="author"/></td>
+                        <td colSpan={2}>
+                            <ThemeProvider theme={inputFieldTheme()}>
+                                <TextField error={authorFieldEmpty ? true : ''} helperText={authorFieldEmpty ? 'Auteur moet ingevuld worden' : ''} autoComplete="off" id="author" variant="outlined" label="Auteur:"/>
+                            </ThemeProvider>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={2}>
+                            <button className="exportBtn" id="exportBtn" onClick={() => downloadFile('pascal')}>Genereer PAScal project</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={2}>
+                            <Collapse in={!hideAlert}>
+                                <Alert variant="outlined" severity="error" sx={{color: '#E9BEBF', width: 'fit-content', margin: '10px auto'}}>{serverError}</Alert>
+                            </Collapse>
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <div>
-            <button className="exportBtn" id="exportBtn" onClick={() => downloadFile('pascal')} style={{marginRight: '15px'}}>Genereer PAScal project</button>
-            <button className="exportBtn" id="exportBtn" onClick={() => downloadFile('checklist')}>Genereer checklist</button>
-            </div>
             <div className="safetyFunctionListWrapper">
-            <div className="safetyFunctionList" id="safetyFunctionList" style={{gridTemplateColumns: gridCols}}>
-                {safetyData ? safetyData.safetyFunctions.map((safetyFunction, i) => 
-                    <SafetyFunction safetyFunction={safetyFunction} key={i}/>
-                ): null}
-            </div>
+                <div className="safetyFunctionList" id="safetyFunctionList" style={{gridTemplateColumns: gridCols}}>
+                    {safetyData ? safetyData.safetyFunctions.map((safetyFunction, i) => 
+                        <SafetyFunction safetyFunction={safetyFunction} key={i}/>
+                    ): null}
+                </div>
             </div>
         </div>
     )
