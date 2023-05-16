@@ -3,16 +3,16 @@
 In deze readme staan de stappen beschreven voor het draaien en updaten van de safetytool. Voor de uitgebreidere documentatie van de werking, is een handleiding gemaakt (de handleiding wordt nog gemaakt. Als deze af is, komt de locatie hier te staan).
 
 De safetytool bestaat uit twee onderdelen:
-- De webserver, dit is het bestand "main.js". Deze server gebruikt port 3000 voor het serveren van de webpagina en de overige http requests van de client.
-- De frontend, te vinden in de map "frontend". De frontend is geschreven mbhv React. 
+- De webserver, dit is het bestand `main.js`. Deze server gebruikt port 3000 voor het serveren van de webpagina en de overige http requests van de client.
+- De frontend, te vinden in de map `frontend`. De frontend is geschreven m.b.h.v. React. 
 
-Voordat de safetytool ingezet kan worden, moet eerst Node en NPM worden geïnstalleerd op de server. Op Linux servers kan dat via de package manager. Zie https://nodejs.org/en/download/package-manager voor instructies. Op Windows servers kan het beste NVM for Windows worden gebruikt. Zie https://github.com/coreybutler/nvm-windows voor instructies. NVM maakt het installeren en updaten van Node en NPM erg eenvoudig.
+Voordat de safetytool gebruikt kan worden, moeten eerst Node en NPM worden geïnstalleerd op de server. Op Linux servers kan dat via de package manager. Zie https://nodejs.org/en/download/package-manager voor instructies. Op Windows servers kan het beste NVM for Windows worden gebruikt. Zie https://github.com/coreybutler/nvm-windows voor instructies. NVM maakt het installeren en updaten van Node en NPM erg eenvoudig.
 
-# Builden van de frontend
-Om de website efficiënt te kunnen draaien, moet de React code worden gebuild naar standaard HTML, CSS en Javascript bestanden. Deze stappen gaan ervanuit dat het hele project is gedownload en dat Node en NPM geïnstalleerd zijn.
+# Bouwen van de frontend
+Om de website efficiënt te kunnen draaien, moet de React code worden gebouwd naar standaard HTML, CSS en Javascript bestanden. Deze stappen gaan ervanuit dat het hele project is gedownload en dat Node en NPM geïnstalleerd zijn.
 1. Open de terminal en ga naar de map `frontend`
 2. Installeer alle dependencies met het commando `npm install`
-3. Build de website met het commando `npm run build`
+3. Bouw de website met het commando `npm run build`
 4. In de map `frontend` wordt een map gemaakt genaamd `build`, daarin staan alle bestanden die door de webserver gebruikt worden
 
 
@@ -26,7 +26,7 @@ Om de webserver te kunnen draaien, zijn de volgende mappen en bestanden nodig:
 
 Op het moment dat de webserver wordt opgestart, maakt deze nog een extra map aan genaamd "userFiles". In deze map worden alle bestanden opgeslagen die voor de clients aangemaakt worden.
 
-Voor het draaien van de webserver, moeten de volgende stappen worden uitgevoerd:
+Het volgende stappenplan wordt gebruikt voor het starten van de webserver. Voor deze stappen moet eerst de frontend zijn gebouwd.
 1. Kopiëer de benodigde bestanden (zie de lijst hierboven) naar de gewenste locatie op de server.
 2. Installeer alle dependencies met het commando `npm install`
 3. Als de frontend nog niet gebuild is, doe dat dan nu. De instructies hiervoor staan in het kopje hierboven.
