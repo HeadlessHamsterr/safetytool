@@ -22,10 +22,10 @@ if(!fs.existsSync(mainUserDirectory)){
   fs.mkdirSync(mainUserDirectory);
 }
 
-app.use(express.static('public'));  //Locatie van de statische bestanden
-app.use(bodyParser.json());         //Middelware voor het parsen van JSON gegevens in de body van binnen komende requests
-app.use(fileupload());              //Middelware voor het ontvangen van bestanden
-app.use(favicon(path.join(__dirname, 'assets', 'icon.ico')));
+app.use(express.static('public'));                              //Locatie van de statische bestanden
+app.use(bodyParser.json());                                     //Middelware voor het parsen van JSON gegevens in de body van binnen komende requests
+app.use(fileupload());                                          //Middelware voor het ontvangen van bestanden
+app.use(favicon(path.join(__dirname, 'assets', 'icon.ico')));   //Middleware voor het versturen van de favicon
 app.use(cors({
   origin: '*'
 }));
