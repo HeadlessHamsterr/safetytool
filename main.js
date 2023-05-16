@@ -245,3 +245,53 @@ function checkIfUUID(string){
   let regex = /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/i;
   return regex.test(string);
 }
+
+
+//Om te voorkomen dat de server vol stroomt met oude bestanden, worden de bestanden automatisch verwijderd.
+//Dit wordt gedaan door te controleren hoe lang het geleden is sinds het bestand "parsedExcel.json" is aangemaakt.
+//Dit betand wordt telkens opnieuw aangemaakt als de gebruiker een Excel bestand upload. Als dit bestand meer dan een uur oud is, 
+//betekent dat dat de gebruiker meer dan een uur niks heeft geüpload. De map kan dan verwijderd worden.
+setInterval(()=>{
+  try{
+    //Huidige tijd bepalen, wordt opgeslagen in milliseconde sinds epoch
+    const currentDate = Date.now();
+    //ALle mappen in de map "userFiles" worden gecontroleerd
+    const folders = fs.readdirSync(mainUserDirectory);
+
+    //Loop door alle mappen
+    for(const folder of folders){
+      let birthtime;
+
+      //Als er geen bestand "parsedExcel.json" in de map van de client staat, is deze client map niet (of verkeerd) door de server aangemaakt.
+      //De map kan dan direct verwijderd worden
+      try{
+        //Tijd van aanmaken van de client map ophalen, wordt opgeslagen in milliseconde sinds epoch
+        birthtime = fs.statSync(path.join(mainUserDirectory, folder, 'parsedExcel.json')).birthtime.valueOf();
+      }catch(e){
+        //Kan het bestand "parsedExcel.json" niet lezen, map wordt direct verwijderd.
+        console.log(`File "parsedExcel.json" not present in folder ${folder}. Removing folder`);
+        fs.rmSync(path.join(mainUserDirectory, folder), { recursive: true, force: true });
+        continue;
+      }
+
+      //Verstreken tijd sinds het aanmaken van het "parsedExcel.json" bestand berekenen. Deze tijd wordt gegeven in minuten.
+      const folderAliveTime = timeDifference(birthtime, currentDate);
+      //Bestand is meer dan een uur oud
+      if(folderAliveTime >= 60){
+        console.log(`Time exceeded for client ${folder}, removing folder`);
+        //Map van de client verwijderen
+        fs.rmSync(path.join(mainUserDirectory, folder), {recursive: true, force: true});
+      }
+    }
+  }catch(e){
+    console.log(`Error occured while auto-removing files: ${e}`);
+  }
+}, 900000);
+
+//Deze functie wordt gebruikt voor het berekenen van het verschil tussen twee tijden.
+//De tijden worden gegeven in milliseconde, het veschil wordt teruggegeven in minuten.
+function timeDifference(pastTime, currentTime){
+  const difference = currentTime - pastTime;
+  //60000 milliseconden in een minuut, dus verschil in tijd delen door 60000
+  return Math.round(difference/60000);
+}
