@@ -63,7 +63,15 @@ app.post('/upload', (req, res) => {
   try{
     if(!checkIfUUID(req.body.sessionId)){
       console.log(`SessionId ${req.body.sessionId} is not a UUID, ignoring`);
-      res.status(403).send("The received sessionId is not a UUID");
+
+      const returnData = {
+        result: "failed",
+        data: {
+          errorType: "noSessionId",
+          errorMsg: "The received sessionId is not a UUID"
+        }
+      }
+      res.status(403).send(returnData);
       return;
     }
   }catch(e){
@@ -74,6 +82,9 @@ app.post('/upload', (req, res) => {
         errorMsg: "Probleem met het bericht naar de server. Probeer het opnieuw"
       }
     }
+
+    res.status(500).send(returnData);
+    return;
   }
 
   //Bestanden van clients worden opgeslagen in een map binnen de hoofdmap met als naam de sessionId, zodat deze later teruggevonden kunnen worden
