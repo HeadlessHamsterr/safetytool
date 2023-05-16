@@ -2,7 +2,7 @@ import ImportField from './ImportField';
 import { useEffect, useState } from 'react';
 import { Alert, CircularProgress, Collapse } from '@mui/material';
 
-const Home = ({returnSafetyfunctions, sessionId, hidden}) => {
+const Home = ({returnSafetyfunctions, sessionId, hidden, showSnackbar, hideSnackbar }) => {
     const [excelFile, setExcelFile] = useState(null);
     const [importError, setImportError] = useState(null);
     const [hideLoadingCircle, setHideLoadingCircle] = useState(true);
@@ -36,6 +36,8 @@ const Home = ({returnSafetyfunctions, sessionId, hidden}) => {
 
         xhr.onload = () => {
             setHideLoadingCircle(true);
+            hideSnackbar();
+            
             //Data wordt teruggestuurd als JSON string, omzetten naar een object om uit te kunnen lezen
             const safetyData = JSON.parse(xhr.responseText);
 
@@ -48,8 +50,7 @@ const Home = ({returnSafetyfunctions, sessionId, hidden}) => {
         }
 
         xhr.onerror = () => {
-            setServerError("Kan geen verbinding maken met de server. Herlaad de pagina en probeer het opnieuw.");
-            setHideAlert(false);
+            showSnackbar("error", "Kan geen verbinding maken met de server. Herlaad de pagina en probeer het opnieuw.", false)
             setHideLoadingCircle(true);
         }
 
