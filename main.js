@@ -259,8 +259,8 @@ function checkIfUUID(string){
 
 
 //Om te voorkomen dat de server vol stroomt met oude bestanden, worden de bestanden automatisch verwijderd.
-//Dit wordt gedaan door te controleren hoe lang het geleden is sinds het bestand "parsedExcel.json" is aangemaakt.
-//Dit betand wordt telkens opnieuw aangemaakt als de gebruiker een Excel bestand upload. Als dit bestand meer dan een uur oud is, 
+//De server controleert hoe lang het geleden is sinds het bestand "parsedExcel.json" is aangemaakt. Deze controle gebeurt elk kwartier.
+//Dit bestand wordt telkens opnieuw aangemaakt als de gebruiker een Excel bestand upload. Als dit bestand meer dan een uur oud is, 
 //betekent dat dat de gebruiker meer dan een uur niks heeft geüpload. De map kan dan verwijderd worden.
 setInterval(()=>{
   try{
