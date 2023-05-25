@@ -24,6 +24,8 @@ function validateFileExtension(extension, type) {
 }
 
 function compressFileName(filename, extension) {
+    //Bestandsnaam mag maximaal 34 tekens zijn om goed in het tekstvak te passen
+    //Drie puntjes komen er bij, dus blijven er 31 min het aantal tekens in de extensie over voor de bestandsnaam
     filename = filename.slice(0, (31 - extension.length));
     return filename + "..." + extension;
 }
