@@ -24,7 +24,6 @@ Om de webserver te kunnen draaien, zijn de volgende mappen en bestanden nodig:
 - `public`, hierin staan de HTML, CSS en Javascript bestanden die de server naar de client stuurt
 - `modules`, hierin staan alle modules die de server nodig heeft
 - `PAScalFiles`, hierin staan alle onderdelen die de server gebruikt voor het genereren van de PAScal bestanden
-- `assets`, hierin staat de favicon van de website
 
 Op het moment dat de webserver wordt opgestart, maakt deze nog een extra map aan genaamd "userFiles". In deze map worden alle bestanden opgeslagen die voor de clients aangemaakt worden.
 
