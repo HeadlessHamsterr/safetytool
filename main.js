@@ -24,9 +24,14 @@ if(!fs.existsSync(mainUserDirectory)){
 app.use(express.static('public'));                              //Locatie van de statische bestanden
 app.use(bodyParser.json());                                     //Middelware voor het parsen van JSON gegevens in de body van binnen komende requests
 app.use(fileupload());                                          //Middelware voor het ontvangen van bestanden
+//In development, als de frontend wordt gedraaid door "npm start", moet CORS worden ingeschakeld op de server
+//De frontend draait dan op een ander domein dan de server, dit domein moet dan toegestaan worden op de server om de server requests te laten accepteren
+//In production kan deze functie uitgeschakeld worden
+/*
 app.use(cors({
   origin: '*'
 }));
+*/
 
 //Handler voor het / endpoint, stuurt de index pagina terug naar de client
 app.get("/", (req, res) => {
