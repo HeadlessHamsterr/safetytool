@@ -12,7 +12,7 @@ Voordat de safetytool gebruikt kan worden, moeten eerst Node en NPM worden geïn
 Om de website efficiënt te kunnen draaien, moet de React code worden gebouwd naar standaard HTML, CSS en Javascript bestanden. Deze stappen gaan ervan uit dat het hele project is gedownload en dat Node en NPM geïnstalleerd zijn.
 1. Open de terminal en ga naar de map `frontend`
 2. Installeer alle dependencies met het commando `npm install`
-3. Controleer of het IP adres van de server correct is. Deze staat gedefinieerd in `frontend/src/App.js`, in de variabele `serverURL`. Dit moet de URL zijn waarop de server te bereiken is (bijvoorbeeld `safetytool.vandenpol.com`)
+3. Controleer of het IP adres van de server correct is. Deze staat gedefinieerd in `frontend/src/App.js`, in de variabele `serverURL`. Dit moet de URL zijn waarop de server te bereiken is (bijvoorbeeld `https://safetytool.vandenpol.com`)
 3. Bouw de website met het commando `npm run build`
 4. In de map `frontend` wordt een map gemaakt genaamd `build`, daarin staan alle bestanden die door de webserver gebruikt worden
 
