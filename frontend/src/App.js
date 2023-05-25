@@ -12,6 +12,8 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
+const serverURL = "http://localhost:3001";
+
 function App() {
   const [safetyfunctions, setSafetyfunctions] = useState(null);
   const [sessionId, setSessionId] = useState(null);
@@ -29,7 +31,7 @@ function App() {
 
   useEffect(() => {
     window.addEventListener("beforeunload", () => {
-      fetch("http://localhost:3001/goodbye", {
+      fetch(`${serverURL}/goodbye`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,6 +122,7 @@ function App() {
           enableSnackbar(severity, error, autoHide)
         }
         hideSnackbar={() => handleSnackbarClose("", "")}
+        serverURL={serverURL}
       />
       <GenerateScreen
         safetyData={safetyfunctions}
@@ -130,6 +133,7 @@ function App() {
           enableSnackbar(severity, error, autoHide)
         }
         hideSnackbar={() => handleSnackbarClose("", "")}
+        serverURL={serverURL}
       />
     </div>
   );
