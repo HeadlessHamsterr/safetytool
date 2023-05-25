@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import ExcelSheet from "./ExcelSheet";
+
+//Dit scherm is bedoelt om een nieuwe versie van de vragenlijst te kunnen uploaden, zodat de server deze kan uitlezen
+//Deze functionaliteit is nog niet klaar, dus deze pagina wordt momenteel niet gebruikt
 const CalibrateScreen = ({hidden, sessionId}) => {
     const [excelSheets, setExcelSheets] = useState(null);
 

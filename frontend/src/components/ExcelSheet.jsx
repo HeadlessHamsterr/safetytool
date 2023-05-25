@@ -4,6 +4,9 @@ import ExcelCell from "./ExcelCell";
 const $ = require('jquery');
 
 let cellRowId = 0;
+
+//Dit component hoort bij het "calibrateScreen" component
+//Wordt op het moment dus ook nog niet gebruikt
 const ExcelSheet = ({sheetname, idKey}) => {
     const [cells, setCells] = useState([]);
     useEffect(() => {

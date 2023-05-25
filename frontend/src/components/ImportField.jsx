@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import getFileInfo from "./modules/fileTools";
 import { Alert, Collapse, Button } from "@mui/material";
 
+//Dit component is het veld waar het Excel bestand door de gebruiker in geüpload kan worden
 const ImportField = ({ filetype, setFile, hidden, error }) => {
 	const [filename, setFilename] = useState("");
 	const [errorMsg, setErrorMsg] = useState(null);
@@ -10,6 +11,8 @@ const ImportField = ({ filetype, setFile, hidden, error }) => {
 	const [tableWidth, setTableWidth] = useState(275);
 	const inputRef = useRef(null);
 
+	//Als de home pagina opnieuw geladen wordt (de variabele "hidden" verandert), wordt alles gereset
+	//Het eventueel geüploadde wordt gereset en alle errors worden gecleared
 	useEffect(() => {
 		setFilename(null);
 		setFile(null);
@@ -19,6 +22,8 @@ const ImportField = ({ filetype, setFile, hidden, error }) => {
 		inputRef.current.reset();
 	}, [hidden]);
 
+	//Als er een error optreedt, wordt deze getoond aan de gebruiker
+	//Deze error kan komen van de server of van de frontend
 	useEffect(() => {
 		if (error) {
 			setErrorMsg(error);
@@ -28,6 +33,7 @@ const ImportField = ({ filetype, setFile, hidden, error }) => {
 		}
 	}, [error]);
 
+	//De breedte van het uploadvak wordt automatisch aangepast aan de lengte van de bestandsnaam
 	useEffect(() => {
 		let newTableWidth;
 		if (filename) {
@@ -43,20 +49,27 @@ const ImportField = ({ filetype, setFile, hidden, error }) => {
 		document.getElementById("fileInput").click();
 	}
 
+	//Deze functie wordt aangeroepen als er een bestand wordt geselecteerd door de gebruiker, of het selecteren wordt geannuleerd
 	function handleFileChange(e) {
 		setHideAlert(true);
 		setBorderColor("grey");
 
+		//Geen bestand geselecteerd
 		if (e.target.files.length === 0) {
 			return;
 		}
 
+		//Deze functie verkort, indien nodig, de bestandsnaam en controleerd of de extensie correct is voor een Excel bestand
+		//De server controleerd ook nog of het geüploadde bestand daadwerkelijk een Excel bestand is
 		const fileInfo = getFileInfo(e.target.files[0].name, filetype);
 
+		//Controleren of er problemen zijn gevonden met het bestand
 		if (fileInfo.success) {
+			//Bestand en bestandsnaam opslaan, dit bestand wordt naar de server geüpload
 			setFile(e.target.files[0]);
 			setFilename(fileInfo.filename);
 		} else {
+			//Er is iets mis met het bestand, error wordt getoond aan de gebruiker
 			setFilename(null);
 			setErrorMsg(fileInfo.error);
 			setHideAlert(false);

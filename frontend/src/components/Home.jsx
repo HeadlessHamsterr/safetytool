@@ -16,6 +16,8 @@ const Home = ({
 	const [serverError, setServerError] = useState(null);
 	const [hideAlert, setHideAlert] = useState(true);
 
+	//Als de pagina opnieuw geladen wordt, moeten alle states gereset worden
+	//Het hiervoor geüploadde bestand wordt gecleared, de alerts en errors verdwijnen en de laad-cirkels worden uitgezet
 	useEffect(() => {
 		setLoading(false);
 		setServerError(null);
@@ -23,6 +25,7 @@ const Home = ({
 		setHideAlert(true);
 	}, [hidden]);
 
+	//Deze functie wordt uitgevoerd wanneer de gebruiker op de "importeren" knop drukt
 	function uploadFile() {
 		setLoading(true);
 		setHideAlert(true);
@@ -52,10 +55,12 @@ const Home = ({
 			if (safetyData.result === "success") {
 				returnSafetyfunctions(safetyData.data);
 			} else {
+				//Error tonen aan de gebruiker
 				setImportError(safetyData.data.errorMsg);
 			}
 		};
 
+		//Probleem met de verbinding wordt getoond aan de gebruiker
 		xhr.onerror = () => {
 			showSnackbar(
 				"error",

@@ -76,6 +76,8 @@ const inputFieldTheme = () =>
 		},
 	});
 
+//Dit scherm wordt getoond nadat de gebruiker een Excel bestand heeft geüpload en deze is verwerkt door de server
+//De server stuurt de data terug die door deze pagina wordt gebruikt om de elementen op de pagina te genereren
 const GenerateScreen = ({
 	safetyData,
 	hidden,
@@ -90,7 +92,10 @@ const GenerateScreen = ({
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
+		//Deze functie zorgt ervoor dat het aantal blokken dat in een rij staat wordt aangepast op de scherm grootte
+		//Op die manier is er geen X-overflow
 		function resizeGrid() {
+			//Aantal kolommen wordt bepaald aan de hand van de breedte van het scherm
 			if (window.innerWidth >= 1700) {
 				setGridCols("auto auto auto auto");
 			} else if (window.innerWidth <= 1700 && window.innerWidth >= 1273) {
@@ -102,25 +107,31 @@ const GenerateScreen = ({
 			}
 		}
 
+		//Event listener voor het aanpassen van de scherm grootte
 		window.addEventListener("resize", resizeGrid);
+		//Direct de functie aanroepen, zodat het aantal kolommen goed wordt ingesteld
 		resizeGrid();
+		setLoading(false);
 
 		return () => {
 			window.removeEventListener("resize", resizeGrid);
 		};
 
-		setLoading(false);
 	});
 
+	//Als de pagina getoond wordt (de variabele "hidden" verandert), wordt de pagina gereset
+	//Alle errors worden gereset, en het invul vakje wordt leeggehaald
 	useEffect(() => {
 		setAuthorFieldEmpty(false);
 		setLoading(false);
 		document.getElementById("author").value = null;
 	}, [hidden]);
 
+	//Deze functie is verantwoordelijk voor het downloaden van het PAScal bestand dat door de server wordt teruggestuurd
 	function downloadFile(type) {
 		const author = document.getElementById("author").value;
 
+		//Controleren of de auteur is ingevuld
 		if (!author) {
 			setAuthorFieldEmpty(true);
 			return false;
@@ -130,9 +141,13 @@ const GenerateScreen = ({
 
 		let filename;
 		let mimeType;
+
+		//De server kan twee soorten bestanden genereren: één voor PAScal en één voor de testapp
+		//Hier wordt gecontroleerd welke wordt gedownload, zodat de juiste MIME-type en bestandsnaam kunnen worden ingesteld
 		switch (type) {
 			case "pascal":
 				filename =
+					//Spaties in bestandsnaam vervangen door "_"
 					`${safetyData.klant}_${safetyData.projectnaam}_${safetyData.projectcode}.psc`.replace(
 						/\s+/g,
 						"_"

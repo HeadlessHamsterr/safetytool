@@ -25,17 +25,21 @@ function App() {
   const [alertText, setAlertText] = useState(null);
   const [snackbarAutohide, setSnackbarAutohide] = useState(true);
 
+  //De eerste keer dat de pagina geladen wordt, wordt een nieuwe sessionID aangemaakt
   useEffect(() => {
     setSessionId(uuidv4());
   }, []);
 
   useEffect(() => {
+    //Als de pagina wordt gesloten, wordt er een bericht gestuurd naar de server om de bestanden van de client te verwijderen
     window.addEventListener("beforeunload", () => {
+      //POST request sturen naar "/goodbye" endpoint
       fetch(`${serverURL}/goodbye`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        //SessionID wordt meegestuurd zodat de juiste bestanden worden verwijderd
         body: JSON.stringify({ sessionId: sessionId }),
         keepalive: true,
       });
@@ -46,17 +50,27 @@ function App() {
     };
   });
 
+  //Deze functie wordt uitgevoerd als er een bestand is geüpload
+  //Door deze functie wordt de pagina getoond met de verwerkte data uit het geüploade Excel bestand
   function fileUploaded(data) {
+    //Verwerkte data opslaan
     setSafetyfunctions(data);
+    //Nieuwe pagina tonen
     hideHome(true);
     hideCalibrateScreen(true);
     hideGenerateScreen(false);
   }
 
+  //Deze functie wordt uitgevoerd als op het icoontje linksboven in de balk wordt geklikt
+  //Afhankelijk van de actieve pagina wordt een nieuwe pagina getoond
   function iconClick() {
+    //Eerst alle pagina's sluiten, zo kan eenvoudig de nieuwe pagina geopend worden
     hideHome(true);
     hideCalibrateScreen(true);
     hideGenerateScreen(true);
+
+    //De waarde van de stateful variabelen wordt pas geüpdated nadat de functie is uitgevoerd
+    //Hier worden dus de oude waardes van de variabelen bekeken
     if (!homeHidden) {
       hideCalibrateScreen(false);
     } else if (!calibrateScreenHidden || !generateScreenHidden) {
@@ -64,13 +78,20 @@ function App() {
     }
   }
 
+  //Functie voor het tonen van een Snackbar met alert op de pagina
+  //Het tonen van alerts wordt hier geregeld, zodat ook de alerts niet alleen op bepaalde pagina's werken
+  //Zo kan er op de "generateScreen" pagina een error met de verbinding op treden, terug genavigeerd worden naar de home pagina en vervolgens de alert getoond worden
+  //Als de alert op de "generateScreen" pagina getoond zou worden, zou deze verdwijnen wanneer naar de home pagina genavigeerd wordt
   function enableSnackbar(severity, text, autoHide = true) {
     setAlertSeverity(severity);
     setAlertText(text);
     setShowSnackbar(true);
+    //Als autohide true is, verdwijnt de alert automatisch na 5 seconde
     setSnackbarAutohide(autoHide);
   }
 
+  //Functie voor het sluiten van de snackbar
+  //Snackbar sluit wanneer de gebruiker op het kruisje klikt, of op escape drukt
   function handleSnackbarClose(event, reason) {
     if (reason === "clickaway") {
       return;
@@ -79,6 +100,7 @@ function App() {
     setShowSnackbar(false);
   }
 
+  //Functie voor het animeren van de snackbar
   function slideFromTop(props) {
     return <Slide {...props} direction="down" />;
   }

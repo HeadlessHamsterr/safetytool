@@ -1,4 +1,7 @@
 import {BsTrashFill} from 'react-icons/bs'
+
+//Dit component hoort bij het "calibrateScreen" component
+//Wordt op het moment dus ook nog niet gebruikt
 const ExcelCell = ({removeCell, cellId}) => {
     return (
         <div>

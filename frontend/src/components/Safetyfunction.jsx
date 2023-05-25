@@ -1,3 +1,5 @@
+//Dit component is het blok dat de gegevens laat zien die de server uit het Excel bestand heeft gehaald
+//Deze blokken worden voor ieder blad in het Excel bestand gegenereerd
 const SafetyFunction = ({safetyFunction}) => {
     return (
         <div className="safetyFunction">
