@@ -3,3 +3,4 @@ userFiles
 excel.json
 parsedExcel.json
 public/*
+.vscode
