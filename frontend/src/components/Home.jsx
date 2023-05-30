@@ -191,7 +191,7 @@ const Home = ({
 					))}
 					<DialogContentText>
 						Deze gegevens zijn nodig voor de naamgeving van het PAScal-project. Het ontwerp kan alsnog gegenereerd worden. De
-						ontbrekende gegevens kunnen in PAScal ingevuld worden.
+						ontbrekende gegevens kunnen achteraf in PAScal ingevuld worden.
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
