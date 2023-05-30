@@ -87,6 +87,21 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
     safetyData["projectnaam"] = excelObj[0]["data"][2][1];
     safetyData["projectcode"] = excelObj[0]["data"][3][1];
 
+    var missingInfo = []
+
+    if(safetyData["klant"] === undefined){
+        missingInfo.push("Klant");
+    }
+
+    if(safetyData["projectnaam"] === undefined){
+        missingInfo.push("Projectnaam");
+    }
+
+    if(safetyData["projectcode"] === undefined){
+        missingInfo.push("Projectcode");
+    }
+
+    /*
     //Controleer of een van de cellen die gelezen zijn leeg is, als dat het geval is mist er informatie en wordt een error teruggestuurd
     const emptyCell = findEmptyCell(safetyData);
     if(emptyCell){
@@ -99,7 +114,7 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
             errorMsg: `Vragenlijst niet volledig ingevuld. Controleer de cel "${emptyCell}" op het blad "${excelObj[0]["name"]}".`
         }
         return returnObj;
-    }
+    }*/
 
     //Lees de rest van de bladen uit
     for(let sheetNumber = 0; sheetNumber < excelObj.length; sheetNumber++){
@@ -177,7 +192,12 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
     }
 
     //Resultaat en veiligheidsfuncties toevoegen aan het object dat wordt teruggestuurd
-    returnObj["result"] = "success";
+    if(missingInfo.length > 0){
+        returnObj["result"] = "missingCustomerInfo";
+        returnObj["missingCustomerInfo"] = missingInfo;
+    }else{
+        returnObj["result"] = "success";
+    }
     returnObj["data"] = safetyData;
     return returnObj;
 }

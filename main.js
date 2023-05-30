@@ -17,7 +17,7 @@ const port = 3001;
 const mainUserDirectory = path.join(__dirname, 'userFiles');
 
 //Controleren of de userFiles map bestaat, anders wordt deze aangemaakt
-if(!fs.existsSync(mainUserDirectory)){
+if (!fs.existsSync(mainUserDirectory)) {
   fs.mkdirSync(mainUserDirectory);
 }
 
@@ -27,11 +27,11 @@ app.use(fileupload());                                          //Middelware voo
 //In development, als de frontend wordt gedraaid door "npm start", moet CORS worden ingeschakeld op de server
 //De frontend draait dan op een ander domein dan de server, dit domein moet dan toegestaan worden op de server om de server requests te laten accepteren
 //In production kan deze functie uitgeschakeld worden
-/*
+
 app.use(cors({
   origin: '*'
 }));
-*/
+
 
 //Handler voor het / endpoint, stuurt de index pagina terug naar de client
 app.get("/", (req, res) => {
@@ -39,12 +39,12 @@ app.get("/", (req, res) => {
 });
 
 app.post('/downloadConvertedExcel', (req, res) => {
-  if(!checkIfUUID(req.body.sessionId)){
+  if (!checkIfUUID(req.body.sessionId)) {
     console.log(`SessionId ${req.body.sessionId} is not a UUID, ignoring`);
     res.status(403).send("The received sessionId is not a UUID");
-  }else{
+  } else {
     const userDirectory = path.join(mainUserDirectory, req.body.sessionId);
-    if(!fs.existsSync(userDirectory)){
+    if (!fs.existsSync(userDirectory)) {
       fs.mkdirSync(userDirectory);
     }
 
@@ -52,19 +52,19 @@ app.post('/downloadConvertedExcel', (req, res) => {
     excelToJson(userDirectory, req.files.excelFile.name);
 
     res.download(path.join(userDirectory, 'excel.json'), (err) => {
-      if(err){
+      if (err) {
         console.log(err);
-        res.send({error: err, msg: "Problem downloading the file"});
+        res.send({ error: err, msg: "Problem downloading the file" });
       }
-    });    
+    });
   }
 });
 
 //Handler voor de /upload endpoint, ontvang en parsed de vragenlijst en stuur vervolgens de data uit de vragenlijst in JSON formaat terug naar de client
 app.post('/upload', (req, res) => {
   //Controleer of de sessionId een geldig UUID is, zo niet is de request niet geldig en wordt een error 403 teruggestuurd
-  try{
-    if(!checkIfUUID(req.body.sessionId)){
+  try {
+    if (!checkIfUUID(req.body.sessionId)) {
       console.log(`SessionId ${req.body.sessionId} is not a UUID, ignoring`);
 
       const returnData = {
@@ -77,7 +77,7 @@ app.post('/upload', (req, res) => {
       res.status(403).send(returnData);
       return;
     }
-  }catch(e){
+  } catch (e) {
     const returnData = {
       result: "failed",
       data: {
@@ -93,32 +93,32 @@ app.post('/upload', (req, res) => {
   //Bestanden van clients worden opgeslagen in een map binnen de hoofdmap met als naam de sessionId, zodat deze later teruggevonden kunnen worden
   const userDirectory = path.join(mainUserDirectory, req.body.sessionId);
 
-  try{
-    if(req.files.excelFile.data.toString('utf-8', 0, 2) !== 'PK'){
+  try {
+    if (req.files.excelFile.data.toString('utf-8', 0, 2) !== 'PK') {
       const returnData = {
         result: "failed",
-        data : {
+        data: {
           errorType: "wrongFiletype",
           errorMsg: "Ongeldig Excel bestand"
         }
       }
       res.send(returnData);
-    }else{
+    } else {
       //Maak de map aan als deze nog niet bestaat
-      if(!fs.existsSync(userDirectory)){
+      if (!fs.existsSync(userDirectory)) {
         fs.mkdirSync(userDirectory);
       }
       //Sla de vragenlijst op in de map van de client en haal de gegevens op met parseExelFile()
       fs.writeFileSync(path.join(userDirectory, req.files.excelFile.name), req.files.excelFile.data);
 
       let safetyData;
-      try{
+      try {
         safetyData = parseExcelFile(path.join(userDirectory, req.files.excelFile.name), true, true);
         //Gegevens uit vragenlijst worden opgeslagen als JSON bestand
         fs.writeFileSync(path.join(userDirectory, 'parsedExcel.json'), JSON.stringify(safetyData, null, 4));
         //Gegevens worden teruggestuurd naar de client, zodat de gebruiker deze nog een keer kan controleren
         res.setHeader('safetyfunctions', JSON.stringify(safetyData));
-      }catch(e){
+      } catch (e) {
         safetyData = {
           result: "failed",
           data: {
@@ -128,13 +128,13 @@ app.post('/upload', (req, res) => {
         }
       }
 
-      if(req.headers.uploadtype === 'recalibration'){
+      if (req.headers.uploadtype === 'recalibration') {
         console.log("Received upload for recalibration");
-      }else if(req.headers.uploadtype === 'normal'){
+      } else if (req.headers.uploadtype === 'normal') {
         res.send(safetyData);
       }
     }
-  }catch(e){
+  } catch (e) {
     const safetyData = {
       result: "failed",
       data: {
@@ -146,20 +146,26 @@ app.post('/upload', (req, res) => {
   }
 });
 
-//Handler voor de /generate endpoint
-//Deze handler maakt het pascal project en stuurt deze terug naar de gebruiker
+/* De onderstaande code is een functie die een verzoek en antwoord afhandelt voor het
+genereren en downloaden van een PAScal-projectbestand. Het controleert eerst of de sessionId in de
+aanvraagheader een geldige UUID is, en als dat niet het geval is, stuurt het een foutbericht. Als de
+sessionId geldig is, wordt gecontroleerd of er een gebruikersdirectory bestaat voor die sessionId,
+en als dat niet het geval is, wordt er een foutbericht verzonden. Als de gebruikersdirectory
+bestaat, leest de functie gegevens uit een JSON-bestand, genereert een PAScal-project op basis van die
+gegevens en projectinformatie in de verzoekheader en slaat het projectbestand op met een bestandsnaam op
+basis van de projectinformatie. Dit projectbestand wordt naar de client gestuurd zodat het gedownload kan worden. */
 app.get('/pascal', (req, res) => {
   //Controleren of de sessionId een geldig UUID is, anders wordt een error teruggestuurd
   const sessionId = req.headers.sessionid;
   const projectInfo = JSON.parse(req.headers.projectinfo)
 
-  if(!checkIfUUID(sessionId)){
+  if (!checkIfUUID(sessionId)) {
     console.log(`SessionId ${sessionId} is not a UUID, ignoring`);
     res.status(403).send("The received sessionId is not a UUID");
-  }else{
+  } else {
     //Controleren of een gebruikersmap bestaat voor deze sessionId, zo niet wordt er een error teruggestuurd
     const userDirectory = path.join(mainUserDirectory, sessionId);
-    if(!fs.existsSync(userDirectory)){
+    if (!fs.existsSync(userDirectory)) {
       console.log("Unkown sessionId");
       const responseMsg = {
         result: "failed",
@@ -169,7 +175,7 @@ app.get('/pascal', (req, res) => {
         }
       }
       res.status(404).send(JSON.stringify(responseMsg));
-    }else{
+    } else {
       //Gegevens uit vragenlijst ophalen uit het eerder gemaakte JSON bestand
       const safetyData = JSON.parse(fs.readFileSync(path.join(userDirectory, 'parsedExcel.json')))["data"];
       //PAScal project genereren op basis van de gegevens
@@ -184,32 +190,39 @@ app.get('/pascal', (req, res) => {
 
       //PAScal project bestand terugsturen naar de gebruiker. Dit bestand wordt direct door de browser gedownload.
       res.download(path.join(userDirectory, filename), (err) => {
-        if(err){
+        if (err) {
           console.log(err);
-          res.send({error: err, msg: "Problem downloading the file"});
+          res.send({ error: err, msg: "Problem downloading the file" });
         }
       });
     }
   }
 });
 
+/* De onderstaande code is een functie die een checklist kan genereren voor de testapp. Het
+controleert eerst of de sessionId in de aanvraagheader een geldige UUID is, en als dat niet het
+geval is, stuurt het een foutmelding. Als de sessionId geldig is, wordt gecontroleerd of de
+overeenkomstige gebruikersdirectory bestaat en zo niet, dan wordt een 404-foutmelding verzonden. Als
+de directory bestaat, leest de functie een JSON-bestand met veiligheidsfuncties en genereert voor al 
+deze veiligheidfuncties een checklist. Deze checklist wordt opgeslagen als Excel-bestand. Ten slotte 
+stuurt de functie het Excel-bestand naar de client. */
 app.get('/checklist', (req, res) => {
   const sessionId = req.headers.sessionid;
 
-  if(!checkIfUUID(sessionId)){
+  if (!checkIfUUID(sessionId)) {
     console.log(`SessionId ${sessionId} is not a UUID, ignoring`);
     res.status(403).send("The received sessionId is not a UUID");
-  }else{
+  } else {
     const userDirectory = path.join(mainUserDirectory, sessionId);
-    if(!fs.existsSync(userDirectory)){
+    if (!fs.existsSync(userDirectory)) {
       console.log("Unkown sessionId");
       res.status(404).send("Unkown sessionId");
       return;
     }
     let safetyData;
-    try{
+    try {
       safetyData = JSON.parse(fs.readFileSync(path.join(userDirectory, 'parsedExcel.json')))["data"];
-    }catch(e){
+    } catch (e) {
       res.status(404).send(e);
       return;
     }
@@ -218,29 +231,29 @@ app.get('/checklist', (req, res) => {
     fs.writeFileSync(path.join(userDirectory, 'checklist.xlsx'), checklist);
 
     res.download(path.join(userDirectory, 'checklist.xlsx'), (err) => {
-      if(err){
+      if (err) {
         console.log(err);
-        res.send({error: err, msg: "Problem downloading the file"});
+        res.send({ error: err, msg: "Problem downloading the file" });
       }
     });
   }
 });
 
 //Handler voor de /goodbye endpoint, hier wordt een request naartoe gestuurd door de client als de pagina wordt afgesloten
-//de server verwijdert dan alle data van die client
+//De server verwijdert dan alle data van die client
 app.post('/goodbye', (req, res) => {
   const sessionId = req.body.sessionId;
   console.log(`Goodbye received from ${sessionId}`);
 
   //Wederom worden alleen geldige UUID's toegestaan
-  if(!checkIfUUID(sessionId)){
+  if (!checkIfUUID(sessionId)) {
     console.log(`SessionId ${sessionId} is not a UUID, ignoring`);
     res.status(403).send("The received sessionId is not a UUID");
-  }else{
+  } else {
     //Verwijder de map van de client, als deze bestaat
-    if(fs.existsSync(path.join(mainUserDirectory, sessionId))){
+    if (fs.existsSync(path.join(mainUserDirectory, sessionId))) {
       fs.rmSync(path.join(mainUserDirectory, sessionId), { recursive: true, force: true });
-    }else{
+    } else {
       console.log("Attempting to remove non-existent directory, ignoring");
     }
     //Response terugsturen naar de client
@@ -254,34 +267,34 @@ app.listen(port, () => {
 });
 
 //Functie voor het controleren of een string een geldig UUID is. Dit wordt gedaan met behulp van regex
-function checkIfUUID(string){
+function checkIfUUID(string) {
   //UUID's beginnen met 8 cijfers of nummers, dan drie keer 4 cijfers of nummers en eindigt met 12 cijfers of nummers, met telkens een streep tussen de onderdelen
   let regex = /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/i;
   return regex.test(string);
 }
 
-
-//Om te voorkomen dat de server vol stroomt met oude bestanden, worden de bestanden automatisch verwijderd.
-//De server controleert hoe lang het geleden is sinds het bestand "parsedExcel.json" is aangemaakt. Deze controle gebeurt elk kwartier.
-//Dit bestand wordt telkens opnieuw aangemaakt als de gebruiker een Excel bestand upload. Als dit bestand meer dan een uur oud is, 
-//betekent dat dat de gebruiker meer dan een uur niks heeft geüpload. De map kan dan verwijderd worden.
-setInterval(()=>{
-  try{
+/* De onderstaande code is een functie die automatisch clientmappen verwijdert die langer
+dan een uur inactief zijn geweest. Dit gebeurt door het bestand "parsedExcel.json" in elke
+clientmap te controleren om te bepalen op welk tijdstip het bestand "parsedExcel.json" is gemaakt. 
+Dit bestand wordt opnieuw aangemaakt, iedere keer dat de gebruiker iets uploadt. Als dit bestand meer dan een
+uur oud is, wordt deze verwijderd. Dit betekend namelijk dat de gebruiker al een uur niks meer heeft geüpload.*/
+setInterval(() => {
+  try {
     //Huidige tijd bepalen, wordt opgeslagen in milliseconde sinds epoch
     const currentDate = Date.now();
     //ALle mappen in de map "userFiles" worden gecontroleerd
     const folders = fs.readdirSync(mainUserDirectory);
 
     //Loop door alle mappen
-    for(const folder of folders){
+    for (const folder of folders) {
       let birthtime;
 
       //Als er geen bestand "parsedExcel.json" in de map van de client staat, is deze client map niet (of verkeerd) door de server aangemaakt.
       //De map kan dan direct verwijderd worden
-      try{
+      try {
         //Tijd van aanmaken van de client map ophalen, wordt opgeslagen in milliseconde sinds epoch
         birthtime = fs.statSync(path.join(mainUserDirectory, folder, 'parsedExcel.json')).birthtime.valueOf();
-      }catch(e){
+      } catch (e) {
         //Kan het bestand "parsedExcel.json" niet lezen, map wordt direct verwijderd.
         console.log(`File "parsedExcel.json" not present in folder ${folder}. Removing folder`);
         fs.rmSync(path.join(mainUserDirectory, folder), { recursive: true, force: true });
@@ -291,21 +304,21 @@ setInterval(()=>{
       //Verstreken tijd sinds het aanmaken van het "parsedExcel.json" bestand berekenen. Deze tijd wordt gegeven in minuten.
       const folderAliveTime = timeDifference(birthtime, currentDate);
       //Bestand is meer dan een uur oud
-      if(folderAliveTime >= 60){
+      if (folderAliveTime >= 60) {
         console.log(`Time exceeded for client ${folder}, removing folder`);
         //Map van de client verwijderen
-        fs.rmSync(path.join(mainUserDirectory, folder), {recursive: true, force: true});
+        fs.rmSync(path.join(mainUserDirectory, folder), { recursive: true, force: true });
       }
     }
-  }catch(e){
+  } catch (e) {
     console.log(`Error occured while auto-removing files: ${e}`);
   }
 }, 900000);
 
 //Deze functie wordt gebruikt voor het berekenen van het verschil tussen twee tijden.
 //De tijden worden gegeven in milliseconde, het veschil wordt teruggegeven in minuten.
-function timeDifference(pastTime, currentTime){
+function timeDifference(pastTime, currentTime) {
   const difference = currentTime - pastTime;
   //60000 milliseconden in een minuut, dus verschil in tijd delen door 60000
-  return Math.round(difference/60000);
+  return Math.round(difference / 60000);
 }

@@ -267,8 +267,8 @@ const GenerateScreen = ({
 	return (
 		<div className="pageDiv" style={hidden ? { display: "none" } : null}>
 			<span className="projectTitle" id="projectTitle">
-				{safetyData
-					? `${safetyData.klant} ${safetyData.projectnaam} (${safetyData.projectcode})`
+				{safetyData && safetyData.klant && safetyData.projectnaam
+					? `${safetyData.klant} ${safetyData.projectnaam}`
 					: null}
 			</span>
 			<br />
