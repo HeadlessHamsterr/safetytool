@@ -126,6 +126,7 @@ function App() {
             severity={alertSeverity}
             variant="filled"
             onClose={handleSnackbarClose}
+            sx={{color: "white"}}
           >
             {alertText}
           </Alert>
