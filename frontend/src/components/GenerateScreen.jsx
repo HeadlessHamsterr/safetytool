@@ -139,19 +139,33 @@ const GenerateScreen = ({
 		setAuthorFieldEmpty(false);
 		setLoading(true);
 
-		let filename;
+		let filename = "";
 		let mimeType;
 
 		//De server kan twee soorten bestanden genereren: één voor PAScal en één voor de testapp
 		//Hier wordt gecontroleerd welke wordt gedownload, zodat de juiste MIME-type en bestandsnaam kunnen worden ingesteld
 		switch (type) {
 			case "pascal":
-				filename =
-					//Spaties in bestandsnaam vervangen door "_"
-					`${safetyData.klant}_${safetyData.projectnaam}_${safetyData.projectcode}.psc`.replace(
-						/\s+/g,
-						"_"
-					);
+				//Als de gegevens niet ontbreken, worden de klantgegevens gebruikt als bestandsnaam
+				if(safetyData.projectcode){
+					filename += safetyData.projectcode;
+				}
+
+				if(safetyData.klant){
+					filename += ` ${safetyData.klant}`;
+				}
+
+				if(safetyData.projectnaam){
+					filename += ` ${safetyData.projectnaam}`;
+				}
+
+				//Alle klantgegevens ontbreken, daardoor is de lengte van filename 0
+				//Om te voorkomen dat de naam "undefined" wordt, wordt een standaard naam ingevuld
+				if(filename.length === 0){
+					filename += "Veiligheidsfuncties";
+				}
+
+				filename += '.psc';
 				mimeType = "application/xml";
 				break;
 			case "checklist":
