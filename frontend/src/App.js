@@ -1,5 +1,6 @@
 import "./App.css";
 import "./index.css";
+import { colors } from './constants';
 import Home from "./components/Home";
 import GenerateScreen from "./components/GenerateScreen";
 //import CalibrateScreen from './components/CalibrateScreen';

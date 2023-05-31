@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import SafetyFunction from "./Safetyfunction";
+import { colors } from '../constants';
 import { useState } from "react";
 import {
 	Alert,
@@ -19,7 +20,7 @@ const inputFieldTheme = () =>
 					root: {
 						"--TextField-borderColor": "grey",
 						"--TextField-hoverColor": "darkgrey",
-						"--TextField-focusColor": "#accfaf",
+						"--TextField-focusColor": colors.tertiary,
 						"& label.Mui-focused": {
 							color: "var(--TextField-focusColor)",
 						},
@@ -30,10 +31,10 @@ const inputFieldTheme = () =>
 							color: "white",
 						},
 						"& label.Mui-error": {
-							color: "#E9BEBF",
+							color: colors.alert_error_text,
 						},
 						"& helperText.Mui-error": {
-							color: "#E9BEBF",
+							color: colors.alert_error_text,
 						},
 					},
 				},
@@ -61,7 +62,7 @@ const inputFieldTheme = () =>
 							},
 						[`&.Mui-error .${outlinedInputClasses.notchedOutline}`]:
 							{
-								borderColor: "#EF5350",
+								borderColor: colors.error_border,
 							},
 					},
 				},
@@ -69,7 +70,7 @@ const inputFieldTheme = () =>
 			MuiFormHelperText: {
 				styleOverrides: {
 					root: {
-						color: "#E9BEBF",
+						color: colors.alert_error_text,
 					},
 				},
 			},
@@ -308,7 +309,7 @@ const GenerateScreen = ({
 									variant="outlined"
 									severity="error"
 									sx={{
-										color: "#E9BEBF",
+										color: colors.alert_error_text,
 										width: "fit-content",
 										margin: "10px auto",
 									}}>
@@ -325,11 +326,11 @@ const GenerateScreen = ({
 								id="exportBtn"
 								onClick={() => downloadFile("pascal")}
 								sx={{
-									backgroundColor: "#accfaf",
-									color: "#183720",
-									":hover": { backgroundColor: "#8aa58c" },
+									backgroundColor: colors.tertiary,
+									color: colors.on_tertiary,
+									":hover": { backgroundColor: colors.tertiary_hover },
 									":disabled": {
-										backgroundColor: "#454545"
+										backgroundColor: colors.button_disabled
 									}
 								}}>
 								Genereer PAScal project

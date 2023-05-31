@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import getFileInfo from "./modules/fileTools";
+import { colors } from '../constants';
 import { Alert, Collapse, Button } from "@mui/material";
 
 //Dit component is het veld waar het Excel bestand door de gebruiker in geüpload kan worden
@@ -117,9 +118,9 @@ const ImportField = ({ filetype, setFile, hidden, error }) => {
 													handleUploadClick()
 												}
 												sx={{
-													color: "#accfaf",
+													color: colors.tertiary,
 													":hover": {
-														color: "#7a8c7b",
+														color: colors.tertiary_text_btn_hover,
 														backgroundColor: "transparent"
 													}
 												}}>
@@ -151,7 +152,7 @@ const ImportField = ({ filetype, setFile, hidden, error }) => {
 					variant="outlined"
 					severity="error"
 					sx={{
-						color: "#E9BEBF",
+						color: colors.alert_error_text,
 						width: "fit-content",
 						margin: "10px auto",
 					}}>

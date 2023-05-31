@@ -1,4 +1,5 @@
 import ImportField from "./ImportField";
+import { colors } from '../constants';
 import { useEffect, useState } from "react";
 import {
 	Alert,
@@ -133,7 +134,7 @@ const Home = ({
 					variant="outlined"
 					severity="error"
 					sx={{
-						color: "#E9BEBF",
+						color: colors.alert_error_text,
 						width: "fit-content",
 						margin: "10px auto",
 					}}>
@@ -152,11 +153,11 @@ const Home = ({
 				className="importBtn"
 				onClick={() => uploadFile()}
 				sx={{
-					backgroundColor: "#accfaf",
-					color: "#183720",
-					":hover": { backgroundColor: "#8aa58c" },
+					backgroundColor: colors.tertiary,
+					color: colors.on_tertiary,
+					":hover": { backgroundColor: colors.tertiary_hover },
 					":disabled": {
-						backgroundColor: "#454545",
+						backgroundColor: colors.button_disabled,
 					},
 				}}>
 				Importeren
