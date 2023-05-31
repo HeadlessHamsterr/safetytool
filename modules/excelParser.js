@@ -7,7 +7,7 @@ const jsonToReadableCellName = {
     tpL: "Gewenst Performance Level",
     category: "Categorie",
     DC: "Diagnostic Coverage",
-    oppPerHour: "Aantal activaties per uur",
+    oppPerHour: "Aantal activaties per dag",
     oppHoursPerDay: "Actieve uren per dag",
     oppDaysPerYear: "Actieve dagen per jaar",
     faultDetection: "Fault detection",
