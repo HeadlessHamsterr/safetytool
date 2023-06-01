@@ -13,7 +13,13 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-const serverURL = "http://localhost:3001";
+//DEVELOPMENT
+//Comment de onderstaande regel in production
+//const serverURL = "http://localhost:3001";
+
+//PRODUCTION
+//Comment de onderstaande regel in development
+const serverURL = "https://safetytool.vandenpol.com"
 
 const darkTheme = createTheme({
   palette: {
