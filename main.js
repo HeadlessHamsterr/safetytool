@@ -265,13 +265,13 @@ app.post('/goodbye', (req, res) => {
   DEVELOPMENT
   Comment de onderstaande regel voordat dit bestand naar de repo gepushed wordt
 */
-app.listen(port, () => {console.log(`Listening on port ${port}`)});
+//app.listen(port, () => {console.log(`Listening on port ${port}`)});
 
 /*
   PRODUCTION
   Uncomment de onderstaande regel voordat dit bestand naar de repo gepushed wordt
 */
-//app.listen(process.env.PORT, () =>{console.log(`Listening on port ${port}`)});
+app.listen(process.env.PORT, () =>{console.log(`Listening on port ${port}`)});
 
 //Functie voor het controleren of een string een geldig UUID is. Dit wordt gedaan met behulp van regex
 function checkIfUUID(string) {
