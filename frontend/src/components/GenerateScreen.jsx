@@ -118,7 +118,7 @@ const GenerateScreen = ({
 			window.removeEventListener("resize", resizeGrid);
 		};
 
-	});
+	}, []);
 
 	//Als de pagina getoond wordt (de variabele "hidden" verandert), wordt de pagina gereset
 	//Alle errors worden gereset, en het invul vakje wordt leeggehaald
