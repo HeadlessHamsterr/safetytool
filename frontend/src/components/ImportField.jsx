@@ -120,7 +120,7 @@ const ImportField = ({ filetype, setFile, hidden, error }) => {
 												sx={{
 													color: colors.tertiary,
 													":hover": {
-														color: colors.tertiary_text_btn_hover,
+														color: colors.tertiary_hover,
 														backgroundColor: "transparent"
 													}
 												}}>
