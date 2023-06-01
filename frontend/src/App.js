@@ -1,11 +1,11 @@
 import "./App.css";
 import "./index.css";
-import { colors } from './constants';
 import Home from "./components/Home";
 import GenerateScreen from "./components/GenerateScreen";
 //import CalibrateScreen from './components/CalibrateScreen';
 import HomeIcon from "@mui/icons-material/Home";
-import { Alert, Snackbar, Slide, createTheme, ThemeProvider } from "@mui/material";
+import { colors } from "./constants";
+import { Alert, Snackbar, Slide, createTheme, ThemeProvider, Paper } from "@mui/material";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "@fontsource/roboto/300.css";
@@ -114,7 +114,7 @@ function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <div className="container">
+      <Paper sx={{ backgroundColor: colors.default_background, fontFamily: 'Roboto' }} className="container">
         <Snackbar
           TransitionComponent={slideFromTop}
           anchorOrigin={{ vertical: "top", horizontal: "center" }}
@@ -127,15 +127,21 @@ function App() {
             severity={alertSeverity}
             variant="filled"
             onClose={handleSnackbarClose}
-            sx={{color: "white"}}
+            sx={{ color: "white" }}
           >
             {alertText}
           </Alert>
         </Snackbar>
-        <div className="pageTitle">
+        <div style={{ 
+                color: colors.on_primary, 
+                backgroundColor: colors.primary
+        }} className="titleBar">
           {homeHidden ? (
             <HomeIcon
               className="pageTitleIcon"
+              style={{
+                color: colors.on_primary,
+              }}
               fontSize="35px"
               id="homeBtn"
               onClick={() => iconClick()}
@@ -166,7 +172,7 @@ function App() {
           hideSnackbar={() => handleSnackbarClose("", "")}
           serverURL={serverURL}
         />
-      </div>
+      </Paper>
     </ThemeProvider>
   );
 }
