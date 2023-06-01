@@ -113,7 +113,7 @@ app.post('/upload', (req, res) => {
 
       let safetyData;
       try {
-        safetyData = parseExcelFile(path.join(userDirectory, req.files.excelFile.name), true, true);
+        safetyData = parseExcelFile(path.join(userDirectory, req.files.excelFile.name));
         //Gegevens uit vragenlijst worden opgeslagen als JSON bestand
         fs.writeFileSync(path.join(userDirectory, 'parsedExcel.json'), JSON.stringify(safetyData, null, 4));
         //Gegevens worden teruggestuurd naar de client, zodat de gebruiker deze nog een keer kan controleren
@@ -261,10 +261,17 @@ app.post('/goodbye', (req, res) => {
   }
 });
 
-//HTTP server starten
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+/*
+  DEVELOPMENT
+  Comment de onderstaande regel voordat dit bestand naar de repo gepushed wordt
+*/
+app.listen(port, () => {console.log(`Listening on port ${port}`)});
+
+/*
+  PRODUCTION
+  Uncomment de onderstaande regel voordat dit bestand naar de repo gepushed wordt
+*/
+//app.listen(process.env.PORT, () =>{console.log(`Listening on port ${port}`)});
 
 //Functie voor het controleren of een string een geldig UUID is. Dit wordt gedaan met behulp van regex
 function checkIfUUID(string) {
