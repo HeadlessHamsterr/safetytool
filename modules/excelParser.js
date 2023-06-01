@@ -37,8 +37,6 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
     try{
         excelObj = xlsx.parse(fileName)["worksheets"];
     }catch(e){
-        console.log(e);
-        
         const returnObj = {
             result: "failed",
             data: {
@@ -256,7 +254,6 @@ function calculateBasedOnPL(value, performanceLevel, worksheets){
 
     for(let i = 0; i < vlookupSheet.data.length; i++){
         if(vlookupSheet.data[i][0].value === performanceLevel){
-            console.log(vlookupSheet.data[i][valueIndex].value);
             return vlookupSheet.data[i][valueIndex].value;
         }
     }
