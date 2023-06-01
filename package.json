@@ -1,6 +1,6 @@
 {
   "name": "safetytoolweb",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Van den Pol Safetytool",
   "main": "main.js",
   "scripts": {
@@ -14,6 +14,6 @@
     "express": "^4.18.2",
     "express-fileupload": "^1.4.0",
     "node-html-parser": "^6.1.5",
-    "node-xlsx": "^0.21.2"
+    "node-xlsx": "^0.4.0"
   }
 }
