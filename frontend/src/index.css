@@ -14,14 +14,8 @@
   --info-border: #5e5e5e;
 }
 
-html{
-  background-color: var(--default-background);
-  height: 100%;
-}
-
 body{
   overflow: hidden;
-  font-family: sans-serif;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -33,19 +27,15 @@ body{
   font-family: Roboto;
 }
 
-.pageTitle{
-  width: 100%;
-  color: var(--on-main);
-  background-color: var(--main-color);
-  height: 43px;
-  padding: 5px;
-  font-weight: 700;
+.titleBar{
+  height: 43px; 
+  padding: 5px; 
+  font-weight: 700; 
   font-size: 40px;
   text-align: center;
 }
 
 .pageTitleIcon{
-  color: var(--on-main);
   float: left;
   padding-top: 3px;
   cursor: pointer;
@@ -259,12 +249,16 @@ body{
 
 .sfInfoTable{
   border-collapse: collapse;
-  margin: 0 auto;
 }
 
 .sfInfoTable td{
   padding: 3px 10px 3px 0px;
-  border-bottom: 2px solid var(--info-border)
+  border-bottom: 2px solid var(--info-border);
+  text-align: left;
+}
+
+.sfInfoTable td:last-child{
+  width: 160px;
 }
 
 .material-symbols-outlined {
