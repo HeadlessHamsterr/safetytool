@@ -35,7 +35,7 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
     var excelObj;
     
     try{
-        excelObj = xlsx.parse(fileName);
+        excelObj = xlsx.parse(fileName)["worksheets"];
     }catch(e){
         console.log(e);
         
@@ -83,9 +83,9 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
 
     
     //Klant informatie ophalen
-    safetyData["klant"] = excelObj[0]["data"][1][1];
-    safetyData["projectnaam"] = excelObj[0]["data"][2][1];
-    safetyData["projectcode"] = excelObj[0]["data"][3][1];
+    safetyData["klant"] = excelObj[0]["data"][2][2].value;
+    safetyData["projectnaam"] = excelObj[0]["data"][3][2].value;
+    safetyData["projectcode"] = excelObj[0]["data"][4][2].value;
 
     var missingInfo = []
 
@@ -129,29 +129,31 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
             safetyFunctionEffect: null,
             resetType: null,
             data: {
+                logicType: null,
                 tPL: null,
-                category: null,
-                DC: null,
                 oppPerHour: null,
                 oppHoursPerDay: null,
                 oppDaysPerYear: null,
+                category: null,
                 faultDetection: null,
-                logicType: null
+                DC: null,
             }
         };
 
         //Gegevens ophalen uit de vragenlijst
-        tempObj["safetyFunctionTitle"] = excelObj[sheetNumber]["data"][10][0];
-        tempObj["safetyFunctionEffect"] = excelObj[sheetNumber]["data"][12][0];
-        tempObj["resetType"] = excelObj[sheetNumber]["data"][14][0]
-        tempObj["data"]["logicType"] = excelObj[sheetNumber]["data"][18][0];
-        tempObj["data"]["tPL"] = excelObj[sheetNumber]["data"][21][0];
-        tempObj["data"]["category"] = excelObj[sheetNumber]["data"][25][0];
-        tempObj["data"]["faultDetection"] = excelObj[sheetNumber]["data"][25][1];
-        tempObj["data"]["DC"] = excelObj[sheetNumber]["data"][25][2];
-        tempObj["data"]["oppPerHour"] = excelObj[sheetNumber]["data"][23][0];
-        tempObj["data"]["oppHoursPerDay"] = excelObj[sheetNumber]["data"][23][1];
-        tempObj["data"]["oppDaysPerYear"] = excelObj[sheetNumber]["data"][23][2];
+        tempObj["safetyFunctionTitle"] = excelObj[sheetNumber]["data"][11][1].value;
+        tempObj["safetyFunctionEffect"] = excelObj[sheetNumber]["data"][13][1].value;
+        tempObj["resetType"] = excelObj[sheetNumber]["data"][15][1].value;
+        tempObj["data"]["logicType"] = excelObj[sheetNumber]["data"][19][1].value;
+        tempObj["data"]["tPL"] = excelObj[sheetNumber]["data"][22][1].value;
+        tempObj["data"]["oppPerHour"] = excelObj[sheetNumber]["data"][24][1].value;
+        tempObj["data"]["oppHoursPerDay"] = excelObj[sheetNumber]["data"][24][2].value;
+        tempObj["data"]["oppDaysPerYear"] = excelObj[sheetNumber]["data"][24][3].value;
+        
+        
+        tempObj["data"]["category"] = calculateBasedOnPL("category", tempObj.data.tPL, excelObj);
+        tempObj["data"]["faultDetection"] = calculateBasedOnPL("faultDetection", tempObj.data.tPL, excelObj);
+        tempObj["data"]["DC"] = calculateBasedOnPL("DC", tempObj.data.tPL, excelObj);
 
         //Controleren of de titel is ingevuld, zo niet wordt er een error teruggestuurd
         if(tempObj["safetyFunctionTitle"] === undefined){
@@ -224,6 +226,40 @@ function findEmptyCell(object){
 function excelToJson(folder, excelFilename){
     const excelObj = xlsx.parse(path.join(folder, excelFilename));
     fs.writeFileSync(path.join(folder, 'excel.json'), JSON.stringify(excelObj, null, 4));
+}
+
+function calculateBasedOnPL(value, performanceLevel, worksheets){
+    var valueIndex;
+    switch(value){
+        case "category":
+            valueIndex = 1;
+            break;
+        case "faultDetection":
+            valueIndex = 2;
+            break;
+        case "DC":
+            valueIndex = 3;
+            break;
+        default:
+            valueIndex = 2;
+            break;
+    }
+
+    var vlookupSheet;
+
+    for(let i = 0; i < worksheets.length; i++){
+        if(worksheets[i].name === "vlookup"){
+            vlookupSheet = worksheets[i];
+            break;
+        }
+    }
+
+    for(let i = 0; i < vlookupSheet.data.length; i++){
+        if(vlookupSheet.data[i][0].value === performanceLevel){
+            console.log(vlookupSheet.data[i][valueIndex].value);
+            return vlookupSheet.data[i][valueIndex].value;
+        }
+    }
 }
 
 module.exports = { parseExcelFile, excelToJson }
