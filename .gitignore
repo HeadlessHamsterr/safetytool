@@ -2,5 +2,4 @@ node_modules
 userFiles
 excel.json
 parsedExcel.json
-public
 .vscode
