@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import SafetyFunction from "./Safetyfunction";
-import { colors } from '../constants';
+import { colors } from "../constants";
 import { useState } from "react";
 import {
 	Alert,
@@ -90,7 +90,8 @@ const GenerateScreen = ({
 }) => {
 	const [gridCols, setGridCols] = useState(null);
 	const [authorFieldEmpty, setAuthorFieldEmpty] = useState(false);
-	const [loading, setLoading] = useState(false);
+	const [loadingPAScal, setLoadingPAScal] = useState(false);
+	const [loadingChecklist, setLoadingChecklist] = useState(false);
 
 	useEffect(() => {
 		//Deze functie zorgt ervoor dat het aantal blokken dat in een rij staat wordt aangepast op de scherm grootte
@@ -112,34 +113,26 @@ const GenerateScreen = ({
 		window.addEventListener("resize", resizeGrid);
 		//Direct de functie aanroepen, zodat het aantal kolommen goed wordt ingesteld
 		resizeGrid();
-		setLoading(false);
+		setLoadingPAScal(false);
+		setLoadingChecklist(false);
 
 		return () => {
 			window.removeEventListener("resize", resizeGrid);
 		};
-
 	}, []);
 
 	//Als de pagina getoond wordt (de variabele "hidden" verandert), wordt de pagina gereset
 	//Alle errors worden gereset, en het invul vakje wordt leeggehaald
 	useEffect(() => {
 		setAuthorFieldEmpty(false);
-		setLoading(false);
+		setLoadingPAScal(false);
+		setLoadingChecklist(false);
 		document.getElementById("author").value = null;
 	}, [hidden]);
 
 	//Deze functie is verantwoordelijk voor het downloaden van het PAScal bestand dat door de server wordt teruggestuurd
 	function downloadFile(type) {
 		const author = document.getElementById("author").value;
-
-		//Controleren of de auteur is ingevuld
-		if (!author) {
-			setAuthorFieldEmpty(true);
-			return false;
-		}
-		setAuthorFieldEmpty(false);
-		setLoading(true);
-
 		let filename = "";
 		let mimeType;
 
@@ -147,29 +140,38 @@ const GenerateScreen = ({
 		//Hier wordt gecontroleerd welke wordt gedownload, zodat de juiste MIME-type en bestandsnaam kunnen worden ingesteld
 		switch (type) {
 			case "pascal":
+				//Controleren of de auteur is ingevuld
+				if (!author) {
+					setAuthorFieldEmpty(true);
+					return false;
+				}
+				setLoadingPAScal(true);
+				setAuthorFieldEmpty(false);
+
 				//Als de gegevens niet ontbreken, worden de klantgegevens gebruikt als bestandsnaam
-				if(safetyData.projectcode){
+				if (safetyData.projectcode) {
 					filename += safetyData.projectcode;
 				}
 
-				if(safetyData.klant){
+				if (safetyData.klant) {
 					filename += ` ${safetyData.klant}`;
 				}
 
-				if(safetyData.projectnaam){
+				if (safetyData.projectnaam) {
 					filename += ` ${safetyData.projectnaam}`;
 				}
 
 				//Alle klantgegevens ontbreken, daardoor is de lengte van filename 0
 				//Om te voorkomen dat de naam "undefined" wordt, wordt een standaard naam ingevuld
-				if(filename.length === 0){
+				if (filename.length === 0) {
 					filename += "Veiligheidsfuncties";
 				}
 
-				filename += '.psc';
+				filename += ".psc";
 				mimeType = "application/xml";
 				break;
 			case "checklist":
+				setLoadingChecklist(true);
 				filename = "checklist.xlsx";
 				mimeType = "application/vnd.ms-excel";
 				break;
@@ -193,7 +195,8 @@ const GenerateScreen = ({
 			//Wachten tot de server reageert, dan wordt deze functie uitgevoerd
 			.then((response) => {
 				hideSnackbar();
-				setLoading(false);
+				setLoadingPAScal(false);
+				setLoadingChecklist(false);
 				if (response.status === 404) {
 					response.text().then((text) => {
 						const responseObj = JSON.parse(text);
@@ -268,7 +271,8 @@ const GenerateScreen = ({
 				}
 			})
 			.catch((response) => {
-				setLoading(false);
+				setLoadingPAScal(false);
+				setLoadingChecklist(false);
 				console.log(response);
 				showSnackbar(
 					"error",
@@ -319,28 +323,55 @@ const GenerateScreen = ({
 						</td>
 					</tr>
 					<tr>
-						<td colSpan={2}>
+						<td>
 							<Button
-								disabled={loading}
+								disabled={loadingPAScal}
 								variant="contained"
 								id="exportBtn"
 								onClick={() => downloadFile("pascal")}
 								sx={{
 									backgroundColor: colors.tertiary,
 									color: colors.on_tertiary,
-									":hover": { backgroundColor: colors.tertiary_hover },
+									":hover": {
+										backgroundColor: colors.tertiary_hover,
+									},
 									":disabled": {
-										backgroundColor: colors.button_disabled
-									}
+										backgroundColor: colors.button_disabled,
+									},
 								}}>
 								Genereer PAScal project
-								{loading && (
+								{loadingPAScal && (
 									<CircularProgress
 										size={24}
 										sx={{
 											position: "absolute",
 											zIndex: 1,
 										}}
+									/>
+								)}
+							</Button>
+						</td>
+						<td>
+							<Button
+								disabled={loadingChecklist}
+								variant="contained"
+								id="checklistBtn"
+								onClick={() => downloadFile("checklist")}
+								sx={{
+									backgroundColor: colors.tertiary,
+									color: colors.on_tertiary,
+									":hover": {
+										backgroundColor: colors.tertiary_hover,
+									},
+									":disabled": {
+										backgroundColor: colors.button_disabled,
+									},
+								}}>
+								Genereer checklist
+								{loadingChecklist && (
+									<CircularProgress
+										size={24}
+										sx={{ position: "absolute", zIndex: 1 }}
 									/>
 								)}
 							</Button>
@@ -373,3 +404,7 @@ const GenerateScreen = ({
 };
 
 export default GenerateScreen;
+
+
+/*
+						*/
