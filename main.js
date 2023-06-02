@@ -4,10 +4,11 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+const xl = require('excel4node');
 
 const { parseExcelFile, excelToJson } = require('./modules/excelParser.js');
 const generatePAScalProject = require('./modules/pascalGenerator.js');
-const generateChecklistData = require('./modules/checklistGenerator.js');
+const createChecklistFile = require('./modules/checklistGenerator.js');
 
 //Maak een HTTP server aan op port 3000
 const app = express();
@@ -227,14 +228,35 @@ app.get('/checklist', (req, res) => {
       return;
     }
     console.log(safetyData);
-    const checklist = generateChecklistData(safetyData);
+    /*const checklist = generateChecklistData(safetyData);
     fs.writeFileSync(path.join(userDirectory, 'checklist.xlsx'), checklist);
+    */
 
-    res.download(path.join(userDirectory, 'checklist.xlsx'), (err) => {
-      if (err) {
-        console.log(err);
-        res.send({ error: err, msg: "Problem downloading the file" });
-      }
+    var wb = new xl.Workbook();
+    var ws = wb.addWorksheet('Blad 1');
+
+    const headers = ['Tag nr.', 'Device', 'ODC', 'Question Type', 'Section'];
+
+    for(let i = 0; i < headers.length; i++){
+        ws.cell(1, i+1).string(headers[i]);
+    }
+
+    for(let i = 0; i < safetyData.safetyFunctions.length; i++){
+        ws.cell(i+2, 1).string(safetyData.safetyFunctions[i].safetyFunctionEffect);
+        ws.cell(i+2, 2).string(safetyData.safetyFunctions[i].safetyFunctionTitle);
+        ws.cell(i+2, 3).string(safetyData.safetyFunctions[i].safetyFunctionEffect);
+        ws.cell(i+2, 4).string("SafetyFunction");
+        ws.cell(i+2, 5).string("Zone 1");
+    }
+
+    wb.writeToBuffer().then(function(checklist){
+      fs.writeFileSync(path.join(userDirectory, 'checklist.xlsx'), checklist);
+      res.download(path.join(userDirectory, 'checklist.xlsx'), (err) => {
+        if (err) {
+          console.log(err);
+          res.send({ error: err, msg: "Problem downloading the file" });
+        }
+      });
     });
   }
 });
@@ -265,13 +287,13 @@ app.post('/goodbye', (req, res) => {
   DEVELOPMENT
   Comment de onderstaande regel voordat dit bestand naar de repo gepushed wordt
 */
-//app.listen(port, () => {console.log(`Listening on port ${port}`)});
+app.listen(port, () => {console.log(`Listening on port ${port}`)});
 
 /*
   PRODUCTION
   Uncomment de onderstaande regel voordat dit bestand naar de repo gepushed wordt
 */
-app.listen(process.env.PORT, () =>{console.log(`Listening on port ${port}`)});
+//app.listen(process.env.PORT, () =>{console.log(`Listening on port ${port}`)});
 
 //Functie voor het controleren of een string een geldig UUID is. Dit wordt gedaan met behulp van regex
 function checkIfUUID(string) {
