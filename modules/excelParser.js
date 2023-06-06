@@ -29,13 +29,13 @@ function shouldSkipSheet(sheetName){
 }
 
 //Functie voor het ophalen van de gegevens voor de veiligheidsfuncties uit het Excel bestand
-function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
+function parseExcelFile(userdirectory, fileName, saveParsedExcel=false){
     //Excel bestand omzetten naar JSON object
     
     var excelObj;
     
     try{
-        excelObj = xlsx.parse(fileName)["worksheets"];
+        excelObj = xlsx.parse(path.join(userdirectory, fileName))["worksheets"];
     }catch(e){
         const returnObj = {
             result: "failed",
@@ -48,8 +48,8 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
     }
 
     //Als de JSON versie excel bestand moet worden opgeslagen wordt dat gedaan
-    if(saveExcel){
-        fs.writeFile("excel.json", JSON.stringify(excelObj, null, 4), (err) =>{
+    if(saveParsedExcel){
+        fs.writeFile(path.join(userdirectory, 'parsedExcel.json'), JSON.stringify(excelObj, null, 4), (err) =>{
             if(err){
                 console.log(err);
             }
@@ -124,7 +124,6 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
         //Object voor het opslaan van de informatie voor de veiligheidsfuncties
         var tempObj = {
             safetyFunctionTitle: null,
-            safetyFunctionEffect: null,
             resetType: null,
             data: {
                 logicType: null,
@@ -135,12 +134,13 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
                 category: null,
                 faultDetection: null,
                 DC: null,
+                safetyFunctionEffect: null,
             }
         };
 
         //Gegevens ophalen uit de vragenlijst
         tempObj["safetyFunctionTitle"] = excelObj[sheetNumber]["data"][11][1].value;
-        tempObj["safetyFunctionEffect"] = excelObj[sheetNumber]["data"][13][1].value;
+        tempObj["data"]["safetyFunctionEffect"] = excelObj[sheetNumber]["data"][13][1].value;
         tempObj["resetType"] = excelObj[sheetNumber]["data"][15][1].value;
         tempObj["data"]["logicType"] = excelObj[sheetNumber]["data"][19][1].value;
         tempObj["data"]["tPL"] = excelObj[sheetNumber]["data"][22][1].value;
@@ -180,15 +180,6 @@ function parseExcelFile(fileName, saveExcel=false, saveParsedOutput=false){
 
         //Veiligheidsfunctie toevoegen aan de lijst
         safetyData["safetyFunctions"].push(tempObj);
-    }
-
-    //Als de verwerkte informatie moet worden opgeslagen, wordt dat gedaan
-    if(saveParsedOutput){
-        fs.writeFile("parsedExcel.json", JSON.stringify(safetyData, null, 4), (err) =>{
-            if(err){
-                console.log(err);
-            }
-        });
     }
 
     //Resultaat en veiligheidsfuncties toevoegen aan het object dat wordt teruggestuurd

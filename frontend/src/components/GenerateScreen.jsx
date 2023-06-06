@@ -98,13 +98,13 @@ const GenerateScreen = ({
 		//Op die manier is er geen X-overflow
 		function resizeGrid() {
 			//Aantal kolommen wordt bepaald aan de hand van de breedte van het scherm
-			if (window.innerWidth >= 1700) {
+			if (window.innerWidth >= 1897) {
 				setGridCols("auto auto auto auto");
-			} else if (window.innerWidth <= 1700 && window.innerWidth >= 1273) {
+			} else if (window.innerWidth <= 1897 && window.innerWidth >= 1425) {
 				setGridCols("auto auto auto");
-			} else if (window.innerWidth <= 1272 && window.innerWidth >= 852) {
+			} else if (window.innerWidth <= 1425 && window.innerWidth >= 960) {
 				setGridCols("auto auto");
-			} else if (window.innerWidth <= 851) {
+			} else if (window.innerWidth <= 960) {
 				setGridCols("auto");
 			}
 		}

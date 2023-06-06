@@ -7,13 +7,14 @@ const jsonToReadableCellName = {
     oppDaysPerYear: "Actieve dagen per jaar",
     faultDetection: "Fault detection",
     logicType: "Logic Type",
-    safetyFunctionTitle: "Naam veiligheidsfunctie"
+    safetyFunctionTitle: "Naam veiligheidsfunctie",
+    safetyFunctionEffect: "Gevolg van activatie"
 }
 
 const SafetyfunctionRow = ({ rowData }) => {
     return (
         <tr>
-            <td>{jsonToReadableCellName[rowData[0]] ? jsonToReadableCellName[rowData[0]] : rowData[0]}:</td>
+            <td style={{verticalAlign: rowData[0] === "safetyFunctionEffect" ? "top" : "center"}} >{jsonToReadableCellName[rowData[0]] ? jsonToReadableCellName[rowData[0]] : rowData[0]}:</td>
             <td>{rowData[1]}</td>
         </tr>
     )

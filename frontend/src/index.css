@@ -203,7 +203,7 @@ body{
 }
 
 .safetyFunction{
-  width: 400px;
+  width: 450px;
   min-height: 300px;
   border-radius: 10px;
   background-color: var(--sec-container);
@@ -221,9 +221,9 @@ body{
 .safetyFunctionInfo{
   border: 2px solid var(--info-border);
   border-radius: 10px;
-  margin: 5px;
-  height: 70%;
+  margin: 5px 5px 5px 10px;
   text-align: left;
+  height: 75%;
   padding: 10px;
 }
 
@@ -249,6 +249,7 @@ body{
 
 .sfInfoTable{
   border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
 .sfInfoTable td{
@@ -258,7 +259,7 @@ body{
 }
 
 .sfInfoTable td:last-child{
-  width: 160px;
+  width: 200px;
 }
 
 .material-symbols-outlined {

@@ -8,7 +8,6 @@ const xl = require('excel4node');
 
 const { parseExcelFile, excelToJson } = require('./modules/excelParser.js');
 const generatePAScalProject = require('./modules/pascalGenerator.js');
-const createChecklistFile = require('./modules/checklistGenerator.js');
 
 //Maak een HTTP server aan op port 3000
 const app = express();
@@ -39,34 +38,11 @@ app.get("/", (req, res) => {
   res.send('index.html');
 });
 
-app.post('/downloadConvertedExcel', (req, res) => {
-  if (!checkIfUUID(req.body.sessionId)) {
-    console.log(`SessionId ${req.body.sessionId} is not a UUID, ignoring`);
-    res.status(403).send("The received sessionId is not a UUID");
-  } else {
-    const userDirectory = path.join(mainUserDirectory, req.body.sessionId);
-    if (!fs.existsSync(userDirectory)) {
-      fs.mkdirSync(userDirectory);
-    }
-
-    fs.writeFileSync(path.join(userDirectory, req.files.excelFile.name), req.files.excelFile.data);
-    excelToJson(userDirectory, req.files.excelFile.name);
-
-    res.download(path.join(userDirectory, 'excel.json'), (err) => {
-      if (err) {
-        console.log(err);
-        res.send({ error: err, msg: "Problem downloading the file" });
-      }
-    });
-  }
-});
-
 //Handler voor de /upload endpoint, ontvang en parsed de vragenlijst en stuur vervolgens de data uit de vragenlijst in JSON formaat terug naar de client
 app.post('/upload', (req, res) => {
   //Controleer of de sessionId een geldig UUID is, zo niet is de request niet geldig en wordt een error 403 teruggestuurd
   try {
     if (!checkIfUUID(req.body.sessionId)) {
-      console.log(`SessionId ${req.body.sessionId} is not a UUID, ignoring`);
 
       const returnData = {
         result: "failed",
@@ -114,7 +90,7 @@ app.post('/upload', (req, res) => {
 
       let safetyData;
       try {
-        safetyData = parseExcelFile(path.join(userDirectory, req.files.excelFile.name));
+        safetyData = parseExcelFile(userDirectory, req.files.excelFile.name);
         //Gegevens uit vragenlijst worden opgeslagen als JSON bestand
         fs.writeFileSync(path.join(userDirectory, 'parsedExcel.json'), JSON.stringify(safetyData, null, 4));
         //Gegevens worden teruggestuurd naar de client, zodat de gebruiker deze nog een keer kan controleren
@@ -161,13 +137,11 @@ app.get('/pascal', (req, res) => {
   const projectInfo = JSON.parse(req.headers.projectinfo)
 
   if (!checkIfUUID(sessionId)) {
-    console.log(`SessionId ${sessionId} is not a UUID, ignoring`);
     res.status(403).send("The received sessionId is not a UUID");
   } else {
     //Controleren of een gebruikersmap bestaat voor deze sessionId, zo niet wordt er een error teruggestuurd
     const userDirectory = path.join(mainUserDirectory, sessionId);
     if (!fs.existsSync(userDirectory)) {
-      console.log("Unkown sessionId");
       const responseMsg = {
         result: "failed",
         data: {
@@ -192,7 +166,7 @@ app.get('/pascal', (req, res) => {
       //PAScal project bestand terugsturen naar de gebruiker. Dit bestand wordt direct door de browser gedownload.
       res.download(path.join(userDirectory, filename), (err) => {
         if (err) {
-          console.log(err);
+          console.log(`Problem sending PAScal file to user: ${err}`);
           res.send({ error: err, msg: "Problem downloading the file" });
         }
       });
@@ -211,13 +185,18 @@ app.get('/checklist', (req, res) => {
   const sessionId = req.headers.sessionid;
 
   if (!checkIfUUID(sessionId)) {
-    console.log(`SessionId ${sessionId} is not a UUID, ignoring`);
     res.status(403).send("The received sessionId is not a UUID");
   } else {
     const userDirectory = path.join(mainUserDirectory, sessionId);
     if (!fs.existsSync(userDirectory)) {
-      console.log("Unkown sessionId");
-      res.status(404).send("Unkown sessionId");
+      const responseMsg = {
+        result: "failed",
+        data: {
+          errorType: "unkownSessionId",
+          errorMsg: "Verbinding met de server verlopen. Upload de vragenlijst opnieuw."
+        }
+      }
+      res.status(404).send(JSON.stringify(responseMsg));
       return;
     }
     let safetyData;
@@ -227,11 +206,6 @@ app.get('/checklist', (req, res) => {
       res.status(404).send(e);
       return;
     }
-    console.log(safetyData);
-    /*const checklist = generateChecklistData(safetyData);
-    fs.writeFileSync(path.join(userDirectory, 'checklist.xlsx'), checklist);
-    */
-
     var wb = new xl.Workbook();
     var ws = wb.addWorksheet('Blad 1');
 
@@ -242,9 +216,9 @@ app.get('/checklist', (req, res) => {
     }
 
     for(let i = 0; i < safetyData.safetyFunctions.length; i++){
-        ws.cell(i+2, 1).string(safetyData.safetyFunctions[i].safetyFunctionEffect);
-        ws.cell(i+2, 2).string(safetyData.safetyFunctions[i].safetyFunctionTitle);
-        ws.cell(i+2, 3).string(safetyData.safetyFunctions[i].safetyFunctionEffect);
+        ws.cell(i+2, 1).string(`${i}`);
+        ws.cell(i+2, 2).string(`${safetyData.safetyFunctions[i].safetyFunctionTitle} | Gevolg van activatie: ${safetyData.safetyFunctions[i].safetyFunctionEffect}`);
+        ws.cell(i+2, 3).string(`${i}`);
         ws.cell(i+2, 4).string("SafetyFunction");
         ws.cell(i+2, 5).string("Zone 1");
     }
@@ -253,7 +227,7 @@ app.get('/checklist', (req, res) => {
       fs.writeFileSync(path.join(userDirectory, 'checklist.xlsx'), checklist);
       res.download(path.join(userDirectory, 'checklist.xlsx'), (err) => {
         if (err) {
-          console.log(err);
+          console.log(`Problem sending checklist file to user: ${err}`);
           res.send({ error: err, msg: "Problem downloading the file" });
         }
       });
@@ -265,18 +239,15 @@ app.get('/checklist', (req, res) => {
 //De server verwijdert dan alle data van die client
 app.post('/goodbye', (req, res) => {
   const sessionId = req.body.sessionId;
-  console.log(`Goodbye received from ${sessionId}`);
 
   //Wederom worden alleen geldige UUID's toegestaan
   if (!checkIfUUID(sessionId)) {
-    console.log(`SessionId ${sessionId} is not a UUID, ignoring`);
     res.status(403).send("The received sessionId is not a UUID");
   } else {
     //Verwijder de map van de client, als deze bestaat
     if (fs.existsSync(path.join(mainUserDirectory, sessionId))) {
       fs.rmSync(path.join(mainUserDirectory, sessionId), { recursive: true, force: true });
     } else {
-      console.log("Attempting to remove non-existent directory, ignoring");
     }
     //Response terugsturen naar de client
     res.status(200).send("Deleted user files");
@@ -325,7 +296,6 @@ setInterval(() => {
         birthtime = fs.statSync(path.join(mainUserDirectory, folder, 'parsedExcel.json')).birthtime.valueOf();
       } catch (e) {
         //Kan het bestand "parsedExcel.json" niet lezen, map wordt direct verwijderd.
-        console.log(`File "parsedExcel.json" not present in folder ${folder}. Removing folder`);
         fs.rmSync(path.join(mainUserDirectory, folder), { recursive: true, force: true });
         continue;
       }
@@ -334,7 +304,6 @@ setInterval(() => {
       const folderAliveTime = timeDifference(birthtime, currentDate);
       //Bestand is meer dan een uur oud
       if (folderAliveTime >= 60) {
-        console.log(`Time exceeded for client ${folder}, removing folder`);
         //Map van de client verwijderen
         fs.rmSync(path.join(mainUserDirectory, folder), { recursive: true, force: true });
       }
