@@ -12,11 +12,6 @@ import {
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
-//Zet deze variabele op true om de knop te tonen voor het downloaden van het Excelbestand voor de checklistapp
-//Toen de safety tool gemaakt werd, was de integratie met de checklsit app nog niet helemaal af, dus de knop is uitgezet
-//Als in de toekomst deze integratie wel ontworpen is, kan de knop eenvoudig worden teruggezet
-const showChecklistBtn = false;
-
 const inputFieldTheme = () =>
 	createTheme({
 		components: {
@@ -95,6 +90,8 @@ const GenerateScreen = ({
 }) => {
 	const [gridCols, setGridCols] = useState(null);
 	const [authorFieldEmpty, setAuthorFieldEmpty] = useState(false);
+	const [showError, setShowError] = useState(false);
+	const [errorMessage, setErrorMessage] = useState(null);
 	const [loadingPAScal, setLoadingPAScal] = useState(false);
 	const [loadingChecklist, setLoadingChecklist] = useState(false);
 
@@ -132,6 +129,8 @@ const GenerateScreen = ({
 		setAuthorFieldEmpty(false);
 		setLoadingPAScal(false);
 		setLoadingChecklist(false);
+		setShowError(false);
+		setErrorMessage(null);
 		document.getElementById("author").value = null;
 	}, [hidden]);
 
@@ -140,6 +139,8 @@ const GenerateScreen = ({
 		const author = document.getElementById("author").value;
 		let filename = "";
 		let mimeType;
+		setShowError(false);
+		setErrorMessage(null);
 
 		//De server kan twee soorten bestanden genereren: één voor PAScal en één voor de testapp
 		//Hier wordt gecontroleerd welke wordt gedownload, zodat de juiste MIME-type en bestandsnaam kunnen worden ingesteld
@@ -202,12 +203,15 @@ const GenerateScreen = ({
 				hideSnackbar();
 				setLoadingPAScal(false);
 				setLoadingChecklist(false);
-				if (response.status === 404) {
-					response.text().then((text) => {
-						const responseObj = JSON.parse(text);
-
-						showSnackbar("error", responseObj.data.errorMsg);
-						returnHome();
+				if (response.status !== 200) {
+					response.json().then((responseObj) => {
+						if(responseObj.data.errorType === "unknownSessionId" || responseObj.data.errorType === "problemReadingParsedFile"){
+							showSnackbar("error", responseObj.data.errorMsg);
+							returnHome();
+						}else{
+							setShowError(true);
+							setErrorMessage(responseObj.data.errorMsg);
+						}
 					});
 					return;
 				}
@@ -313,7 +317,7 @@ const GenerateScreen = ({
 					</tr>
 					<tr>
 						<td colSpan={2}>
-							<Collapse in={authorFieldEmpty}>
+							<Collapse in={authorFieldEmpty || showError}>
 								<Alert
 									variant="outlined"
 									severity="error"
@@ -322,7 +326,7 @@ const GenerateScreen = ({
 										width: "fit-content",
 										margin: "10px auto",
 									}}>
-									Auteur moet ingevuld worden
+									{authorFieldEmpty ? "Auteur moet ingevuld worden" : errorMessage}
 								</Alert>
 							</Collapse>
 						</td>
@@ -356,7 +360,7 @@ const GenerateScreen = ({
 								)}
 							</Button>
 						</td>
-						<td style={{display: showChecklistBtn ? null : 'none'}}>
+						<td>
 							<Button
 								disabled={loadingChecklist}
 								variant="contained"
