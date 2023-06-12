@@ -217,7 +217,7 @@ app.get('/checklist', (req, res) => {
 
     for(let i = 0; i < safetyData.safetyFunctions.length; i++){
         ws.cell(i+2, 1).string(`${i}`);
-        ws.cell(i+2, 2).string(`${safetyData.safetyFunctions[i].safetyFunctionTitle} | Gevolg van activatie: ${safetyData.safetyFunctions[i].safetyFunctionEffect}`);
+        ws.cell(i+2, 2).string(`${safetyData.safetyFunctions[i].safetyFunctionTitle} | Gevolg van activatie: ${safetyData.safetyFunctions[i].data.safetyFunctionEffect}`);
         ws.cell(i+2, 3).string(`${i}`);
         ws.cell(i+2, 4).string("SafetyFunction");
         ws.cell(i+2, 5).string("Zone 1");
