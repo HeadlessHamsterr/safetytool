@@ -1,6 +1,6 @@
 {
   "name": "safetytoolweb",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Van den Pol Safetytool",
   "main": "main.js",
   "scripts": {
