@@ -43,15 +43,14 @@ app.post('/upload', (req, res) => {
   //Controleer of de sessionId een geldig UUID is, zo niet is de request niet geldig en wordt een error 403 teruggestuurd
   try {
     if (!checkIfUUID(req.body.sessionId)) {
-
-      const returnData = {
+      const responseMsg = {
         result: "failed",
         data: {
-          errorType: "noSessionId",
-          errorMsg: "The received sessionId is not a UUID"
+          errorType: "noUUID",
+          errorMsg: "The received sessionID is not a UUID"
         }
       }
-      res.status(403).send(returnData);
+      res.status(403).send(responseMsg);
       return;
     }
   } catch (e) {
@@ -137,7 +136,14 @@ app.get('/pascal', (req, res) => {
   const projectInfo = JSON.parse(req.headers.projectinfo)
 
   if (!checkIfUUID(sessionId)) {
-    res.status(403).send("The received sessionId is not a UUID");
+    const responseMsg = {
+      result: "failed",
+      data: {
+        errorType: "noUUID",
+        errorMsg: "The received sessionID is not a UUID"
+      }
+    }
+    res.status(403).send(responseMsg);
   } else {
     //Controleren of een gebruikersmap bestaat voor deze sessionId, zo niet wordt er een error teruggestuurd
     const userDirectory = path.join(mainUserDirectory, sessionId);
@@ -145,11 +151,11 @@ app.get('/pascal', (req, res) => {
       const responseMsg = {
         result: "failed",
         data: {
-          errorType: "unkownSessionId",
+          errorType: "unknownSessionId",
           errorMsg: "Verbinding met server verlopen. Upload de vragenlijst opnieuw."
         }
       }
-      res.status(404).send(JSON.stringify(responseMsg));
+      res.status(404).send(responseMsg);
     } else {
       //Gegevens uit vragenlijst ophalen uit het eerder gemaakte JSON bestand
       const safetyData = JSON.parse(fs.readFileSync(path.join(userDirectory, 'parsedExcel.json')))["data"];
@@ -167,7 +173,14 @@ app.get('/pascal', (req, res) => {
       res.download(path.join(userDirectory, filename), (err) => {
         if (err) {
           console.log(`Problem sending PAScal file to user: ${err}`);
-          res.send({ error: err, msg: "Problem downloading the file" });
+          const responseMsg = {
+            result: "failed",
+            data: {
+              errorType: "downloadError",
+              errorMsg: "Probleem met het downloaden van het bestand. Probeer het opnieuw."
+            }
+          }
+          res.send(responseMsg);
         }
       });
     }
@@ -183,27 +196,40 @@ deze veiligheidfuncties een checklist. Deze checklist wordt opgeslagen als Excel
 stuurt de functie het Excel-bestand naar de client. */
 app.get('/checklist', (req, res) => {
   const sessionId = req.headers.sessionid;
-
   if (!checkIfUUID(sessionId)) {
-    res.status(403).send("The received sessionId is not a UUID");
+    const responseMsg = {
+      result: "failed",
+      data: {
+        errorType: "noUUID",
+        errorMsg: "The received sessionID is not a UUID"
+      }
+    }
+    res.status(403).send(responseMsg);
   } else {
     const userDirectory = path.join(mainUserDirectory, sessionId);
     if (!fs.existsSync(userDirectory)) {
       const responseMsg = {
         result: "failed",
         data: {
-          errorType: "unkownSessionId",
+          errorType: "unknownSessionId",
           errorMsg: "Verbinding met de server verlopen. Upload de vragenlijst opnieuw."
         }
       }
-      res.status(404).send(JSON.stringify(responseMsg));
+      res.status(404).send(responseMsg);
       return;
     }
     let safetyData;
     try {
       safetyData = JSON.parse(fs.readFileSync(path.join(userDirectory, 'parsedExcel.json')))["data"];
     } catch (e) {
-      res.status(404).send(e);
+      const responseMsg = {
+        result: "failed",
+        data: {
+          errorType: "problemReadingParsedFile",
+          errorMsg: "Probleem met het genereren van de checklist. Upload de vragenlijst opnieuw"
+        }
+      }
+      res.status(500).send(responseMsg);
       return;
     }
     var wb = new xl.Workbook();
@@ -228,7 +254,14 @@ app.get('/checklist', (req, res) => {
       res.download(path.join(userDirectory, 'checklist.xlsx'), (err) => {
         if (err) {
           console.log(`Problem sending checklist file to user: ${err}`);
-          res.send({ error: err, msg: "Problem downloading the file" });
+          const responseMsg = {
+            result: "failed",
+            data: {
+              errorType: "downloadError",
+              errorMsg: "Probleem met het downloaden van het bestand. Probeer het opnieuw."
+            }
+          }
+          res.send(responseMsg);
         }
       });
     });
@@ -242,7 +275,14 @@ app.post('/goodbye', (req, res) => {
 
   //Wederom worden alleen geldige UUID's toegestaan
   if (!checkIfUUID(sessionId)) {
-    res.status(403).send("The received sessionId is not a UUID");
+    const responseMsg = {
+      result: "failed",
+      data: {
+        errorType: "noUUID",
+        errorMsg: "The received sessionID is not a UUID"
+      }
+    }
+    res.status(403).send(responseMsg);
   } else {
     //Verwijder de map van de client, als deze bestaat
     if (fs.existsSync(path.join(mainUserDirectory, sessionId))) {
@@ -252,6 +292,17 @@ app.post('/goodbye', (req, res) => {
     //Response terugsturen naar de client
     res.status(200).send("Deleted user files");
   }
+});
+
+app.all('*', (req, res) => {
+  const responseMsg = {
+    result: "failed",
+    data: {
+      errorType: "noSuchRoute",
+      errorMsg: "Onbekende URL"
+    }
+  }
+  res.status(404).send(responseMsg);
 });
 
 //Functie voor het controleren of een string een geldig UUID is. Dit wordt gedaan met behulp van regex
@@ -313,10 +364,10 @@ function timeDifference(pastTime, currentTime) {
   DEVELOPMENT
   Comment de onderstaande regel voordat dit bestand naar de repo gepushed wordt
 */
-//app.listen(port, () => {console.log(`Listening on port ${port}`)});
+app.listen(port, () => {console.log(`Listening on port ${port}`)});
 
 /*
   PRODUCTION
   Uncomment de onderstaande regel voordat dit bestand naar de repo gepushed wordt
 */
-app.listen(process.env.PORT, () =>{console.log(`Listening on port ${port}`)});
+//app.listen(process.env.PORT, () =>{console.log(`Listening on port ${port}`)});
