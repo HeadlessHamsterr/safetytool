@@ -12,6 +12,11 @@ import {
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
+//Zet deze variabele op true om de knop te tonen voor het downloaden van het Excelbestand voor de checklistapp
+//Toen de safety tool gemaakt werd, was de integratie met de checklsit app nog niet helemaal af, dus de knop is uitgezet
+//Als in de toekomst deze integratie wel ontworpen is, kan de knop eenvoudig worden teruggezet
+const showChecklistBtn = false;
+
 const inputFieldTheme = () =>
 	createTheme({
 		components: {
@@ -351,7 +356,7 @@ const GenerateScreen = ({
 								)}
 							</Button>
 						</td>
-						<td>
+						<td style={{display: showChecklistBtn ? null : 'none'}}>
 							<Button
 								disabled={loadingChecklist}
 								variant="contained"
