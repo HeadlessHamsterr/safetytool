@@ -254,18 +254,6 @@ app.post('/goodbye', (req, res) => {
   }
 });
 
-/*
-  DEVELOPMENT
-  Comment de onderstaande regel voordat dit bestand naar de repo gepushed wordt
-*/
-app.listen(port, () => {console.log(`Listening on port ${port}`)});
-
-/*
-  PRODUCTION
-  Uncomment de onderstaande regel voordat dit bestand naar de repo gepushed wordt
-*/
-//app.listen(process.env.PORT, () =>{console.log(`Listening on port ${port}`)});
-
 //Functie voor het controleren of een string een geldig UUID is. Dit wordt gedaan met behulp van regex
 function checkIfUUID(string) {
   //UUID's beginnen met 8 cijfers of nummers, dan drie keer 4 cijfers of nummers en eindigt met 12 cijfers of nummers, met telkens een streep tussen de onderdelen
@@ -320,3 +308,15 @@ function timeDifference(pastTime, currentTime) {
   //60000 milliseconden in een minuut, dus verschil in tijd delen door 60000
   return Math.round(difference / 60000);
 }
+
+/*
+  DEVELOPMENT
+  Comment de onderstaande regel voordat dit bestand naar de repo gepushed wordt
+*/
+//app.listen(port, () => {console.log(`Listening on port ${port}`)});
+
+/*
+  PRODUCTION
+  Uncomment de onderstaande regel voordat dit bestand naar de repo gepushed wordt
+*/
+app.listen(process.env.PORT, () =>{console.log(`Listening on port ${port}`)});
