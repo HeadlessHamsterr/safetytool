@@ -1,6 +1,6 @@
 # **Van den Pol Safetytool**
 
-In deze readme staan de stappen beschreven voor het draaien en updaten van de safetytool. Voor de uitgebreidere documentatie van de werking, is een handleiding gemaakt (de handleiding wordt nog gemaakt. Als deze af is, komt de locatie hier te staan).
+In deze readme staan de stappen beschreven voor het draaien en updaten van de safetytool. Voor de uitgebreidere documentatie van de werking, is een handleiding gemaakt. Deze handleiding is hier te vinden: `G:\Paneel\Machineveiligheid\Safetytool\Handleiding Safetytool.docx`
 
 De safetytool bestaat uit twee onderdelen:
 - De webserver, dit is het bestand `main.js`. Deze server gebruikt port 3001 voor het serveren van de webpagina en de overige http requests van de client.
@@ -10,11 +10,12 @@ Voordat de safetytool gebruikt kan worden, moeten eerst Node en NPM worden geïn
 
 # Bouwen van de frontend
 Om de website efficiënt te kunnen draaien, moet de React code worden gebouwd naar standaard HTML, CSS en Javascript bestanden. Deze stappen gaan ervan uit dat het hele project is gedownload en dat Node en NPM geïnstalleerd zijn.
-1. Open de terminal en ga naar de map `frontend`
-2. Installeer alle dependencies met het commando `npm install`
-3. Controleer of de URL van de server correct is. Deze staat gedefinieerd in `frontend/src/App.js`, in de variabele `serverURL`. Dit moet de URL zijn waarop de server te bereiken is (bijvoorbeeld `https://safetytool.vandenpol.com`)
-3. Bouw de website met het commando `npm run build`
-4. In de map `frontend` wordt een map gemaakt genaamd `build`, daarin staan alle bestanden die door de webserver gebruikt worden
+1. Open de terminal en ga naar de map `frontend`.
+2. Installeer alle dependencies met het commando `npm install`.
+3. Controleer of de URL van de server correct is. Deze staat gedefinieerd in `frontend/src/App.js`, in de variabele `serverURL` (regel 22). Dit moet de URL zijn waarop de server te bereiken is (bijvoorbeeld `https://safetytool.vandenpol.com`).
+3. Bouw de website met het commando `npm run build`.
+4. In de map `frontend` wordt een map gemaakt genaamd `build`. Kopieer de bestanden in deze map naar de map `public` in de hoofdmap van de repo.
+5. Push de update naar git.
 
 
 # Opzetten van de webserver
@@ -29,28 +30,25 @@ Op het moment dat de webserver wordt opgestart, maakt deze nog een extra map aan
 
 De webserver kan alsvolgt op de server geïnstalleerd worden:
 1. Kopiëer de benodigde bestanden (zie de lijst hierboven) naar de gewenste locatie op de server.
-2. Installeer alle dependencies met het commando `npm install`
-3. Als de frontend nog niet gebouwd is, doe dat dan nu. De instructies hiervoor staan in het kopje hierboven.
-4. Kopiëer de bestanden uit de map `frontend/build` naar de map `public`
-5. Navigeer naar de map waar `main.js` in staat en start de webserver met `node main.js`.
-6. De webserver is te bereiken op: `http://SERVER_IP:3001`
+2. Als de frontend nog niet gebouwd is, doe dat dan nu. De instructies hiervoor staan in het kopje hierboven.
+3. Open `main.js`, scroll naar onderaan het bestand, comment de regel `app.listen(port, () => {console.log('Listening on port ${port}')});` en uncomment de regel `app.listen(process.env.PORT, () =>{console.log('Listening on port ${port}')});`.
+4. Navigeer in de terminal naar de map waar `main.js` in staat en installeer alle dependencies met `npm install`.
+5. Start de server met `node main.js`.
+6. De webserver is te bereiken op: `http://SERVER_IP:3001`.
 
 # Updates
 ## Frontend
-Dit stappenplan is voor het bijwerken van de frontend, nadat er een update is geweest. Voor dit stappenplan is aangenomen dat de update al is gepushed naar git.
-- Clone de repository
-- Navigeer naar de `frontend` map, m.b.h.v. de terminal
-- Installeer eventuele nieuwe dependencies met `npm install`
-- Bouw de nieuwe frontend met `npm run build`
-- Kopiëer de inhoud van `frontend/build` naar de map `public` op de server
+Dit stappenplan is voor het bijwerken van de frontend, nadat er een update is geweest. Voor dit stappenplan is aangenomen dat de update al is gepushed naar git. Het is belangrijk dat de update wordt gebuild volgens de instructies hierboven. Op die manier zijn de bestanden die in de repository in de map `public` staan, altijd de meest recente.
+1. Clone de repository.
+2. Kopieer de inhoud van de map `public` uit de repository naar de map `public` op de server.
 
 ## Backend
 Dit stappenplan is voor het bijwerken van de backend. Wederom wordt aangenomen dat de nieuwe versie al is gepushed naar git.
-- Clone de repository
-- Stop de server
-- Kopiëer minimaal de bestanden `main.js`, `package.json`, `package-lock.json` en de mappen `modules` en `PAScalFiles` naar de gewenste locatie op de server
-- Installeer eventuele nieuwe dependecies met `npm install`
-- Start de server opnieuw
+1. Clone de repository.
+2. Stop de server.
+3. Kopiëer de bestanden `main.js`, `package.json`, `package-lock.json` en de mappen `modules` en `PAScalFiles` naar de gewenste locatie op de server.
+4. Installeer eventuele nieuwe dependecies met `npm install`.
+5. Start de server opnieuw.
 
 ## Node
 ### Windows
