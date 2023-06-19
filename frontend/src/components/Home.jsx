@@ -47,11 +47,15 @@ const Home = ({
 	useEffect(() => {
 		//Controleren of er errors gevonden zijn
 		if (safetyData) {
+			//Parsen van de vragenlijst gelukt
 			if (safetyData.result === "success") {
 				returnSafetyfunctions(safetyData.data);
+			//Parsen van de vragenlijst mislukt
 			} else if (safetyData.result === "failed") {
 				//Error tonen aan de gebruiker
 				setImportError(safetyData.data.errorMsg);
+			//Parsen van de vragenlijst gelukt, alleen mist er informatie over de klant
+			//Een dialoogscherm wordt geladen, de gebruiker kan dan kiezen om door te gaan met deze ontbrekende informatie
 			} else if (safetyData.result === "missingCustomerInfo") {
 				setMissingInfo(safetyData.missingCustomerInfo);
 				setShowDialog(true);
@@ -105,6 +109,9 @@ const Home = ({
 		setShowDialog(false);
 	}
 
+	//Functie voor het afhandelen van de actie op het dialoogscherm
+	//Dit dialoogscherm wordt getoond wanneer informatie ontbreekt in de vragenlijst
+	//Zonder deze informatie kunnen de ontwerpen nog steeds gegenereerd worden, alleen is bijvoorbeeld de naam van de klant niet ingevuld
 	function handleDialogChoice(choice) {
 		setReloadingPage(true);
 		// eslint-disable-next-line default-case

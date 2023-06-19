@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 const SafetyFunction = ({safetyFunction}) => {
     const [safetyData, setSafetyData] = useState([[null]]);
 
+    //JSON-object omzetten naar een array
+    //Voor elk item in deze array wordt een rij aangemaakt in de table met de informatie
     useEffect(() => {
         let newSafetyData = [];
         for(const [key, value] of Object.entries(safetyFunction.data)){

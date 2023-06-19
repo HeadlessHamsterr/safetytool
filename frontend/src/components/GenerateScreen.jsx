@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
+//Theme voor het input field waar de auteur naam ingevuld moet worden.
 const inputFieldTheme = () =>
 	createTheme({
 		components: {
@@ -203,12 +204,17 @@ const GenerateScreen = ({
 				hideSnackbar();
 				setLoadingPAScal(false);
 				setLoadingChecklist(false);
+				//Response is niet 200, er heeft een fout opgetreden
 				if (response.status !== 200) {
 					response.json().then((responseObj) => {
+						//De server heeft een aantal standaard error berichten die betekenen dat het Excel-bestand opnieuw geüpload moet worden
+						//In dat geval wordt de startpagina opnieuw geladen
 						if(responseObj.data.errorType === "unknownSessionId" || responseObj.data.errorType === "problemReadingParsedFile"){
 							showSnackbar("error", responseObj.data.errorMsg);
 							returnHome();
 						}else{
+							//Andere error, de gebruiker kan op de huidige pagina blijven
+							//Error wordt aan de gebruiker getoond
 							setShowError(true);
 							setErrorMessage(responseObj.data.errorMsg);
 						}
@@ -279,6 +285,7 @@ const GenerateScreen = ({
 					});
 				}
 			})
+			//Probleem met de verbinding, error tonen aan gebruiker
 			.catch((response) => {
 				setLoadingPAScal(false);
 				setLoadingChecklist(false);
@@ -290,7 +297,6 @@ const GenerateScreen = ({
 				);
 			});
 	}
-	//<button className="exportBtn" id="exportBtn" onClick={() => downloadFile('checklist')}>Genereer checklist</button>
 
 	return (
 		<div className="pageDiv" style={hidden ? { display: "none" } : null}>

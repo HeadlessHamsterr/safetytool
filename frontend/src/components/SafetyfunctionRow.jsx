@@ -1,3 +1,4 @@
+//Naam van het de key in het JSON-object omzetten naar een normale naam
 const jsonToReadableCellName = {
     tPL: "Performance Level",
     category: "Categorie",
